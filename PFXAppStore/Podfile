@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '11.0'
+
+target 'PFXAppStore' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for PFXAppStore
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxDataSources'
+  pod 'SwiftLint'
+  pod 'SwiftMessages'
+  pod 'Hero'
+  pod 'lottie-ios'
+
+  target 'PFXAppStoreTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'PFXAppStoreUITests' do
+    # Pods for testing
+  end
+
+end
