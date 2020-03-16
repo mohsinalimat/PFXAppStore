@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 class AppStoreStubRepository: AppStoreProtocol {
-    public func requestSearchList(parameterDict: [String : String]) -> Observable<AppStoreResponseModel> {
+    func request(targetPath: String, parameterDict: [String : String]) -> Observable<Data> {
         return Observable.create { observer in
             return Disposables.create()
         }

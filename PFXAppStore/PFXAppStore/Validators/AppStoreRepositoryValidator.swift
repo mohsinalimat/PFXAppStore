@@ -9,21 +9,21 @@
 import Foundation
 
 class AppStoreRepositoryValidator {
-    class func requestSearchList(parameterDict: [String: String]) -> RepositoryError? {
+    class func requestSearchList(parameterDict: [String: String]) -> PBError? {
         guard let term = parameterDict["term"] else {
-            return RepositoryError.error("repository_wrong_parameter")
+            return PBError.network_invalid_parameter
         }
 
         if term.count <= 0 {
-            return RepositoryError.error("repository_wrong_parameter")
+            return PBError.network_invalid_parameter
         }
 
         guard let offset = parameterDict["offset"] else {
-            return RepositoryError.error("repository_wrong_parameter")
+            return PBError.network_invalid_parameter
         }
 
         if Int(offset) == nil {
-            return RepositoryError.error("repository_wrong_parameter")
+            return PBError.network_invalid_parameter
         }
 
         return nil

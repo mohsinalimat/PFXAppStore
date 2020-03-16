@@ -10,18 +10,12 @@ import Foundation
 import RxSwift
 
 class AppStoreRepository: AppStoreProtocol {
-    private lazy var jsonDecoder = JSONDecoder()
     private var urlSession = URLSession(configuration: .default)
 
-    public func requestSearchList(parameterDict: [String : String]) -> Observable<AppStoreResponseModel> {
+    public func request(targetPath: String, parameterDict: [String : String]) -> Observable<Data> {
         return Observable.create { observer in
-            guard var components = URLComponents(string: ConstStrings.basePath + "/search") else {
-                observer.onError(RepositoryError.error("network_wrong_url"))
-                return Disposables.create()
-            }
-
-            if let error = AppStoreRepositoryValidator.requestSearchList(parameterDict: parameterDict) {
-                observer.onError(error)
+            guard var components = URLComponents(string: targetPath) else {
+                observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_url.rawValue, userInfo: nil))
                 return Disposables.create()
             }
 
@@ -30,25 +24,25 @@ class AppStoreRepository: AppStoreProtocol {
             }
 
             components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-            let request = URLRequest(url: components.url!)
+            
+            guard let url = components.url else {
+                observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_url.rawValue, userInfo: nil))
+                return Disposables.create()
+            }
+            
+            let request = URLRequest(url: url)
             let task = self.urlSession.dataTask(with: request) { (data, response, error) in
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    observer.onError(RepositoryError.error("repository_wrong_response"))
+                    observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_response_data.rawValue, userInfo: nil))
                     return
                 }
                 let statusCode = httpResponse.statusCode
-                do {
-                    let data = data ?? Data()
-                    if (200...399).contains(statusCode) {
-                        let responseModel = try self.jsonDecoder.decode(AppStoreResponseModel.self, from: data)
-                        observer.onNext(responseModel)
-                    }
-                    else {
-                        observer.onError(RepositoryError.error("repository_wrong_status"))
-                    }
+                let data = data ?? Data()
+                if (200...399).contains(statusCode) {
+                    observer.onNext(data)
                 }
-                catch {
-                    observer.onError(RepositoryError.error("repository_invalid_parse"))
+                else {
+                    observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_status.rawValue, userInfo: nil))
                 }
 
                 observer.onCompleted()

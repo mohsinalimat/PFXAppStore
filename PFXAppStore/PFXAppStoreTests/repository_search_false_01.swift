@@ -1,6 +1,6 @@
 //
-//  repository_search_true_01.swift
-//  PFXAppStoreTests
+//  repository_search_false_01.swift
+//  PFXAppStoreRepositoryTests
 //
 //  Created by PFXStudio on 2020/03/16.
 //  Copyright © 2020 PFXStudio. All rights reserved.
@@ -9,8 +9,8 @@
 import XCTest
 import RxSwift
 
-// engligh request
-class repository_search_true_01: XCTestCase {
+// offset is string
+class repository_search_false_01: XCTestCase {
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
@@ -33,19 +33,19 @@ class repository_search_true_01: XCTestCase {
 //        let repository: AppStoreProtocol = AppStoreStubRepository(config: .default)
         let parameterDict = ["term" : "game",
                              "media" : "software",
-                             "offset" : "0",
+                             "offset" : "start",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
 
         // when
         repository.requestSearchList(parameterDict: parameterDict)
             .subscribe(onNext: { result in
                 // then
-                XCTAssertTrue(result.resultCount == ConstNumbers.maxLoadLimit)
+                XCTAssertFalse(true, "invalid parameter")
                 expt.fulfill()
 
             }, onError: { error in
+                XCTAssertTrue(true, error.localizedDescription)
                 expt.fulfill()
-                XCTAssertFalse(true, error.localizedDescription)
             })
             .disposed(by: self.disposeBag)
 

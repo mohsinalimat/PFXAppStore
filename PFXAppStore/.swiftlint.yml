@@ -12,7 +12,9 @@ disabled_rules:
   - shorthand_operator
   - vertical_parameter_alignment
   - identifier_name
-
+  - statement_position
+  - colon
+  
 # some rules are only opt-in
 opt_in_rules:
   - force_unwrapping
@@ -57,3 +59,5 @@ type_name:
   max_length: # warning and error
     warning: 150
     error: 1000
+
+force_cast: warning 

@@ -10,5 +10,5 @@ import Foundation
 import RxSwift
 
 protocol AppStoreProtocol {
-    func requestSearchList(parameterDict: [String : String]) -> Observable<AppStoreResponseModel>
+    func request(targetPath: String, parameterDict: [String : String]) -> Observable<Data>
 }

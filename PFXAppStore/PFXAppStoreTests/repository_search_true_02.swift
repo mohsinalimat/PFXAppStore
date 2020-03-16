@@ -9,6 +9,7 @@
 import XCTest
 import RxSwift
 
+// korean request
 class repository_search_true_02: XCTestCase {
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
@@ -39,7 +40,7 @@ class repository_search_true_02: XCTestCase {
         repository.requestSearchList(parameterDict: parameterDict)
             .subscribe(onNext: { result in
                 // then
-                XCTAssertTrue(result.resultCount == ConstNumbers.maxLoadLimit)
+                XCTAssertTrue(result.resultCount > 0)
                 expt.fulfill()
 
             }, onError: { error in
