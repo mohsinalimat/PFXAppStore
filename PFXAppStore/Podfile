@@ -30,6 +30,10 @@ target 'PFXAppStore' do
     # Pods for testing
   end
 
+  target 'PFXAppStoreCoreDataTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
   target 'PFXAppStoreUITests' do
     # Pods for testing

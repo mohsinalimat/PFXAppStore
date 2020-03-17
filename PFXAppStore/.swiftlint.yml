@@ -30,6 +30,7 @@ excluded:
   - Pods
   - PFXAppStoreProviderTests
   - PFXAppStoreEventTests
+  - PFXAppStoreCoreDataTests
 
 line_length:
   warning: 250

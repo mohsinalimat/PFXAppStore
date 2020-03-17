@@ -21,6 +21,9 @@ public enum PBError: Int {
     case network_invalid_status
     case network_invalid_parse
 
+    case coredata_invalid_initialize
+    case coredata_invalid_entity
+
     case system_deallocated = 44444
     case system_invalid_stub
     case unknown_code = 55555

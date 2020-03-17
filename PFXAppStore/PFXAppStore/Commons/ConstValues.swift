@@ -15,5 +15,6 @@ struct ConstStrings {
 struct ConstNumbers {
     static let maxLoadLimit = 30
     static let maxTermLength = 32
+    static let maxHistoryLength = 32
 
 }
