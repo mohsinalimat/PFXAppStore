@@ -16,7 +16,7 @@ protocol SearchProviderProtocol: BaseProviderProtocol {
 class SearchProvider: SearchProviderProtocol {
     private lazy var jsonDecoder = JSONDecoder()
     var disposeBag = DisposeBag()
-    var repository: AppStoreProtocol = AppStoreRepository()
+    var client: ClientProtocol = DependencyInjection.shared.currentClient()
     
     deinit {
         self.disposeBag = DisposeBag()
@@ -33,8 +33,8 @@ class SearchProvider: SearchProviderProtocol {
                 single(.error(NSError(domain: "\(#function) : \(#line)", code: error.rawValue, userInfo: nil)))
                 return Disposables.create()
             }
-
-            self.repository.request(targetPath: ConstStrings.basePath + "/search", parameterDict: parameterDict)
+            
+            self.client.request(targetPath: ConstStrings.basePath + "/search", parameterDict: parameterDict)
                 .subscribe(onNext: { data in
                     do {
                         let responseModel = try self.jsonDecoder.decode(AppStoreResponseModel.self, from: data)

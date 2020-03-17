@@ -12,4 +12,3 @@ import Foundation
 // Event -> Bloc에게 전달 됨.
 protocol BaseStateProtocol {
 }
-

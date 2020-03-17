@@ -1,21 +1,23 @@
 //
-//  repository_search_true_02.swift
-//  PFXAppStoreTests
+//  provider_search_false_01.swift
+//  PFXAppStoreProviderTests
 //
-//  Created by PFXStudio on 2020/03/16.
+//  Created by PFXStudio on 2020/03/17.
 //  Copyright © 2020 PFXStudio. All rights reserved.
 //
 
 import XCTest
 import RxSwift
 
-// korean request
-class repository_search_true_02: XCTestCase {
+class provider_search_false_01: XCTestCase {
+    // offset is string
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        DependencyInjection.clientType = .mock
+        DependencyInjection.key = String(describing: type(of: self))
     }
 
     override func tearDown() {
@@ -29,25 +31,22 @@ class repository_search_true_02: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let repository = AppStoreRepository()
-//        let repository: AppStoreProtocol = AppStoreStubRepository()
-        let parameterDict = ["term" : "은행",
+        let provider = SearchProvider()
+        let parameterDict = ["term" : "game",
                              "media" : "software",
-                             "offset" : "0",
+                             "offset" : "start",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
 
         // when
-        repository.requestSearchList(parameterDict: parameterDict)
-            .subscribe(onNext: { result in
-                // then
-                XCTAssertTrue(result.resultCount > 0)
+        provider.fetchingSearch(parameterDict: parameterDict)
+            .subscribe(onSuccess: { model in
+                XCTAssertTrue(false)
                 expt.fulfill()
-
-            }, onError: { error in
+            }) { error in
                 expt.fulfill()
-                XCTAssertFalse(true, error.localizedDescription)
-            })
-            .disposed(by: self.disposeBag)
+                XCTAssertTrue(true, error.localizedDescription)
+        }
+        .disposed(by: self.disposeBag)
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {

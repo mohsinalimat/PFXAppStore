@@ -11,7 +11,6 @@ import Foundation
 public enum ClientType {
     case mock
     case rest
-    case firbase
 }
 
 public enum PBError: Int {
@@ -23,17 +22,18 @@ public enum PBError: Int {
     case network_invalid_parse
 
     case system_deallocated = 44444
+    case system_invalid_stub
     case unknown_code = 55555
 
     static func messageKey(value: Int) -> String {
         switch value {
-            case Self.network_too_many_request.rawValue: return "network_too_many_request"
-            case Self.network_invalid_url.rawValue: return "network_invalid_url"
-            case Self.network_invalid_response_data.rawValue: return "network_invalid_response_data"
-            case Self.network_invalid_parameter.rawValue: return "network_invalid_parameter"
-            case Self.network_invalid_status.rawValue: return "network_invalid_status"
-            case Self.network_invalid_parse.rawValue: return "network_invalid_parse"
-            case Self.system_deallocated.rawValue: return "system_deallocated"
+        case Self.network_too_many_request.rawValue: return "network_too_many_request"
+        case Self.network_invalid_url.rawValue: return "network_invalid_url"
+        case Self.network_invalid_response_data.rawValue: return "network_invalid_response_data"
+        case Self.network_invalid_parameter.rawValue: return "network_invalid_parameter"
+        case Self.network_invalid_status.rawValue: return "network_invalid_status"
+        case Self.network_invalid_parse.rawValue: return "network_invalid_parse"
+        case Self.system_deallocated.rawValue: return "system_deallocated"
         default:
             return "unknown_code"
         }
@@ -47,5 +47,3 @@ struct AdaptError: Error {
 extension Error {
     var nsError: NSError? { return (self as? AdaptError)?.error }
 }
-
-

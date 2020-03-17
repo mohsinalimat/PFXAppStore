@@ -34,4 +34,3 @@ public class BaseCellViewModel: IdentifiableType, Equatable {
     }
 
 }
-

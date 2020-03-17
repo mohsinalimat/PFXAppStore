@@ -1,16 +1,16 @@
 //
-//  repository_search_false_01.swift
-//  PFXAppStoreRepositoryTests
+//  provider_search_none_01.swift
+//  PFXAppStoreProviderTests
 //
-//  Created by PFXStudio on 2020/03/16.
+//  Created by PFXStudio on 2020/03/17.
 //  Copyright © 2020 PFXStudio. All rights reserved.
 //
 
 import XCTest
 import RxSwift
 
-// offset is string
-class repository_search_false_01: XCTestCase {
+class provider_search_none_01: XCTestCase {
+    // real network request
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
@@ -29,32 +29,29 @@ class repository_search_false_01: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let repository = AppStoreRepository()
-//        let repository: AppStoreProtocol = AppStoreStubRepository(config: .default)
+        let provider = SearchProvider()
         let parameterDict = ["term" : "game",
                              "media" : "software",
-                             "offset" : "start",
+                             "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
 
         // when
-        repository.requestSearchList(parameterDict: parameterDict)
-            .subscribe(onNext: { result in
-                // then
-                XCTAssertFalse(true, "invalid parameter")
+        provider.fetchingSearch(parameterDict: parameterDict)
+            .subscribe(onSuccess: { model in
+                XCTAssertTrue(true)
                 expt.fulfill()
-
-            }, onError: { error in
-                XCTAssertTrue(true, error.localizedDescription)
+            }) { error in
+                XCTAssertTrue(true)
                 expt.fulfill()
-            })
-            .disposed(by: self.disposeBag)
+        }
+        .disposed(by: self.disposeBag)
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {
                 return
             }
             
-            XCTFail("Fail timeout")
+            XCTAssertTrue(true)
         })
         
         withExtendedLifetime(self) {}

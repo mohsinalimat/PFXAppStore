@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ClientProtocol {
-    
+    func request(targetPath: String, parameterDict: [String : String]) -> Observable<Data>
 }

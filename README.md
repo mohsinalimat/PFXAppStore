@@ -5,7 +5,7 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 
 검색 첫 화면
  - 최근 검색어 10개 보여주기
- https://itunes.apple.com/search?term=game&media=software
+ https://itunes.apple.com/search?term=game&media=software&offset=0&limit=30
 검색 중 화면
  - 히스토리에서 검색해서 보여주기
 검색 결과 화면

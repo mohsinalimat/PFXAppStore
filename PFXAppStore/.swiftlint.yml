@@ -28,7 +28,7 @@ included:
 excluded:
   - Carthage
   - Pods
-  - PFXAppStoreTests
+  - PFXAppStoreProviderTests
 
 line_length:
   warning: 250

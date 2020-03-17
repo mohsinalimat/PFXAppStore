@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D01600F241FA62700C1CEC5 /* repository_search_false_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01600E241FA62700C1CEC5 /* repository_search_false_01.swift */; };
-		6D016011241FA6ED00C1CEC5 /* repository_search_false_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016010241FA6ED00C1CEC5 /* repository_search_false_02.swift */; };
-		6D016015241FA96900C1CEC5 /* repository_search_true_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016014241FA96900C1CEC5 /* repository_search_true_03.swift */; };
 		6D016019241FAA9200C1CEC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D01601B241FAA9200C1CEC5 /* Localizable.strings */; };
 		6D01601E241FAB1C00C1CEC5 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01601D241FAB1C00C1CEC5 /* BaseCell.swift */; };
 		6D016020241FAB3200C1CEC5 /* BaseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01601F241FAB3200C1CEC5 /* BaseCellViewModel.swift */; };
@@ -24,13 +21,9 @@
 		6D016032241FACE300C1CEC5 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016031241FACE300C1CEC5 /* SearchProvider.swift */; };
 		6D016034241FACFB00C1CEC5 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016033241FACFB00C1CEC5 /* SearchState.swift */; };
 		6D01603B241FB82200C1CEC5 /* AppStoreResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */; };
-		6D01603C241FB82200C1CEC5 /* repository_search_true_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCAD241F57BC00C164E3 /* repository_search_true_01.swift */; };
 		6D01603D241FB82200C1CEC5 /* ConstEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9E241F40AA00C164E3 /* ConstEnums.swift */; };
 		6D01603E241FB82200C1CEC5 /* AppStoreStubImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC99241F3F5F00C164E3 /* AppStoreStubImageRepository.swift */; };
 		6D01603F241FB82200C1CEC5 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
-		6D016040241FB82200C1CEC5 /* repository_search_false_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01600E241FA62700C1CEC5 /* repository_search_false_01.swift */; };
-		6D016041241FB82200C1CEC5 /* repository_search_true_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016014241FA96900C1CEC5 /* repository_search_true_03.swift */; };
-		6D016042241FB82200C1CEC5 /* repository_search_false_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016010241FA6ED00C1CEC5 /* repository_search_false_02.swift */; };
 		6D016043241FB82200C1CEC5 /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */; };
 		6D016044241FB82200C1CEC5 /* AppStoreImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC95241F3F3E00C164E3 /* AppStoreImageProtocol.swift */; };
 		6D016045241FB82200C1CEC5 /* AppStoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */; };
@@ -39,30 +32,30 @@
 		6D016048241FB82200C1CEC5 /* AppStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */; };
 		6D016049241FB82200C1CEC5 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
 		6D01604A241FB82200C1CEC5 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
-		6D01604B241FB82200C1CEC5 /* repository_search_true_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCBB241F71C700C164E3 /* repository_search_true_02.swift */; };
 		6D01604D241FB82200C1CEC5 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6D01604F241FB82200C1CEC5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
 		6D016057241FBCFA00C1CEC5 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016056241FBCFA00C1CEC5 /* RestClient.swift */; };
 		6D016059241FBD0500C1CEC5 /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016058241FBD0500C1CEC5 /* MockClient.swift */; };
 		6D01605B241FBD1400C1CEC5 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
 		6D01605E241FBD5C00C1CEC5 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
-		6D3F1CD0241F9AD50007E551 /* AppStoreResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */; };
-		6D3F1CD1241F9AD50007E551 /* repository_search_true_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCAD241F57BC00C164E3 /* repository_search_true_01.swift */; };
-		6D3F1CD2241F9AD50007E551 /* ConstEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9E241F40AA00C164E3 /* ConstEnums.swift */; };
-		6D3F1CD3241F9AD50007E551 /* AppStoreStubImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC99241F3F5F00C164E3 /* AppStoreStubImageRepository.swift */; };
-		6D3F1CD4241F9AD50007E551 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
-		6D3F1CD5241F9AD50007E551 /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */; };
-		6D3F1CD6241F9AD50007E551 /* AppStoreImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC95241F3F3E00C164E3 /* AppStoreImageProtocol.swift */; };
-		6D3F1CD7241F9AD50007E551 /* AppStoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */; };
-		6D3F1CD8241F9AD50007E551 /* AppStoreStubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC93241F3F1400C164E3 /* AppStoreStubRepository.swift */; };
-		6D3F1CD9241F9AD50007E551 /* AppStoreImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC97241F3F4B00C164E3 /* AppStoreImageRepository.swift */; };
-		6D3F1CDA241F9AD50007E551 /* AppStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */; };
-		6D3F1CDB241F9AD50007E551 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
-		6D3F1CDC241F9AD50007E551 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
-		6D3F1CDD241F9AD50007E551 /* repository_search_true_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCBB241F71C700C164E3 /* repository_search_true_02.swift */; };
-		6D3F1CDF241F9AD50007E551 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
-		6D3F1CEA241FA2050007E551 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
+		6D629AC124203C0D002A88C9 /* provider_search_true_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */; };
+		6D629AC324203C27002A88C9 /* provider_search_true_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC224203C27002A88C9 /* provider_search_true_02.swift */; };
+		6D629AC524203C33002A88C9 /* provider_search_true_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC424203C33002A88C9 /* provider_search_true_03.swift */; };
+		6D629AC724203C54002A88C9 /* provider_search_false_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC624203C54002A88C9 /* provider_search_false_01.swift */; };
+		6D629AC924203C5F002A88C9 /* provider_search_false_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC824203C5F002A88C9 /* provider_search_false_02.swift */; };
+		6D629ACA24203D60002A88C9 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
+		6D629ACC24203DE2002A88C9 /* provider_search_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */; };
+		6D629ACD24204108002A88C9 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
+		6D629ACE2420438D002A88C9 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016031241FACE300C1CEC5 /* SearchProvider.swift */; };
+		6D629ACF24204450002A88C9 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016056241FBCFA00C1CEC5 /* RestClient.swift */; };
+		6D629AD024204450002A88C9 /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016058241FBD0500C1CEC5 /* MockClient.swift */; };
+		6D629AD124204465002A88C9 /* BaseBlocProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016025241FAC3500C1CEC5 /* BaseBlocProtocol.swift */; };
+		6D629AD224204465002A88C9 /* BaseEventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016027241FAC4600C1CEC5 /* BaseEventProtocol.swift */; };
+		6D629AD324204465002A88C9 /* BaseProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016029241FAC5A00C1CEC5 /* BaseProviderProtocol.swift */; };
+		6D629AD424204465002A88C9 /* BaseStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01602B241FAC6C00C1CEC5 /* BaseStateProtocol.swift */; };
+		6D629AD5242045C5002A88C9 /* provider_search_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */; };
+		6D629AEC2420497B002A88C9 /* provider_search_none_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AEB2420497B002A88C9 /* provider_search_none_01.swift */; };
 		6D65CC8B241F3DD100C164E3 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
 		6D65CC8E241F3EB700C164E3 /* AppStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */; };
 		6D65CC90241F3ED500C164E3 /* AppStoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */; };
@@ -98,13 +91,6 @@
 			remoteGlobalIDString = 6DC83013241F0CBF00B1F3ED;
 			remoteInfo = PFXAppStore;
 		};
-		6D3F1CCD241F9AD50007E551 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DC8300C241F0CBF00B1F3ED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DC83013241F0CBF00B1F3ED;
-			remoteInfo = PFXAppStore;
-		};
 		6DC83030241F0CC000B1F3ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DC8300C241F0CBF00B1F3ED /* Project object */;
@@ -125,11 +111,8 @@
 		1CF4F2B6CD48D5B5D83CDC78 /* Pods-PFXAppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStore/Pods-PFXAppStore.release.xcconfig"; sourceTree = "<group>"; };
 		3A7E5F6E4AFF5C4FE4AF1B64 /* Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStore-PFXAppStoreUITests/Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreTests/Pods-PFXAppStoreTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6D01600E241FA62700C1CEC5 /* repository_search_false_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repository_search_false_01.swift; sourceTree = "<group>"; };
-		6D016010241FA6ED00C1CEC5 /* repository_search_false_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repository_search_false_02.swift; sourceTree = "<group>"; };
 		6D016012241FA92100C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6D016013241FA92100C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
-		6D016014241FA96900C1CEC5 /* repository_search_true_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repository_search_true_03.swift; sourceTree = "<group>"; };
 		6D01601A241FAA9200C1CEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D01601C241FAA9400C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D01601D241FAB1C00C1CEC5 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
@@ -150,9 +133,15 @@
 		6D016058241FBD0500C1CEC5 /* MockClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClient.swift; sourceTree = "<group>"; };
 		6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
 		6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
-		6D3F1CE6241F9AD50007E551 /* PFXAppStoreRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFXAppStoreRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D3F1CE7241F9AD50007E551 /* PFXAppStoreRepositoryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PFXAppStoreRepositoryTests-Info.plist"; path = "/Users/pfxstudio/SourceTree/PFXStudio.github/PFXAppStore.github/PFXAppStore/PFXAppStoreRepositoryTests-Info.plist"; sourceTree = "<absolute>"; };
 		6D3F1CE8241FA2050007E551 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_true_01.swift; path = PFXAppStoreProviderTests/provider_search_true_01.swift; sourceTree = SOURCE_ROOT; };
+		6D629AC224203C27002A88C9 /* provider_search_true_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_true_02.swift; path = PFXAppStoreProviderTests/provider_search_true_02.swift; sourceTree = SOURCE_ROOT; };
+		6D629AC424203C33002A88C9 /* provider_search_true_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_true_03.swift; path = PFXAppStoreProviderTests/provider_search_true_03.swift; sourceTree = SOURCE_ROOT; };
+		6D629AC624203C54002A88C9 /* provider_search_false_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_false_01.swift; path = PFXAppStoreProviderTests/provider_search_false_01.swift; sourceTree = SOURCE_ROOT; };
+		6D629AC824203C5F002A88C9 /* provider_search_false_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_false_02.swift; path = PFXAppStoreProviderTests/provider_search_false_02.swift; sourceTree = SOURCE_ROOT; };
+		6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = provider_search_stub.plist; sourceTree = "<group>"; };
+		6D629AEB2420497B002A88C9 /* provider_search_none_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_none_01.swift; path = PFXAppStoreProviderTests/provider_search_none_01.swift; sourceTree = SOURCE_ROOT; };
 		6D65CC8A241F3DD100C164E3 /* ConstValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstValues.swift; sourceTree = "<group>"; };
 		6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreProtocol.swift; sourceTree = "<group>"; };
 		6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRepository.swift; sourceTree = "<group>"; };
@@ -165,8 +154,6 @@
 		6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreResponseModel.swift; sourceTree = "<group>"; };
 		6D65CCA4241F4EE400C164E3 /* ObservableType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extension.swift"; sourceTree = "<group>"; };
 		6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRepositoryValidator.swift; sourceTree = "<group>"; };
-		6D65CCAD241F57BC00C164E3 /* repository_search_true_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repository_search_true_01.swift; sourceTree = "<group>"; };
-		6D65CCBB241F71C700C164E3 /* repository_search_true_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repository_search_true_02.swift; sourceTree = "<group>"; };
 		6DC83014241F0CBF00B1F3ED /* PFXAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFXAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC83017241F0CBF00B1F3ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DC8301B241F0CBF00B1F3ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -196,14 +183,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D01604D241FB82200C1CEC5 /* Pods_PFXAppStoreTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6D3F1CDE241F9AD50007E551 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6D3F1CDF241F9AD50007E551 /* Pods_PFXAppStoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +238,12 @@
 		6D016035241FB7FA00C1CEC5 /* PFXAppStoreProviderTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D629AC624203C54002A88C9 /* provider_search_false_01.swift */,
+				6D629AC824203C5F002A88C9 /* provider_search_false_02.swift */,
+				6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */,
+				6D629AC224203C27002A88C9 /* provider_search_true_02.swift */,
+				6D629AC424203C33002A88C9 /* provider_search_true_03.swift */,
+				6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */,
 			);
 			path = PFXAppStoreProviderTests;
 			sourceTree = "<group>";
@@ -445,7 +430,6 @@
 				6DC83014241F0CBF00B1F3ED /* PFXAppStore.app */,
 				6DC8302F241F0CC000B1F3ED /* PFXAppStoreTests.xctest */,
 				6DC8303A241F0CC000B1F3ED /* PFXAppStoreUITests.xctest */,
-				6D3F1CE6241F9AD50007E551 /* PFXAppStoreRepositoryTests.xctest */,
 				6D016053241FB82200C1CEC5 /* PFXAppStoreProviderTests.xctest */,
 			);
 			name = Products;
@@ -474,13 +458,9 @@
 		6DC83032241F0CC000B1F3ED /* PFXAppStoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D629AEB2420497B002A88C9 /* provider_search_none_01.swift */,
 				6DC83035241F0CC000B1F3ED /* Info.plist */,
 				6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */,
-				6D01600E241FA62700C1CEC5 /* repository_search_false_01.swift */,
-				6D016010241FA6ED00C1CEC5 /* repository_search_false_02.swift */,
-				6D65CCAD241F57BC00C164E3 /* repository_search_true_01.swift */,
-				6D65CCBB241F71C700C164E3 /* repository_search_true_02.swift */,
-				6D016014241FA96900C1CEC5 /* repository_search_true_03.swift */,
 			);
 			path = PFXAppStoreTests;
 			sourceTree = "<group>";
@@ -524,25 +504,6 @@
 			name = PFXAppStoreProviderTests;
 			productName = PFXAppStoreTests;
 			productReference = 6D016053241FB82200C1CEC5 /* PFXAppStoreProviderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		6D3F1CCB241F9AD50007E551 /* PFXAppStoreRepositoryTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6D3F1CE3241F9AD50007E551 /* Build configuration list for PBXNativeTarget "PFXAppStoreRepositoryTests" */;
-			buildPhases = (
-				6D3F1CCE241F9AD50007E551 /* [CP] Check Pods Manifest.lock */,
-				6D3F1CCF241F9AD50007E551 /* Sources */,
-				6D3F1CDE241F9AD50007E551 /* Frameworks */,
-				6D3F1CE1241F9AD50007E551 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6D3F1CCC241F9AD50007E551 /* PBXTargetDependency */,
-			);
-			name = PFXAppStoreRepositoryTests;
-			productName = PFXAppStoreTests;
-			productReference = 6D3F1CE6241F9AD50007E551 /* PFXAppStoreRepositoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		6DC83013241F0CBF00B1F3ED /* PFXAppStore */ = {
@@ -644,7 +605,6 @@
 				6DC83013241F0CBF00B1F3ED /* PFXAppStore */,
 				6DC8302E241F0CC000B1F3ED /* PFXAppStoreTests */,
 				6DC83039241F0CC000B1F3ED /* PFXAppStoreUITests */,
-				6D3F1CCB241F9AD50007E551 /* PFXAppStoreRepositoryTests */,
 				6D016036241FB82200C1CEC5 /* PFXAppStoreProviderTests */,
 			);
 		};
@@ -656,14 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D01604F241FB82200C1CEC5 /* .swiftlint.yml in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6D3F1CE1241F9AD50007E551 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6D3F1CEA241FA2050007E551 /* .swiftlint.yml in Resources */,
+				6D629ACC24203DE2002A88C9 /* provider_search_stub.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D016019241FAA9200C1CEC5 /* Localizable.strings in Resources */,
+				6D629AD5242045C5002A88C9 /* provider_search_stub.plist in Resources */,
 				6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */,
 				6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */,
 				6DC83026241F0CC000B1F3ED /* Assets.xcassets in Resources */,
@@ -731,28 +685,6 @@
 			showEnvVarsInLog = 0;
 		};
 		6D016039241FB82200C1CEC5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D3F1CCE241F9AD50007E551 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -865,47 +797,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D629AD024204450002A88C9 /* MockClient.swift in Sources */,
+				6D629AC324203C27002A88C9 /* provider_search_true_02.swift in Sources */,
 				6D01603B241FB82200C1CEC5 /* AppStoreResponseModel.swift in Sources */,
-				6D01603C241FB82200C1CEC5 /* repository_search_true_01.swift in Sources */,
+				6D629AC124203C0D002A88C9 /* provider_search_true_01.swift in Sources */,
 				6D01603D241FB82200C1CEC5 /* ConstEnums.swift in Sources */,
 				6D01603E241FB82200C1CEC5 /* AppStoreStubImageRepository.swift in Sources */,
 				6D01603F241FB82200C1CEC5 /* AppStoreRepositoryValidator.swift in Sources */,
-				6D016040241FB82200C1CEC5 /* repository_search_false_01.swift in Sources */,
-				6D016041241FB82200C1CEC5 /* repository_search_true_03.swift in Sources */,
-				6D016042241FB82200C1CEC5 /* repository_search_false_02.swift in Sources */,
+				6D629AC724203C54002A88C9 /* provider_search_false_01.swift in Sources */,
 				6D016043241FB82200C1CEC5 /* AppStoreModel.swift in Sources */,
+				6D629AD324204465002A88C9 /* BaseProviderProtocol.swift in Sources */,
+				6D629AD224204465002A88C9 /* BaseEventProtocol.swift in Sources */,
 				6D016044241FB82200C1CEC5 /* AppStoreImageProtocol.swift in Sources */,
 				6D016045241FB82200C1CEC5 /* AppStoreRepository.swift in Sources */,
 				6D016046241FB82200C1CEC5 /* AppStoreStubRepository.swift in Sources */,
 				6D016047241FB82200C1CEC5 /* AppStoreImageRepository.swift in Sources */,
+				6D629ACD24204108002A88C9 /* ClientProtocol.swift in Sources */,
+				6D629AD424204465002A88C9 /* BaseStateProtocol.swift in Sources */,
 				6D016048241FB82200C1CEC5 /* AppStoreProtocol.swift in Sources */,
 				6D016049241FB82200C1CEC5 /* PFXAppStoreTests.swift in Sources */,
+				6D629AEC2420497B002A88C9 /* provider_search_none_01.swift in Sources */,
+				6D629ACA24203D60002A88C9 /* DependencyInjection.swift in Sources */,
+				6D629AD124204465002A88C9 /* BaseBlocProtocol.swift in Sources */,
+				6D629ACE2420438D002A88C9 /* SearchProvider.swift in Sources */,
+				6D629AC524203C33002A88C9 /* provider_search_true_03.swift in Sources */,
 				6D01604A241FB82200C1CEC5 /* ConstValues.swift in Sources */,
-				6D01604B241FB82200C1CEC5 /* repository_search_true_02.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6D3F1CCF241F9AD50007E551 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6D3F1CD0241F9AD50007E551 /* AppStoreResponseModel.swift in Sources */,
-				6D3F1CD1241F9AD50007E551 /* repository_search_true_01.swift in Sources */,
-				6D3F1CD2241F9AD50007E551 /* ConstEnums.swift in Sources */,
-				6D3F1CD3241F9AD50007E551 /* AppStoreStubImageRepository.swift in Sources */,
-				6D3F1CD4241F9AD50007E551 /* AppStoreRepositoryValidator.swift in Sources */,
-				6D01600F241FA62700C1CEC5 /* repository_search_false_01.swift in Sources */,
-				6D016015241FA96900C1CEC5 /* repository_search_true_03.swift in Sources */,
-				6D016011241FA6ED00C1CEC5 /* repository_search_false_02.swift in Sources */,
-				6D3F1CD5241F9AD50007E551 /* AppStoreModel.swift in Sources */,
-				6D3F1CD6241F9AD50007E551 /* AppStoreImageProtocol.swift in Sources */,
-				6D3F1CD7241F9AD50007E551 /* AppStoreRepository.swift in Sources */,
-				6D3F1CD8241F9AD50007E551 /* AppStoreStubRepository.swift in Sources */,
-				6D3F1CD9241F9AD50007E551 /* AppStoreImageRepository.swift in Sources */,
-				6D3F1CDA241F9AD50007E551 /* AppStoreProtocol.swift in Sources */,
-				6D3F1CDB241F9AD50007E551 /* PFXAppStoreTests.swift in Sources */,
-				6D3F1CDC241F9AD50007E551 /* ConstValues.swift in Sources */,
-				6D3F1CDD241F9AD50007E551 /* repository_search_true_02.swift in Sources */,
+				6D629ACF24204450002A88C9 /* RestClient.swift in Sources */,
+				6D629AC924203C5F002A88C9 /* provider_search_false_02.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,11 +889,6 @@
 			isa = PBXTargetDependency;
 			target = 6DC83013241F0CBF00B1F3ED /* PFXAppStore */;
 			targetProxy = 6D016038241FB82200C1CEC5 /* PBXContainerItemProxy */;
-		};
-		6D3F1CCC241F9AD50007E551 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6DC83013241F0CBF00B1F3ED /* PFXAppStore */;
-			targetProxy = 6D3F1CCD241F9AD50007E551 /* PBXContainerItemProxy */;
 		};
 		6DC83031241F0CC000B1F3ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1050,50 +963,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "PFXAppStoreProviderTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pfxstudio.PFXAppStoreTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFXAppStore.app/PFXAppStore";
-			};
-			name = Release;
-		};
-		6D3F1CE4241F9AD50007E551 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "PFXAppStoreRepositoryTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pfxstudio.PFXAppStoreTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFXAppStore.app/PFXAppStore";
-			};
-			name = Debug;
-		};
-		6D3F1CE5241F9AD50007E551 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC9015D0E30CC425A05E8D74 /* Pods-PFXAppStoreTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "PFXAppStoreRepositoryTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1358,15 +1227,6 @@
 			buildConfigurations = (
 				6D016051241FB82200C1CEC5 /* Debug */,
 				6D016052241FB82200C1CEC5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6D3F1CE3241F9AD50007E551 /* Build configuration list for PBXNativeTarget "PFXAppStoreRepositoryTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6D3F1CE4241F9AD50007E551 /* Debug */,
-				6D3F1CE5241F9AD50007E551 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

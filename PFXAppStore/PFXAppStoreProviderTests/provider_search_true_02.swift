@@ -1,21 +1,23 @@
 //
-//  repository_search_true_03.swift
-//  PFXAppStoreRepositoryTests
+//  provider_search_true_02.swift
+//  PFXAppStoreProviderTests
 //
-//  Created by PFXStudio on 2020/03/16.
+//  Created by PFXStudio on 2020/03/17.
 //  Copyright © 2020 PFXStudio. All rights reserved.
 //
 
 import XCTest
 import RxSwift
 
-// paging request
-class repository_search_true_03: XCTestCase {
+class provider_search_true_02: XCTestCase {
+    // korean request
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        DependencyInjection.clientType = .mock
+        DependencyInjection.key = String(describing: type(of: self))
     }
 
     override func tearDown() {
@@ -29,34 +31,22 @@ class repository_search_true_03: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let repository = AppStoreRepository()
-//        let repository: AppStoreProtocol = AppStoreStubRepository()
-        var parameterDict = ["term" : "game",
+        let provider = SearchProvider()
+        let parameterDict = ["term" : "은행",
                              "media" : "software",
                              "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
 
         // when
-        repository.requestSearchList(parameterDict: parameterDict)
-            .subscribe(onNext: { result in
-                // then
-                XCTAssertTrue(result.resultCount == ConstNumbers.maxLoadLimit)
-                parameterDict["offset"] = "1"
-                repository.requestSearchList(parameterDict: parameterDict)
-                    .subscribe(onNext: { result in
-                        XCTAssertTrue(result.resultCount == ConstNumbers.maxLoadLimit)
-                        expt.fulfill()
-                    }, onError: { error in
-                        expt.fulfill()
-                        XCTAssertFalse(true, error.localizedDescription)
-                    })
-                    .disposed(by: self.disposeBag)
-
-            }, onError: { error in
+        provider.fetchingSearch(parameterDict: parameterDict)
+            .subscribe(onSuccess: { model in
+                XCTAssertTrue(model.resultCount == 3)
                 expt.fulfill()
-                XCTAssertFalse(true, error.localizedDescription)
-            })
-            .disposed(by: self.disposeBag)
+            }) { error in
+            expt.fulfill()
+            XCTAssertFalse(true, error.localizedDescription)
+        }
+        .disposed(by: self.disposeBag)
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {
