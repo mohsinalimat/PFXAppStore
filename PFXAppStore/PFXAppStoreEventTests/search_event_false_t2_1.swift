@@ -1,5 +1,5 @@
 //
-//  event_search_true_02.swift
+//  search_event_false_t2_1.swift
 //  PFXAppStoreEventTests
 //
 //  Created by PFXStudio on 2020/03/17.
@@ -9,15 +9,15 @@
 import XCTest
 import RxSwift
 
-class event_search_true_02: XCTestCase {
-    // korean request
+class search_event_false_t2_1: XCTestCase {
+    // empty term
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.clientType = .mock
-        DependencyInjection.stubModel = StubModel(fileName: "event_search_stub", key: String(describing: type(of: self)))
+        DependencyInjection.stubModel = StubModel(fileName: "event_stub", key: String(describing: type(of: self)))
     }
 
     override func tearDown() {
@@ -31,7 +31,7 @@ class event_search_true_02: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let parameterDict = ["term" : "은행",
+        let parameterDict = ["term" : "",
                              "media" : "software",
                              "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
@@ -40,14 +40,14 @@ class event_search_true_02: XCTestCase {
         // when
         event.applyAsync()
             .subscribe(onNext: { state in
-                if state is ErrorSearchState {
-                    XCTAssertTrue(false)
+                if let errorState = state as? ErrorSearchState {
+                    XCTAssertTrue(errorState.error.code == PBError.network_invalid_parameter.rawValue)
                     expt.fulfill()
                     return
                 }
                 
-                if let fetchedSearchState = state as? FetchedSearchState {
-                    XCTAssertTrue(fetchedSearchState.appStoreResponseModel.resultCount == 3)
+                if let _ = state as? FetchedSearchState {
+                    XCTAssertTrue(false)
                     expt.fulfill()
                     return
                 }

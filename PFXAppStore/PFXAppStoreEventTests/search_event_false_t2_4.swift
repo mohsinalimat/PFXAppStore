@@ -1,6 +1,6 @@
 //
-//  provider_search_true_02.swift
-//  PFXAppStoreProviderTests
+//  search_event_false_t2_4.swift
+//  PFXAppStoreEventTests
 //
 //  Created by PFXStudio on 2020/03/17.
 //  Copyright © 2020 PFXStudio. All rights reserved.
@@ -9,15 +9,15 @@
 import XCTest
 import RxSwift
 
-class provider_search_true_02: XCTestCase {
-    // korean request
+class search_event_false_t2_4: XCTestCase {
+    // invalid response data parse
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.clientType = .mock
-        DependencyInjection.stubModel = StubModel(fileName: "provider_search_stub", key: String(describing: type(of: self)))
+        DependencyInjection.stubModel = StubModel(fileName: "event_stub", key: String(describing: type(of: self)))
     }
 
     override func tearDown() {
@@ -31,22 +31,32 @@ class provider_search_true_02: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let provider: SearchProviderProtocol = SearchProvider()
-        let parameterDict = ["term" : "은행",
+        let parameterDict = ["term" : "game",
                              "media" : "software",
                              "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
 
+        let event: SearchEventProtocol = FetchingSearchEvent(parameterDict: parameterDict)
         // when
-        provider.fetchingSearch(parameterDict: parameterDict)
-            .subscribe(onSuccess: { model in
-                XCTAssertTrue(model.resultCount == 3)
+        event.applyAsync()
+            .subscribe(onNext: { state in
+                if let errorState = state as? ErrorSearchState {
+                    XCTAssertTrue(errorState.error.code == PBError.network_invalid_parse.rawValue)
+                    expt.fulfill()
+                    return
+                }
+                
+                if let _ = state as? FetchedSearchState {
+                    XCTAssertTrue(false)
+                    expt.fulfill()
+                    return
+                }
+                
+            }, onError: { error in
+                XCTAssertTrue(false)
                 expt.fulfill()
-            }) { error in
-            expt.fulfill()
-            XCTAssertFalse(true, error.localizedDescription)
-        }
-        .disposed(by: self.disposeBag)
+            })
+            .disposed(by: self.disposeBag)
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {

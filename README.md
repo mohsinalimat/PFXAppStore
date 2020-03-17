@@ -18,3 +18,5 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
  - 이미지 다운로드 캐싱 개발
 기타
  - 팟 포함 되어 있음
+
+https://docs.google.com/spreadsheets/d/1DPubPSjVEHTzc3DpAe-okOdyIHy48sG7AMUycH0Jtzk/edit?usp=sharing

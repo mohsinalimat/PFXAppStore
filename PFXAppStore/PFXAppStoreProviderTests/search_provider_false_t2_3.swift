@@ -1,5 +1,5 @@
 //
-//  provider_search_none_01.swift
+//  search_provider_false_t2_3.swift
 //  PFXAppStoreProviderTests
 //
 //  Created by PFXStudio on 2020/03/17.
@@ -9,13 +9,15 @@
 import XCTest
 import RxSwift
 
-class provider_search_none_01: XCTestCase {
-    // real network request
+class search_provider_false_t2_3: XCTestCase {
+    // long term string
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        DependencyInjection.clientType = .mock
+        DependencyInjection.stubModel = StubModel(fileName: "provider_stub", key: String(describing: type(of: self)))
     }
 
     override func tearDown() {
@@ -30,7 +32,7 @@ class provider_search_none_01: XCTestCase {
 
         // given
         let provider: SearchProviderProtocol = SearchProvider()
-        let parameterDict = ["term" : "game",
+        let parameterDict = ["term" : "3lMvTNjyoZSj2dxbo77yhGIkEjoua5fy1",
                              "media" : "software",
                              "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
@@ -38,10 +40,10 @@ class provider_search_none_01: XCTestCase {
         // when
         provider.fetchingSearch(parameterDict: parameterDict)
             .subscribe(onSuccess: { model in
-                XCTAssertTrue(true)
+                XCTAssertTrue(false)
                 expt.fulfill()
             }) { error in
-                XCTAssertTrue(true)
+                XCTAssertTrue((error as NSError).code == PBError.network_invalid_parameter.rawValue)
                 expt.fulfill()
         }
         .disposed(by: self.disposeBag)
@@ -51,7 +53,7 @@ class provider_search_none_01: XCTestCase {
                 return
             }
             
-            XCTAssertTrue(true)
+            XCTFail("Fail timeout")
         })
         
         withExtendedLifetime(self) {}

@@ -1,5 +1,5 @@
 //
-//  provider_search_image_none_01.swift
+//  search_provider_none_t3_1.swift
 //  PFXAppStoreProviderTests
 //
 //  Created by PFXStudio on 2020/03/17.
@@ -9,7 +9,7 @@
 import XCTest
 import RxSwift
 
-class provider_search_image_none_01: XCTestCase {
+class search_provider_none_t3_1: XCTestCase {
     // real network request
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)

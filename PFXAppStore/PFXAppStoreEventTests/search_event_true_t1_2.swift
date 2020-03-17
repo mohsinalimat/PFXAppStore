@@ -1,6 +1,6 @@
 //
-//  provider_search_false_02.swift
-//  PFXAppStoreProviderTests
+//  search_event_true_t1_2.swift
+//  PFXAppStoreEventTests
 //
 //  Created by PFXStudio on 2020/03/17.
 //  Copyright © 2020 PFXStudio. All rights reserved.
@@ -9,15 +9,15 @@
 import XCTest
 import RxSwift
 
-class provider_search_false_02: XCTestCase {
-    // term is empty
+class search_event_true_t1_2: XCTestCase {
+    // korean request
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.clientType = .mock
-        DependencyInjection.stubModel = StubModel(fileName: "provider_search_stub", key: String(describing: type(of: self)))
+        DependencyInjection.stubModel = StubModel(fileName: "event_stub", key: String(describing: type(of: self)))
     }
 
     override func tearDown() {
@@ -31,22 +31,32 @@ class provider_search_false_02: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let provider: SearchProviderProtocol = SearchProvider()
-        let parameterDict = ["term" : "",
+        let parameterDict = ["term" : "은행",
                              "media" : "software",
                              "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
 
+        let event: SearchEventProtocol = FetchingSearchEvent(parameterDict: parameterDict)
         // when
-        provider.fetchingSearch(parameterDict: parameterDict)
-            .subscribe(onSuccess: { model in
+        event.applyAsync()
+            .subscribe(onNext: { state in
+                if state is ErrorSearchState {
+                    XCTAssertTrue(false)
+                    expt.fulfill()
+                    return
+                }
+                
+                if let fetchedSearchState = state as? FetchedSearchState {
+                    XCTAssertTrue(fetchedSearchState.appStoreResponseModel.resultCount == 3)
+                    expt.fulfill()
+                    return
+                }
+                
+            }, onError: { error in
                 XCTAssertTrue(false)
                 expt.fulfill()
-            }) { error in
-                XCTAssertTrue((error as NSError).code == PBError.network_invalid_parameter.rawValue)
-                expt.fulfill()
-        }
-        .disposed(by: self.disposeBag)
+            })
+            .disposed(by: self.disposeBag)
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {
@@ -65,5 +75,4 @@ class provider_search_false_02: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

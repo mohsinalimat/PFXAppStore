@@ -1,5 +1,5 @@
 //
-//  provider_search_false_03.swift
+//  search_provider_true_t1_3.swift
 //  PFXAppStoreProviderTests
 //
 //  Created by PFXStudio on 2020/03/17.
@@ -9,15 +9,15 @@
 import XCTest
 import RxSwift
 
-class provider_search_false_03: XCTestCase {
-    // invalid parse error
+class search_provider_true_t1_3: XCTestCase {
+    // term length is 32
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.clientType = .mock
-        DependencyInjection.stubModel = StubModel(fileName: "provider_search_stub", key: String(describing: type(of: self)))
+        DependencyInjection.stubModel = StubModel(fileName: "provider_stub", key: String(describing: type(of: self)))
     }
 
     override func tearDown() {
@@ -32,7 +32,7 @@ class provider_search_false_03: XCTestCase {
 
         // given
         let provider: SearchProviderProtocol = SearchProvider()
-        let parameterDict = ["term" : "game",
+        var parameterDict = ["term" : "3lMvTNjyoZSj2dxbo77yhGIkEjoua5fy",
                              "media" : "software",
                              "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
@@ -40,11 +40,21 @@ class provider_search_false_03: XCTestCase {
         // when
         provider.fetchingSearch(parameterDict: parameterDict)
             .subscribe(onSuccess: { model in
-                XCTAssertTrue(false)
-                expt.fulfill()
+                XCTAssertTrue(model.resultCount == 3)
+                
+                parameterDict["offset"] = "1"
+                provider.fetchingSearch(parameterDict: parameterDict)
+                    .subscribe(onSuccess: { model in
+                        XCTAssertTrue(model.resultCount == 3)
+                        expt.fulfill()
+                    }) { error in
+                        XCTAssertFalse(true, error.localizedDescription)
+                        expt.fulfill()
+                }
+                .disposed(by: self.disposeBag)
             }) { error in
-                XCTAssertTrue((error as NSError).code == PBError.network_invalid_parse.rawValue)
-                expt.fulfill()
+            expt.fulfill()
+            XCTAssertFalse(true, error.localizedDescription)
         }
         .disposed(by: self.disposeBag)
 

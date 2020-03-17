@@ -14,7 +14,7 @@ class AppStoreRepositoryValidator {
             return PBError.network_invalid_parameter
         }
 
-        if term.count <= 0 {
+        if term.count <= 0 || term.count > ConstNumbers.maxTermLength {
             return PBError.network_invalid_parameter
         }
 
