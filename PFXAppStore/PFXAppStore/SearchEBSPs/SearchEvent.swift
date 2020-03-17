@@ -38,6 +38,11 @@ class FetchingSearchEvent: SearchEventProtocol {
                     defer {
                         self.sendIdleState(observer: observer)
                     }
+                    
+                    if appStoreResponseModel.resultCount == 0 {
+                        observer.onNext(EmptySearchState())
+                        return
+                    }
 
                     observer.onNext(FetchedSearchState(appStoreResponseModel: appStoreResponseModel))
                 }) { error in

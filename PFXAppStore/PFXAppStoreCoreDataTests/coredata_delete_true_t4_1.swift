@@ -29,7 +29,7 @@ class coredata_delete_true_t4_1: XCTestCase {
         let model = HistoryModel(text: "game", date: Date())
         CoreDataHelper.shared.updateHistory(model: model)
 
-        if let error = CoreDataHelper.shared.deleteHistory(model: model) {
+        if let _ = CoreDataHelper.shared.deleteHistory(model: model) {
             XCTAssertTrue(false)
         }
         

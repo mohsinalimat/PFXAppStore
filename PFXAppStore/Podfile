@@ -35,6 +35,11 @@ target 'PFXAppStore' do
     # Pods for testing
   end
 
+  target 'PFXAppStoreBlocTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
   target 'PFXAppStoreUITests' do
     # Pods for testing
   end
