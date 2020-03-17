@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02F8466ADE9EEE3995E2BE8D /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
+		29CB2FEEECFC7603647CAAF9 /* Pods_PFXAppStoreProviderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F38DFD43B9E134105FC569 /* Pods_PFXAppStoreProviderTests.framework */; };
 		6D016019241FAA9200C1CEC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D01601B241FAA9200C1CEC5 /* Localizable.strings */; };
 		6D01601E241FAB1C00C1CEC5 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01601D241FAB1C00C1CEC5 /* BaseCell.swift */; };
 		6D016020241FAB3200C1CEC5 /* BaseCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01601F241FAB3200C1CEC5 /* BaseCellViewModel.swift */; };
@@ -26,15 +28,12 @@
 		6D016043241FB82200C1CEC5 /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */; };
 		6D016049241FB82200C1CEC5 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
 		6D01604A241FB82200C1CEC5 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
-		6D01604D241FB82200C1CEC5 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6D01604F241FB82200C1CEC5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
 		6D016057241FBCFA00C1CEC5 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016056241FBCFA00C1CEC5 /* RestClient.swift */; };
 		6D016059241FBD0500C1CEC5 /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016058241FBD0500C1CEC5 /* MockClient.swift */; };
 		6D01605B241FBD1400C1CEC5 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
 		6D01605E241FBD5C00C1CEC5 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
 		6D35012124204C3A000D15C9 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
-		6D35012324204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
-		6D35012424204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6D35F61A24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
 		6D35F61B24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
 		6D35F61C24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
@@ -110,10 +109,17 @@
 		6DFA813C24208A6400E71181 /* image_provider_false_t5_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA813B24208A6400E71181 /* image_provider_false_t5_1.swift */; };
 		6DFA813E24208A7300E71181 /* image_provider_none_t6_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA813D24208A7300E71181 /* image_provider_none_t6_1.swift */; };
 		6DFA813F24208AC100E71181 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8135242086BC00E71181 /* ImageProvider.swift */; };
+		6DFA81412420909000E71181 /* image_event_true_t4_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA81402420909000E71181 /* image_event_true_t4_1.swift */; };
+		6DFA8143242090A300E71181 /* image_event_false_t5_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8142242090A300E71181 /* image_event_false_t5_1.swift */; };
+		6DFA8145242090AF00E71181 /* image_event_none_t6_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8144242090AF00E71181 /* image_event_none_t6_1.swift */; };
+		6DFA8146242094D400E71181 /* ImageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8133242086B400E71181 /* ImageEvent.swift */; };
+		6DFA81472420950700E71181 /* ImageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8137242086C400E71181 /* ImageState.swift */; };
+		6DFA8148242095EC00E71181 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8135242086BC00E71181 /* ImageProvider.swift */; };
 		6F8F17EE41D66167BC6641FA /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		7154C0AF7FF092192B07C8CC /* Pods_PFXAppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9ED6CA1EF0DB2A196DB52E /* Pods_PFXAppStore.framework */; };
 		D69C17A30CEB8BC324C3B16D /* Pods_PFXAppStore_PFXAppStoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D61F7ED1DF3E9F4E169EDDA1 /* Pods_PFXAppStore_PFXAppStoreUITests.framework */; };
 		EAD166FC063E3B03641B49FF /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
+		FFFC7B9476DD662EEF914B60 /* Pods_PFXAppStoreEventTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4845B7F5D91B4E6A674C63D /* Pods_PFXAppStoreEventTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,7 +156,7 @@
 /* Begin PBXFileReference section */
 		1CF4F2B6CD48D5B5D83CDC78 /* Pods-PFXAppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStore/Pods-PFXAppStore.release.xcconfig"; sourceTree = "<group>"; };
 		3A7E5F6E4AFF5C4FE4AF1B64 /* Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStore-PFXAppStoreUITests/Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreTests/Pods-PFXAppStoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		49F38DFD43B9E134105FC569 /* Pods_PFXAppStoreProviderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreProviderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D016012241FA92100C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6D016013241FA92100C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		6D01601A241FAA9200C1CEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -224,12 +230,21 @@
 		6DFA813924208A5000E71181 /* image_provider_true_t4_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_provider_true_t4_1.swift; path = PFXAppStoreProviderTests/image_provider_true_t4_1.swift; sourceTree = SOURCE_ROOT; };
 		6DFA813B24208A6400E71181 /* image_provider_false_t5_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_provider_false_t5_1.swift; path = PFXAppStoreProviderTests/image_provider_false_t5_1.swift; sourceTree = SOURCE_ROOT; };
 		6DFA813D24208A7300E71181 /* image_provider_none_t6_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_provider_none_t6_1.swift; path = PFXAppStoreProviderTests/image_provider_none_t6_1.swift; sourceTree = SOURCE_ROOT; };
+		6DFA81402420909000E71181 /* image_event_true_t4_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_event_true_t4_1.swift; path = PFXAppStoreEventTests/image_event_true_t4_1.swift; sourceTree = SOURCE_ROOT; };
+		6DFA8142242090A300E71181 /* image_event_false_t5_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_event_false_t5_1.swift; path = PFXAppStoreEventTests/image_event_false_t5_1.swift; sourceTree = SOURCE_ROOT; };
+		6DFA8144242090AF00E71181 /* image_event_none_t6_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_event_none_t6_1.swift; path = PFXAppStoreEventTests/image_event_none_t6_1.swift; sourceTree = SOURCE_ROOT; };
+		7B8A6829F713FBEEE66CA956 /* Pods-PFXAppStoreProviderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreProviderTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreProviderTests/Pods-PFXAppStoreProviderTests.release.xcconfig"; sourceTree = "<group>"; };
 		AB9ED6CA1EF0DB2A196DB52E /* Pods_PFXAppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE675F11ECC2E0940849D64C /* Pods-PFXAppStore-PFXAppStoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore-PFXAppStoreUITests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStore-PFXAppStoreUITests/Pods-PFXAppStore-PFXAppStoreUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2B5E7491CBE963EADA40066 /* Pods-PFXAppStoreProviderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreProviderTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreProviderTests/Pods-PFXAppStoreProviderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB1CE53C4B50295C5254E870 /* Pods-PFXAppStoreEventTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreEventTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreEventTests/Pods-PFXAppStoreEventTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D61F7ED1DF3E9F4E169EDDA1 /* Pods_PFXAppStore_PFXAppStoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStore_PFXAppStoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC3E98FE01634163896FE7BF /* Pods-PFXAppStoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreTests/Pods-PFXAppStoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DE583A17B5A03DF9FD6B2547 /* Pods-PFXAppStoreEventTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreEventTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreEventTests/Pods-PFXAppStoreEventTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3072C90AA0D51A3D9894223 /* Pods-PFXAppStoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreTests/Pods-PFXAppStoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		E4845B7F5D91B4E6A674C63D /* Pods_PFXAppStoreEventTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreEventTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80B613B935C305ED2E9BA7F /* Pods-PFXAppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStore/Pods-PFXAppStore.debug.xcconfig"; sourceTree = "<group>"; };
-		FC9015D0E30CC425A05E8D74 /* Pods-PFXAppStoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreTests/Pods-PFXAppStoreTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +252,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D01604D241FB82200C1CEC5 /* Pods_PFXAppStoreTests.framework in Frameworks */,
+				29CB2FEEECFC7603647CAAF9 /* Pods_PFXAppStoreProviderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,8 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D35012324204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */,
-				6D35012424204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */,
+				FFFC7B9476DD662EEF914B60 /* Pods_PFXAppStoreEventTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +278,7 @@
 			files = (
 				EAD166FC063E3B03641B49FF /* Pods_PFXAppStoreTests.framework in Frameworks */,
 				6F8F17EE41D66167BC6641FA /* Pods_PFXAppStoreTests.framework in Frameworks */,
+				02F8466ADE9EEE3995E2BE8D /* Pods_PFXAppStoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +300,12 @@
 				1CF4F2B6CD48D5B5D83CDC78 /* Pods-PFXAppStore.release.xcconfig */,
 				3A7E5F6E4AFF5C4FE4AF1B64 /* Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig */,
 				AE675F11ECC2E0940849D64C /* Pods-PFXAppStore-PFXAppStoreUITests.release.xcconfig */,
-				4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */,
-				FC9015D0E30CC425A05E8D74 /* Pods-PFXAppStoreTests.release.xcconfig */,
+				DC3E98FE01634163896FE7BF /* Pods-PFXAppStoreTests.debug.xcconfig */,
+				E3072C90AA0D51A3D9894223 /* Pods-PFXAppStoreTests.release.xcconfig */,
+				CB1CE53C4B50295C5254E870 /* Pods-PFXAppStoreEventTests.debug.xcconfig */,
+				DE583A17B5A03DF9FD6B2547 /* Pods-PFXAppStoreEventTests.release.xcconfig */,
+				B2B5E7491CBE963EADA40066 /* Pods-PFXAppStoreProviderTests.debug.xcconfig */,
+				7B8A6829F713FBEEE66CA956 /* Pods-PFXAppStoreProviderTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -543,6 +562,9 @@
 		6DC83032241F0CC000B1F3ED /* PFXAppStoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				6DFA8142242090A300E71181 /* image_event_false_t5_1.swift */,
+				6DFA8144242090AF00E71181 /* image_event_none_t6_1.swift */,
+				6DFA81402420909000E71181 /* image_event_true_t4_1.swift */,
 				6DC83035241F0CC000B1F3ED /* Info.plist */,
 				6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */,
 			);
@@ -575,6 +597,8 @@
 				AB9ED6CA1EF0DB2A196DB52E /* Pods_PFXAppStore.framework */,
 				D61F7ED1DF3E9F4E169EDDA1 /* Pods_PFXAppStore_PFXAppStoreUITests.framework */,
 				B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */,
+				E4845B7F5D91B4E6A674C63D /* Pods_PFXAppStoreEventTests.framework */,
+				49F38DFD43B9E134105FC569 /* Pods_PFXAppStoreProviderTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -586,7 +610,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D016050241FB82200C1CEC5 /* Build configuration list for PBXNativeTarget "PFXAppStoreProviderTests" */;
 			buildPhases = (
-				6D016039241FB82200C1CEC5 /* [CP] Check Pods Manifest.lock */,
+				9BF96E9B9F158F45B861D196 /* [CP] Check Pods Manifest.lock */,
 				6D01603A241FB82200C1CEC5 /* Sources */,
 				6D01604C241FB82200C1CEC5 /* Frameworks */,
 				6D01604E241FB82200C1CEC5 /* Resources */,
@@ -605,7 +629,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D35012624204C3A000D15C9 /* Build configuration list for PBXNativeTarget "PFXAppStoreEventTests" */;
 			buildPhases = (
-				6D35011F24204C3A000D15C9 /* [CP] Check Pods Manifest.lock */,
+				1D0E8C08DEA61BE672E488F0 /* [CP] Check Pods Manifest.lock */,
 				6D35012024204C3A000D15C9 /* Sources */,
 				6D35012224204C3A000D15C9 /* Frameworks */,
 				6D35012524204C3A000D15C9 /* Resources */,
@@ -791,6 +815,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PFXAppStore/Pods-PFXAppStore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1D0E8C08DEA61BE672E488F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreEventTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5F87C7D3464D9EC746B2B466 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -806,50 +852,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PFXAppStore-PFXAppStoreUITests/Pods-PFXAppStore-PFXAppStoreUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D016039241FB82200C1CEC5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D35011F24204C3A000D15C9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D994E41241F15B20033FE23 /* SwiftLint Script */ = {
@@ -886,6 +888,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-PFXAppStore-PFXAppStoreUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BF96E9B9F158F45B861D196 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreProviderTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -979,8 +1003,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DFA81412420909000E71181 /* image_event_true_t4_1.swift in Sources */,
 				6DC0248424204E8A00245869 /* MockClient.swift in Sources */,
+				6DFA8143242090A300E71181 /* image_event_false_t5_1.swift in Sources */,
 				6D8CD0E0242082E500F5AC89 /* search_event_true_t1_1.swift in Sources */,
+				6DFA8145242090AF00E71181 /* image_event_none_t6_1.swift in Sources */,
 				6DC0248824204ECD00245869 /* BaseEventProtocol.swift in Sources */,
 				6DC0248224204E8A00245869 /* ClientProtocol.swift in Sources */,
 				6DC024942420531E00245869 /* StubModel.swift in Sources */,
@@ -991,6 +1018,7 @@
 				6DC0248624204EBC00245869 /* ConstEnums.swift in Sources */,
 				6DC0247F24204E7000245869 /* SearchEvent.swift in Sources */,
 				6DC0248D24204EDF00245869 /* AppStoreRepositoryValidator.swift in Sources */,
+				6DFA81472420950700E71181 /* ImageState.swift in Sources */,
 				6D8CD0EC2420831B00F5AC89 /* search_event_false_t2_4.swift in Sources */,
 				6DC0248324204E8A00245869 /* RestClient.swift in Sources */,
 				6DC0248724204ECD00245869 /* BaseBlocProtocol.swift in Sources */,
@@ -998,10 +1026,12 @@
 				6DC0248124204E7000245869 /* SearchState.swift in Sources */,
 				6DC0248B24204ED100245869 /* AppStoreModel.swift in Sources */,
 				6D35F61C24205CCE00FD750D /* CacheHelper.swift in Sources */,
+				6DFA8148242095EC00E71181 /* ImageProvider.swift in Sources */,
 				6DC0248C24204ED100245869 /* AppStoreResponseModel.swift in Sources */,
 				6DC0248924204ECD00245869 /* BaseProviderProtocol.swift in Sources */,
 				6DC0247D24204E4600245869 /* DependencyInjection.swift in Sources */,
 				6DC0248A24204ECD00245869 /* BaseStateProtocol.swift in Sources */,
+				6DFA8146242094D400E71181 /* ImageEvent.swift in Sources */,
 				6D35012124204C3A000D15C9 /* PFXAppStoreTests.swift in Sources */,
 				6D8CD0E82420830D00F5AC89 /* search_event_false_t2_2.swift in Sources */,
 				6D8CD0E2242082EF00F5AC89 /* search_event_true_t1_2.swift in Sources */,
@@ -1122,7 +1152,7 @@
 /* Begin XCBuildConfiguration section */
 		6D016051241FB82200C1CEC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */;
+			baseConfigurationReference = B2B5E7491CBE963EADA40066 /* Pods-PFXAppStoreProviderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1144,7 +1174,7 @@
 		};
 		6D016052241FB82200C1CEC5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC9015D0E30CC425A05E8D74 /* Pods-PFXAppStoreTests.release.xcconfig */;
+			baseConfigurationReference = 7B8A6829F713FBEEE66CA956 /* Pods-PFXAppStoreProviderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1166,7 +1196,7 @@
 		};
 		6D35012724204C3A000D15C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */;
+			baseConfigurationReference = CB1CE53C4B50295C5254E870 /* Pods-PFXAppStoreEventTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1188,7 +1218,7 @@
 		};
 		6D35012824204C3A000D15C9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC9015D0E30CC425A05E8D74 /* Pods-PFXAppStoreTests.release.xcconfig */;
+			baseConfigurationReference = DE583A17B5A03DF9FD6B2547 /* Pods-PFXAppStoreEventTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1368,7 +1398,7 @@
 		};
 		6DC83047241F0CC000B1F3ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */;
+			baseConfigurationReference = DC3E98FE01634163896FE7BF /* Pods-PFXAppStoreTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1390,7 +1420,7 @@
 		};
 		6DC83048241F0CC000B1F3ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC9015D0E30CC425A05E8D74 /* Pods-PFXAppStoreTests.release.xcconfig */;
+			baseConfigurationReference = E3072C90AA0D51A3D9894223 /* Pods-PFXAppStoreTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

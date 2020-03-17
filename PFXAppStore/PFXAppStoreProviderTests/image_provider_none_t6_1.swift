@@ -38,7 +38,7 @@ class image_provider_none_t6_1: XCTestCase {
                 XCTAssertTrue(true)
                 expt.fulfill()
             }) { error in
-                XCTAssertFalse(true, error.localizedDescription)
+                XCTAssertTrue(true, error.localizedDescription)
                 expt.fulfill()
         }
         .disposed(by: self.disposeBag)

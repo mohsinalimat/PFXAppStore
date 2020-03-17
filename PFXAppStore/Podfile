@@ -9,6 +9,7 @@ target 'PFXAppStore' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod "RxCoreData"
   pod 'SwiftLint'
   pod 'SwiftMessages'
   pod 'Hero'
@@ -18,6 +19,17 @@ target 'PFXAppStore' do
     inherit! :search_paths
     # Pods for testing
   end
+
+  target 'PFXAppStoreEventTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'PFXAppStoreProviderTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 
   target 'PFXAppStoreUITests' do
     # Pods for testing

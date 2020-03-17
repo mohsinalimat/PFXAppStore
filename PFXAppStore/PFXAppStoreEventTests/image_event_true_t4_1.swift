@@ -1,6 +1,6 @@
 //
-//  image_provider_false_t5_1.swift
-//  PFXAppStoreProviderTests
+//  image_event_true_t4_1.swift
+//  PFXAppStoreEventTests
 //
 //  Created by PFXStudio on 2020/03/17.
 //  Copyright © 2020 PFXStudio. All rights reserved.
@@ -9,15 +9,15 @@
 import XCTest
 import RxSwift
 
-class image_provider_false_t5_1: XCTestCase {
-    // invalid target path
+class image_event_true_t4_1: XCTestCase {
+    // request stub image data
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.clientType = .mock
-        DependencyInjection.stubModel = StubModel(fileName: "provider_stub", key: String(describing: type(of: self)))
+        DependencyInjection.stubModel = StubModel(fileName: "event_stub", key: String(describing: type(of: self)))
     }
 
     override func tearDown() {
@@ -31,19 +31,29 @@ class image_provider_false_t5_1: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let provider: ImageProviderProtocol = ImageProvider()
-        let targetPath = ""
+        let targetPath = "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/49/7c/9c/497c9cbf-092c-9bdf-44a9-2d505ed21214/pr_source.png/392x696bb.png"
 
+        let event: ImageEventProtocol = DownloadImageEvent(targetPath: targetPath)
         // when
-        provider.requestImageData(targetPath: targetPath)
-            .subscribe(onSuccess: { data in
+        event.applyAsync()
+            .subscribe(onNext: { state in
+                if state is ErrorImageState {
+                    XCTAssertTrue(false)
+                    expt.fulfill()
+                    return
+                }
+                
+                if let downloadImageState = state as? DownloadImageState {
+                    XCTAssertTrue(downloadImageState.data.count > 0)
+                    expt.fulfill()
+                    return
+                }
+                
+            }, onError: { error in
                 XCTAssertTrue(false)
                 expt.fulfill()
-            }) { error in
-                XCTAssertTrue((error as NSError).code == PBError.network_invalid_parameter.rawValue)
-                expt.fulfill()
-        }
-        .disposed(by: self.disposeBag)
+            })
+            .disposed(by: self.disposeBag)
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {
