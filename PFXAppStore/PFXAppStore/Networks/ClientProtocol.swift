@@ -11,4 +11,5 @@ import RxSwift
 
 protocol ClientProtocol {
     func request(targetPath: String, parameterDict: [String : String]) -> Observable<Data>
+    func requestImageData(targetPath: String) -> Observable<Data>
 }

@@ -59,10 +59,11 @@ class RestClient: ClientProtocol {
         }
     }
     
-    func imageDownload(targetPath: String)  -> Observable<NSData> {
+    func requestImageData(targetPath: String) -> Observable<Data> {
+        self.urlSession = URLSession(configuration: .ephemeral)
         return Observable.create { observer in
             if let cacheData = CacheHelper.shared.imageDatas.object(forKey: targetPath as NSString) {
-                observer.onNext(cacheData)
+                observer.onNext(cacheData as Data)
                 return Disposables.create()
             }
             guard let url = URL(string: targetPath) else {
@@ -77,7 +78,9 @@ class RestClient: ClientProtocol {
                 }
 
                 CacheHelper.shared.imageDatas.setObject(data, forKey: targetPath as NSString)
+                observer.onNext(data as Data)
             }
+            task.resume()
             
             return Disposables.create {
                 task.cancel()
