@@ -17,7 +17,7 @@ class provider_search_true_02: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.clientType = .mock
-        DependencyInjection.key = String(describing: type(of: self))
+        DependencyInjection.stubModel = StubModel(fileName: "provider_search_stub", key: String(describing: type(of: self)))
     }
 
     override func tearDown() {
@@ -31,7 +31,7 @@ class provider_search_true_02: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let provider = SearchProvider()
+        let provider: SearchProviderProtocol = SearchProvider()
         let parameterDict = ["term" : "은행",
                              "media" : "software",
                              "offset" : "0",

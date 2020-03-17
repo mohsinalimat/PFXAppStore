@@ -41,8 +41,8 @@ class FetchingSearchEvent: SearchEventProtocol {
 
                     observer.onNext(FetchedSearchState(appStoreResponseModel: appStoreResponseModel))
                 }) { error in
+                    observer.onNext(ErrorSearchState(error: error as NSError))
                     self.sendIdleState(observer: observer)
-                    observer.onError(error)
                 }
                 .disposed(by: self.disposeBag)
             return Disposables.create()

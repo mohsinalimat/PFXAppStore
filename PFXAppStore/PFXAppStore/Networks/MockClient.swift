@@ -30,7 +30,7 @@ class MockClient: ClientProtocol {
                 return Disposables.create()
             }
             
-            guard let path = Bundle.main.path(forResource: "provider_search_stub", ofType: "plist") else {
+            guard let path = Bundle.main.path(forResource: DependencyInjection.stubModel.fileName, ofType: "plist") else {
                 observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.system_invalid_stub.rawValue, userInfo: nil))
                 return Disposables.create()
             }
@@ -40,7 +40,7 @@ class MockClient: ClientProtocol {
                 return Disposables.create()
             }
             
-            guard let results = dict[DependencyInjection.key] as? String else {
+            guard let results = dict[DependencyInjection.stubModel.key] as? String else {
                 observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.system_invalid_stub.rawValue, userInfo: nil))
                 return Disposables.create()
             }

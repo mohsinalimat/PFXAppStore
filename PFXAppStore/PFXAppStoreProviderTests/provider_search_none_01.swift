@@ -29,7 +29,7 @@ class provider_search_none_01: XCTestCase {
         let expt = expectation(description: "Waiting done unit tests...")
 
         // given
-        let provider = SearchProvider()
+        let provider: SearchProviderProtocol = SearchProvider()
         let parameterDict = ["term" : "game",
                              "media" : "software",
                              "offset" : "0",

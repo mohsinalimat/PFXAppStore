@@ -22,14 +22,8 @@
 		6D016034241FACFB00C1CEC5 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016033241FACFB00C1CEC5 /* SearchState.swift */; };
 		6D01603B241FB82200C1CEC5 /* AppStoreResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */; };
 		6D01603D241FB82200C1CEC5 /* ConstEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9E241F40AA00C164E3 /* ConstEnums.swift */; };
-		6D01603E241FB82200C1CEC5 /* AppStoreStubImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC99241F3F5F00C164E3 /* AppStoreStubImageRepository.swift */; };
 		6D01603F241FB82200C1CEC5 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
 		6D016043241FB82200C1CEC5 /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */; };
-		6D016044241FB82200C1CEC5 /* AppStoreImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC95241F3F3E00C164E3 /* AppStoreImageProtocol.swift */; };
-		6D016045241FB82200C1CEC5 /* AppStoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */; };
-		6D016046241FB82200C1CEC5 /* AppStoreStubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC93241F3F1400C164E3 /* AppStoreStubRepository.swift */; };
-		6D016047241FB82200C1CEC5 /* AppStoreImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC97241F3F4B00C164E3 /* AppStoreImageRepository.swift */; };
-		6D016048241FB82200C1CEC5 /* AppStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */; };
 		6D016049241FB82200C1CEC5 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
 		6D01604A241FB82200C1CEC5 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
 		6D01604D241FB82200C1CEC5 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
@@ -38,13 +32,16 @@
 		6D016059241FBD0500C1CEC5 /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016058241FBD0500C1CEC5 /* MockClient.swift */; };
 		6D01605B241FBD1400C1CEC5 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
 		6D01605E241FBD5C00C1CEC5 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
+		6D35012124204C3A000D15C9 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
+		6D35012324204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
+		6D35012424204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
+		6D35F6172420561B00FD750D /* provider_search_false_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F6162420561B00FD750D /* provider_search_false_03.swift */; };
 		6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
 		6D629AC124203C0D002A88C9 /* provider_search_true_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */; };
 		6D629AC324203C27002A88C9 /* provider_search_true_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC224203C27002A88C9 /* provider_search_true_02.swift */; };
 		6D629AC524203C33002A88C9 /* provider_search_true_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC424203C33002A88C9 /* provider_search_true_03.swift */; };
 		6D629AC724203C54002A88C9 /* provider_search_false_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC624203C54002A88C9 /* provider_search_false_01.swift */; };
 		6D629AC924203C5F002A88C9 /* provider_search_false_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC824203C5F002A88C9 /* provider_search_false_02.swift */; };
-		6D629ACA24203D60002A88C9 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
 		6D629ACC24203DE2002A88C9 /* provider_search_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */; };
 		6D629ACD24204108002A88C9 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
 		6D629ACE2420438D002A88C9 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016031241FACE300C1CEC5 /* SearchProvider.swift */; };
@@ -57,17 +54,37 @@
 		6D629AD5242045C5002A88C9 /* provider_search_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */; };
 		6D629AEC2420497B002A88C9 /* provider_search_none_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AEB2420497B002A88C9 /* provider_search_none_01.swift */; };
 		6D65CC8B241F3DD100C164E3 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
-		6D65CC8E241F3EB700C164E3 /* AppStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */; };
-		6D65CC90241F3ED500C164E3 /* AppStoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */; };
-		6D65CC94241F3F1400C164E3 /* AppStoreStubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC93241F3F1400C164E3 /* AppStoreStubRepository.swift */; };
-		6D65CC96241F3F3E00C164E3 /* AppStoreImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC95241F3F3E00C164E3 /* AppStoreImageProtocol.swift */; };
-		6D65CC98241F3F4B00C164E3 /* AppStoreImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC97241F3F4B00C164E3 /* AppStoreImageRepository.swift */; };
-		6D65CC9A241F3F5F00C164E3 /* AppStoreStubImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC99241F3F5F00C164E3 /* AppStoreStubImageRepository.swift */; };
 		6D65CC9C241F3FA800C164E3 /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */; };
 		6D65CC9F241F40AA00C164E3 /* ConstEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9E241F40AA00C164E3 /* ConstEnums.swift */; };
 		6D65CCA2241F4BB000C164E3 /* AppStoreResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */; };
 		6D65CCA5241F4EE400C164E3 /* ObservableType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA4241F4EE400C164E3 /* ObservableType+Extension.swift */; };
 		6D65CCA8241F537500C164E3 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
+		6DC0247524204D4E00245869 /* event_search_true_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0247424204D4E00245869 /* event_search_true_01.swift */; };
+		6DC0247724204D5E00245869 /* event_search_true_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0247624204D5E00245869 /* event_search_true_02.swift */; };
+		6DC0247924204D6F00245869 /* event_search_false_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0247824204D6F00245869 /* event_search_false_01.swift */; };
+		6DC0247C24204D7800245869 /* event_search_false_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0247A24204D7800245869 /* event_search_false_02.swift */; };
+		6DC0247D24204E4600245869 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
+		6DC0247E24204E4800245869 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
+		6DC0247F24204E7000245869 /* SearchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01602F241FACBA00C1CEC5 /* SearchEvent.swift */; };
+		6DC0248024204E7000245869 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016031241FACE300C1CEC5 /* SearchProvider.swift */; };
+		6DC0248124204E7000245869 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016033241FACFB00C1CEC5 /* SearchState.swift */; };
+		6DC0248224204E8A00245869 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
+		6DC0248324204E8A00245869 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016056241FBCFA00C1CEC5 /* RestClient.swift */; };
+		6DC0248424204E8A00245869 /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016058241FBD0500C1CEC5 /* MockClient.swift */; };
+		6DC0248524204EBC00245869 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
+		6DC0248624204EBC00245869 /* ConstEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9E241F40AA00C164E3 /* ConstEnums.swift */; };
+		6DC0248724204ECD00245869 /* BaseBlocProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016025241FAC3500C1CEC5 /* BaseBlocProtocol.swift */; };
+		6DC0248824204ECD00245869 /* BaseEventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016027241FAC4600C1CEC5 /* BaseEventProtocol.swift */; };
+		6DC0248924204ECD00245869 /* BaseProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016029241FAC5A00C1CEC5 /* BaseProviderProtocol.swift */; };
+		6DC0248A24204ECD00245869 /* BaseStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01602B241FAC6C00C1CEC5 /* BaseStateProtocol.swift */; };
+		6DC0248B24204ED100245869 /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */; };
+		6DC0248C24204ED100245869 /* AppStoreResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */; };
+		6DC0248D24204EDF00245869 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
+		6DC0248F2420501E00245869 /* event_search_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DC0248E2420501E00245869 /* event_search_stub.plist */; };
+		6DC024902420501E00245869 /* event_search_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DC0248E2420501E00245869 /* event_search_stub.plist */; };
+		6DC024922420531E00245869 /* StubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC024912420531E00245869 /* StubModel.swift */; };
+		6DC024932420531E00245869 /* StubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC024912420531E00245869 /* StubModel.swift */; };
+		6DC024942420531E00245869 /* StubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC024912420531E00245869 /* StubModel.swift */; };
 		6DC83018241F0CBF00B1F3ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83017241F0CBF00B1F3ED /* AppDelegate.swift */; };
 		6DC8301C241F0CBF00B1F3ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8301B241F0CBF00B1F3ED /* FirstViewController.swift */; };
 		6DC8301E241F0CBF00B1F3ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8301D241F0CBF00B1F3ED /* SecondViewController.swift */; };
@@ -85,6 +102,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		6D016038241FB82200C1CEC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DC8300C241F0CBF00B1F3ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DC83013241F0CBF00B1F3ED;
+			remoteInfo = PFXAppStore;
+		};
+		6D35011E24204C3A000D15C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DC8300C241F0CBF00B1F3ED /* Project object */;
 			proxyType = 1;
@@ -133,7 +157,9 @@
 		6D016058241FBD0500C1CEC5 /* MockClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClient.swift; sourceTree = "<group>"; };
 		6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProtocol.swift; sourceTree = "<group>"; };
 		6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
-		6D3F1CE7241F9AD50007E551 /* PFXAppStoreRepositoryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PFXAppStoreRepositoryTests-Info.plist"; path = "/Users/pfxstudio/SourceTree/PFXStudio.github/PFXAppStore.github/PFXAppStore/PFXAppStoreRepositoryTests-Info.plist"; sourceTree = "<absolute>"; };
+		6D35012924204C3A000D15C9 /* PFXAppStoreEventTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFXAppStoreEventTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D35012A24204C3A000D15C9 /* PFXAppStoreEventTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PFXAppStoreEventTests-Info.plist"; path = "/Users/pfxstudio/SourceTree/PFXStudio.github/PFXAppStore.github/PFXAppStore/PFXAppStoreEventTests-Info.plist"; sourceTree = "<absolute>"; };
+		6D35F6162420561B00FD750D /* provider_search_false_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_false_03.swift; path = PFXAppStoreProviderTests/provider_search_false_03.swift; sourceTree = SOURCE_ROOT; };
 		6D3F1CE8241FA2050007E551 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_true_01.swift; path = PFXAppStoreProviderTests/provider_search_true_01.swift; sourceTree = SOURCE_ROOT; };
 		6D629AC224203C27002A88C9 /* provider_search_true_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_true_02.swift; path = PFXAppStoreProviderTests/provider_search_true_02.swift; sourceTree = SOURCE_ROOT; };
@@ -143,17 +169,17 @@
 		6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = provider_search_stub.plist; sourceTree = "<group>"; };
 		6D629AEB2420497B002A88C9 /* provider_search_none_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_none_01.swift; path = PFXAppStoreProviderTests/provider_search_none_01.swift; sourceTree = SOURCE_ROOT; };
 		6D65CC8A241F3DD100C164E3 /* ConstValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstValues.swift; sourceTree = "<group>"; };
-		6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreProtocol.swift; sourceTree = "<group>"; };
-		6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRepository.swift; sourceTree = "<group>"; };
-		6D65CC93241F3F1400C164E3 /* AppStoreStubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreStubRepository.swift; sourceTree = "<group>"; };
-		6D65CC95241F3F3E00C164E3 /* AppStoreImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreImageProtocol.swift; sourceTree = "<group>"; };
-		6D65CC97241F3F4B00C164E3 /* AppStoreImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreImageRepository.swift; sourceTree = "<group>"; };
-		6D65CC99241F3F5F00C164E3 /* AppStoreStubImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreStubImageRepository.swift; sourceTree = "<group>"; };
 		6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreModel.swift; sourceTree = "<group>"; };
 		6D65CC9E241F40AA00C164E3 /* ConstEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstEnums.swift; sourceTree = "<group>"; };
 		6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreResponseModel.swift; sourceTree = "<group>"; };
 		6D65CCA4241F4EE400C164E3 /* ObservableType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extension.swift"; sourceTree = "<group>"; };
 		6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRepositoryValidator.swift; sourceTree = "<group>"; };
+		6DC0247424204D4E00245869 /* event_search_true_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = event_search_true_01.swift; path = PFXAppStoreEventTests/event_search_true_01.swift; sourceTree = SOURCE_ROOT; };
+		6DC0247624204D5E00245869 /* event_search_true_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = event_search_true_02.swift; path = PFXAppStoreEventTests/event_search_true_02.swift; sourceTree = SOURCE_ROOT; };
+		6DC0247824204D6F00245869 /* event_search_false_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = event_search_false_01.swift; path = PFXAppStoreEventTests/event_search_false_01.swift; sourceTree = SOURCE_ROOT; };
+		6DC0247A24204D7800245869 /* event_search_false_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = event_search_false_02.swift; path = PFXAppStoreEventTests/event_search_false_02.swift; sourceTree = SOURCE_ROOT; };
+		6DC0248E2420501E00245869 /* event_search_stub.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = event_search_stub.plist; sourceTree = "<group>"; };
+		6DC024912420531E00245869 /* StubModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubModel.swift; sourceTree = "<group>"; };
 		6DC83014241F0CBF00B1F3ED /* PFXAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFXAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC83017241F0CBF00B1F3ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DC8301B241F0CBF00B1F3ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +209,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D01604D241FB82200C1CEC5 /* Pods_PFXAppStoreTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D35012224204C3A000D15C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D35012324204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */,
+				6D35012424204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,10 +275,12 @@
 			children = (
 				6D629AC624203C54002A88C9 /* provider_search_false_01.swift */,
 				6D629AC824203C5F002A88C9 /* provider_search_false_02.swift */,
+				6D35F6162420561B00FD750D /* provider_search_false_03.swift */,
+				6D629AEB2420497B002A88C9 /* provider_search_none_01.swift */,
+				6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */,
 				6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */,
 				6D629AC224203C27002A88C9 /* provider_search_true_02.swift */,
 				6D629AC424203C33002A88C9 /* provider_search_true_03.swift */,
-				6D629ACB24203DE2002A88C9 /* provider_search_stub.plist */,
 			);
 			path = PFXAppStoreProviderTests;
 			sourceTree = "<group>";
@@ -266,6 +303,18 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		6D35011B24204BFF000D15C9 /* PFXAppStoreEventTests */ = {
+			isa = PBXGroup;
+			children = (
+				6DC0247824204D6F00245869 /* event_search_false_01.swift */,
+				6DC0247A24204D7800245869 /* event_search_false_02.swift */,
+				6DC0248E2420501E00245869 /* event_search_stub.plist */,
+				6DC0247424204D4E00245869 /* event_search_true_01.swift */,
+				6DC0247624204D5E00245869 /* event_search_true_02.swift */,
+			);
+			path = PFXAppStoreEventTests;
+			sourceTree = "<group>";
+		};
 		6DAFDECB241F119E00D95EEF /* SearchEBSPs */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,19 +324,6 @@
 				6D016033241FACFB00C1CEC5 /* SearchState.swift */,
 			);
 			path = SearchEBSPs;
-			sourceTree = "<group>";
-		};
-		6DAFDECC241F11B800D95EEF /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				6D65CC8D241F3EB700C164E3 /* AppStoreProtocol.swift */,
-				6D65CC8F241F3ED500C164E3 /* AppStoreRepository.swift */,
-				6D65CC93241F3F1400C164E3 /* AppStoreStubRepository.swift */,
-				6D65CC95241F3F3E00C164E3 /* AppStoreImageProtocol.swift */,
-				6D65CC97241F3F4B00C164E3 /* AppStoreImageRepository.swift */,
-				6D65CC99241F3F5F00C164E3 /* AppStoreStubImageRepository.swift */,
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		6DAFDECD241F11C700D95EEF /* Views */ = {
@@ -315,6 +351,7 @@
 			children = (
 				6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */,
 				6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */,
+				6DC024912420531E00245869 /* StubModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -416,11 +453,12 @@
 				6DC83032241F0CC000B1F3ED /* PFXAppStoreTests */,
 				6DC8303D241F0CC000B1F3ED /* PFXAppStoreUITests */,
 				6D016035241FB7FA00C1CEC5 /* PFXAppStoreProviderTests */,
+				6D35011B24204BFF000D15C9 /* PFXAppStoreEventTests */,
 				6DC83015241F0CBF00B1F3ED /* Products */,
 				5AC25D4D7D25473EAFCC1B1D /* Pods */,
 				92C5BE28D7BECEE7B83E030A /* Frameworks */,
-				6D3F1CE7241F9AD50007E551 /* PFXAppStoreRepositoryTests-Info.plist */,
 				6D016054241FB82200C1CEC5 /* PFXAppStoreProviderTests-Info.plist */,
+				6D35012A24204C3A000D15C9 /* PFXAppStoreEventTests-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,6 +469,7 @@
 				6DC8302F241F0CC000B1F3ED /* PFXAppStoreTests.xctest */,
 				6DC8303A241F0CC000B1F3ED /* PFXAppStoreUITests.xctest */,
 				6D016053241FB82200C1CEC5 /* PFXAppStoreProviderTests.xctest */,
+				6D35012924204C3A000D15C9 /* PFXAppStoreEventTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -438,13 +477,12 @@
 		6DC83016241F0CBF00B1F3ED /* PFXAppStore */ = {
 			isa = PBXGroup;
 			children = (
-				6DC8302A241F0CC000B1F3ED /* Info.plist */,
-				6DAFDED3241F127800D95EEF /* Bases */,
 				6DAFDED4241F127F00D95EEF /* BaseEBSPs */,
+				6DAFDED3241F127800D95EEF /* Bases */,
 				6DAFDED1241F124F00D95EEF /* Commons */,
 				6DAFDED2241F126B00D95EEF /* Extensions */,
+				6DC8302A241F0CC000B1F3ED /* Info.plist */,
 				6DAFDECF241F11E700D95EEF /* Models */,
-				6DAFDECC241F11B800D95EEF /* Repositories */,
 				6D016055241FBCD800C1CEC5 /* Networks */,
 				6DAFDED6241F12A200D95EEF /* Resources */,
 				6DAFDECB241F119E00D95EEF /* SearchEBSPs */,
@@ -458,7 +496,6 @@
 		6DC83032241F0CC000B1F3ED /* PFXAppStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				6D629AEB2420497B002A88C9 /* provider_search_none_01.swift */,
 				6DC83035241F0CC000B1F3ED /* Info.plist */,
 				6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */,
 			);
@@ -504,6 +541,25 @@
 			name = PFXAppStoreProviderTests;
 			productName = PFXAppStoreTests;
 			productReference = 6D016053241FB82200C1CEC5 /* PFXAppStoreProviderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6D35011C24204C3A000D15C9 /* PFXAppStoreEventTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D35012624204C3A000D15C9 /* Build configuration list for PBXNativeTarget "PFXAppStoreEventTests" */;
+			buildPhases = (
+				6D35011F24204C3A000D15C9 /* [CP] Check Pods Manifest.lock */,
+				6D35012024204C3A000D15C9 /* Sources */,
+				6D35012224204C3A000D15C9 /* Frameworks */,
+				6D35012524204C3A000D15C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D35011D24204C3A000D15C9 /* PBXTargetDependency */,
+			);
+			name = PFXAppStoreEventTests;
+			productName = PFXAppStoreTests;
+			productReference = 6D35012924204C3A000D15C9 /* PFXAppStoreEventTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		6DC83013241F0CBF00B1F3ED /* PFXAppStore */ = {
@@ -606,6 +662,7 @@
 				6DC8302E241F0CC000B1F3ED /* PFXAppStoreTests */,
 				6DC83039241F0CC000B1F3ED /* PFXAppStoreUITests */,
 				6D016036241FB82200C1CEC5 /* PFXAppStoreProviderTests */,
+				6D35011C24204C3A000D15C9 /* PFXAppStoreEventTests */,
 			);
 		};
 /* End PBXProject section */
@@ -620,6 +677,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D35012524204C3A000D15C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DC024902420501E00245869 /* event_search_stub.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6DC83012241F0CBF00B1F3ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,6 +694,7 @@
 				6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */,
 				6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */,
 				6DC83026241F0CC000B1F3ED /* Assets.xcassets in Resources */,
+				6DC0248F2420501E00245869 /* event_search_stub.plist in Resources */,
 				6DC83021241F0CBF00B1F3ED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,6 +751,28 @@
 			showEnvVarsInLog = 0;
 		};
 		6D016039241FB82200C1CEC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D35011F24204C3A000D15C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -800,30 +888,55 @@
 				6D629AD024204450002A88C9 /* MockClient.swift in Sources */,
 				6D629AC324203C27002A88C9 /* provider_search_true_02.swift in Sources */,
 				6D01603B241FB82200C1CEC5 /* AppStoreResponseModel.swift in Sources */,
+				6DC024932420531E00245869 /* StubModel.swift in Sources */,
 				6D629AC124203C0D002A88C9 /* provider_search_true_01.swift in Sources */,
 				6D01603D241FB82200C1CEC5 /* ConstEnums.swift in Sources */,
-				6D01603E241FB82200C1CEC5 /* AppStoreStubImageRepository.swift in Sources */,
+				6DC0247E24204E4800245869 /* DependencyInjection.swift in Sources */,
 				6D01603F241FB82200C1CEC5 /* AppStoreRepositoryValidator.swift in Sources */,
 				6D629AC724203C54002A88C9 /* provider_search_false_01.swift in Sources */,
 				6D016043241FB82200C1CEC5 /* AppStoreModel.swift in Sources */,
 				6D629AD324204465002A88C9 /* BaseProviderProtocol.swift in Sources */,
 				6D629AD224204465002A88C9 /* BaseEventProtocol.swift in Sources */,
-				6D016044241FB82200C1CEC5 /* AppStoreImageProtocol.swift in Sources */,
-				6D016045241FB82200C1CEC5 /* AppStoreRepository.swift in Sources */,
-				6D016046241FB82200C1CEC5 /* AppStoreStubRepository.swift in Sources */,
-				6D016047241FB82200C1CEC5 /* AppStoreImageRepository.swift in Sources */,
 				6D629ACD24204108002A88C9 /* ClientProtocol.swift in Sources */,
 				6D629AD424204465002A88C9 /* BaseStateProtocol.swift in Sources */,
-				6D016048241FB82200C1CEC5 /* AppStoreProtocol.swift in Sources */,
 				6D016049241FB82200C1CEC5 /* PFXAppStoreTests.swift in Sources */,
 				6D629AEC2420497B002A88C9 /* provider_search_none_01.swift in Sources */,
-				6D629ACA24203D60002A88C9 /* DependencyInjection.swift in Sources */,
 				6D629AD124204465002A88C9 /* BaseBlocProtocol.swift in Sources */,
 				6D629ACE2420438D002A88C9 /* SearchProvider.swift in Sources */,
 				6D629AC524203C33002A88C9 /* provider_search_true_03.swift in Sources */,
+				6D35F6172420561B00FD750D /* provider_search_false_03.swift in Sources */,
 				6D01604A241FB82200C1CEC5 /* ConstValues.swift in Sources */,
 				6D629ACF24204450002A88C9 /* RestClient.swift in Sources */,
 				6D629AC924203C5F002A88C9 /* provider_search_false_02.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D35012024204C3A000D15C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DC0248424204E8A00245869 /* MockClient.swift in Sources */,
+				6DC0248824204ECD00245869 /* BaseEventProtocol.swift in Sources */,
+				6DC0248224204E8A00245869 /* ClientProtocol.swift in Sources */,
+				6DC024942420531E00245869 /* StubModel.swift in Sources */,
+				6DC0248524204EBC00245869 /* ConstValues.swift in Sources */,
+				6DC0248024204E7000245869 /* SearchProvider.swift in Sources */,
+				6DC0248624204EBC00245869 /* ConstEnums.swift in Sources */,
+				6DC0247F24204E7000245869 /* SearchEvent.swift in Sources */,
+				6DC0248D24204EDF00245869 /* AppStoreRepositoryValidator.swift in Sources */,
+				6DC0247724204D5E00245869 /* event_search_true_02.swift in Sources */,
+				6DC0248324204E8A00245869 /* RestClient.swift in Sources */,
+				6DC0248724204ECD00245869 /* BaseBlocProtocol.swift in Sources */,
+				6DC0248124204E7000245869 /* SearchState.swift in Sources */,
+				6DC0248B24204ED100245869 /* AppStoreModel.swift in Sources */,
+				6DC0248C24204ED100245869 /* AppStoreResponseModel.swift in Sources */,
+				6DC0247C24204D7800245869 /* event_search_false_02.swift in Sources */,
+				6DC0248924204ECD00245869 /* BaseProviderProtocol.swift in Sources */,
+				6DC0247D24204E4600245869 /* DependencyInjection.swift in Sources */,
+				6DC0248A24204ECD00245869 /* BaseStateProtocol.swift in Sources */,
+				6D35012124204C3A000D15C9 /* PFXAppStoreTests.swift in Sources */,
+				6DC0247524204D4E00245869 /* event_search_true_01.swift in Sources */,
+				6DC0247924204D6F00245869 /* event_search_false_01.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,14 +949,13 @@
 				6D65CCA8241F537500C164E3 /* AppStoreRepositoryValidator.swift in Sources */,
 				6D01602E241FAC8700C1CEC5 /* SearchBloc.swift in Sources */,
 				6D016020241FAB3200C1CEC5 /* BaseCellViewModel.swift in Sources */,
+				6DC024922420531E00245869 /* StubModel.swift in Sources */,
 				6D65CCA2241F4BB000C164E3 /* AppStoreResponseModel.swift in Sources */,
 				6D016032241FACE300C1CEC5 /* SearchProvider.swift in Sources */,
 				6D016030241FACBA00C1CEC5 /* SearchEvent.swift in Sources */,
 				6D65CCA5241F4EE400C164E3 /* ObservableType+Extension.swift in Sources */,
 				6DC8301E241F0CBF00B1F3ED /* SecondViewController.swift in Sources */,
 				6DC8301C241F0CBF00B1F3ED /* FirstViewController.swift in Sources */,
-				6D65CC94241F3F1400C164E3 /* AppStoreStubRepository.swift in Sources */,
-				6D65CC98241F3F4B00C164E3 /* AppStoreImageRepository.swift in Sources */,
 				6D01602C241FAC6C00C1CEC5 /* BaseStateProtocol.swift in Sources */,
 				6D016024241FABA600C1CEC5 /* String+Extension.swift in Sources */,
 				6D65CC8B241F3DD100C164E3 /* ConstValues.swift in Sources */,
@@ -851,16 +963,12 @@
 				6DC83018241F0CBF00B1F3ED /* AppDelegate.swift in Sources */,
 				6D016028241FAC4600C1CEC5 /* BaseEventProtocol.swift in Sources */,
 				6DC83024241F0CBF00B1F3ED /* PFXAppStore.xcdatamodeld in Sources */,
-				6D65CC9A241F3F5F00C164E3 /* AppStoreStubImageRepository.swift in Sources */,
 				6D01601E241FAB1C00C1CEC5 /* BaseCell.swift in Sources */,
 				6D01605E241FBD5C00C1CEC5 /* DependencyInjection.swift in Sources */,
-				6D65CC90241F3ED500C164E3 /* AppStoreRepository.swift in Sources */,
 				6D016022241FAB8400C1CEC5 /* BaseSectionTableViewModel.swift in Sources */,
 				6D65CC9C241F3FA800C164E3 /* AppStoreModel.swift in Sources */,
 				6D01602A241FAC5A00C1CEC5 /* BaseProviderProtocol.swift in Sources */,
 				6D016026241FAC3500C1CEC5 /* BaseBlocProtocol.swift in Sources */,
-				6D65CC96241F3F3E00C164E3 /* AppStoreImageProtocol.swift in Sources */,
-				6D65CC8E241F3EB700C164E3 /* AppStoreProtocol.swift in Sources */,
 				6D65CC9F241F40AA00C164E3 /* ConstEnums.swift in Sources */,
 				6D016034241FACFB00C1CEC5 /* SearchState.swift in Sources */,
 			);
@@ -889,6 +997,11 @@
 			isa = PBXTargetDependency;
 			target = 6DC83013241F0CBF00B1F3ED /* PFXAppStore */;
 			targetProxy = 6D016038241FB82200C1CEC5 /* PBXContainerItemProxy */;
+		};
+		6D35011D24204C3A000D15C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DC83013241F0CBF00B1F3ED /* PFXAppStore */;
+			targetProxy = 6D35011E24204C3A000D15C9 /* PBXContainerItemProxy */;
 		};
 		6DC83031241F0CC000B1F3ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -963,6 +1076,50 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "PFXAppStoreProviderTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pfxstudio.PFXAppStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFXAppStore.app/PFXAppStore";
+			};
+			name = Release;
+		};
+		6D35012724204C3A000D15C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EB2EE4429F16D7920EDAAB6 /* Pods-PFXAppStoreTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "PFXAppStoreEventTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pfxstudio.PFXAppStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PFXAppStore.app/PFXAppStore";
+			};
+			name = Debug;
+		};
+		6D35012824204C3A000D15C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC9015D0E30CC425A05E8D74 /* Pods-PFXAppStoreTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "PFXAppStoreEventTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1227,6 +1384,15 @@
 			buildConfigurations = (
 				6D016051241FB82200C1CEC5 /* Debug */,
 				6D016052241FB82200C1CEC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D35012624204C3A000D15C9 /* Build configuration list for PBXNativeTarget "PFXAppStoreEventTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D35012724204C3A000D15C9 /* Debug */,
+				6D35012824204C3A000D15C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

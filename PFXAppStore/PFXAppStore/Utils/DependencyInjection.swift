@@ -11,7 +11,7 @@ import Foundation
 class DependencyInjection {
     static let shared = DependencyInjection()
     static var clientType = ClientType.rest
-    static var key = ""
+    static var stubModel = StubModel()
     
     func currentClient() -> ClientProtocol {
         if DependencyInjection.clientType == ClientType.mock {

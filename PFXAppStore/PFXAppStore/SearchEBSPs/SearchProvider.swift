@@ -41,7 +41,7 @@ class SearchProvider: SearchProviderProtocol {
                         single(.success(responseModel))
                     }
                     catch {
-                        single(.error(error))
+                        single(.error(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_parse.rawValue, userInfo: nil)))
                     }
                 }, onError: { error in
                     single(.error(error))

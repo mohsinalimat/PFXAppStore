@@ -1,5 +1,5 @@
 //
-//  provider_search_false_01.swift
+//  provider_search_false_03.swift
 //  PFXAppStoreProviderTests
 //
 //  Created by PFXStudio on 2020/03/17.
@@ -9,8 +9,8 @@
 import XCTest
 import RxSwift
 
-class provider_search_false_01: XCTestCase {
-    // offset is string
+class provider_search_false_03: XCTestCase {
+    // invalid parse error
     var disposeBag = DisposeBag()
     let timeout = TimeInterval(10)
 
@@ -34,7 +34,7 @@ class provider_search_false_01: XCTestCase {
         let provider: SearchProviderProtocol = SearchProvider()
         let parameterDict = ["term" : "game",
                              "media" : "software",
-                             "offset" : "start",
+                             "offset" : "0",
                              "limit" : String(ConstNumbers.maxLoadLimit)]
 
         // when
@@ -43,7 +43,7 @@ class provider_search_false_01: XCTestCase {
                 XCTAssertTrue(false)
                 expt.fulfill()
             }) { error in
-                XCTAssertTrue((error as NSError).code == PBError.network_invalid_parameter.rawValue)
+                XCTAssertTrue((error as NSError).code == PBError.network_invalid_parse.rawValue)
                 expt.fulfill()
         }
         .disposed(by: self.disposeBag)
