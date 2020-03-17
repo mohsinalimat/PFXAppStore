@@ -36,7 +36,10 @@ public enum PBError: Int {
         case Self.network_invalid_parameter.rawValue: return "network_invalid_parameter"
         case Self.network_invalid_status.rawValue: return "network_invalid_status"
         case Self.network_invalid_parse.rawValue: return "network_invalid_parse"
+        case Self.coredata_invalid_initialize.rawValue: return "coredata_invalid_initialize"
+        case Self.coredata_invalid_entity.rawValue: return "coredata_invalid_entity"
         case Self.system_deallocated.rawValue: return "system_deallocated"
+        case Self.system_invalid_stub.rawValue: return "system_invalid_stub"
         default:
             return "unknown_code"
         }

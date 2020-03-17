@@ -64,6 +64,7 @@ class CoreDataHelper {
             return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
         }
         
+        self.managedObjectContext.saveContextWithoutErrorHandling()
         return nil
     }
     
@@ -82,6 +83,8 @@ class CoreDataHelper {
             return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
         }
     
+        self.managedObjectContext.saveContextWithoutErrorHandling()
         return nil
     }
 }
+
