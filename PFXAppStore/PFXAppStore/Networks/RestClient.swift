@@ -11,9 +11,14 @@ import RxSwift
 
 class RestClient: ClientProtocol {
     private var urlSession = URLSession(configuration: .default)
-
+    
     func request(targetPath: String, parameterDict: [String : String]) -> Observable<Data> {
-        return Observable.create { observer in
+        return Observable.create { [weak self] observer in
+            guard let self = self else {
+                observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.system_deallocated.rawValue, userInfo: nil))
+                return Disposables.create()
+            }
+            
             guard var components = URLComponents(string: targetPath) else {
                 observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_url.rawValue, userInfo: nil))
                 return Disposables.create()
@@ -48,6 +53,32 @@ class RestClient: ClientProtocol {
                 observer.onCompleted()
             }
             task.resume()
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+    
+    func imageDownload(targetPath: String)  -> Observable<NSData> {
+        return Observable.create { observer in
+            if let cacheData = CacheHelper.shared.imageDatas.object(forKey: targetPath as NSString) {
+                observer.onNext(cacheData)
+                return Disposables.create()
+            }
+            guard let url = URL(string: targetPath) else {
+                observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_url.rawValue, userInfo: nil))
+                return Disposables.create()
+            }
+            
+            let task = self.urlSession.dataTask(with: url) { data, response, error in
+                guard let data = data as NSData? else {
+                    observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_response_data.rawValue, userInfo: nil))
+                    return
+                }
+
+                CacheHelper.shared.imageDatas.setObject(data, forKey: targetPath as NSString)
+            }
+            
             return Disposables.create {
                 task.cancel()
             }

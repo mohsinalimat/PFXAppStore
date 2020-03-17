@@ -36,6 +36,10 @@
 		6D35012324204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6D35012424204C3A000D15C9 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6D35F6172420561B00FD750D /* provider_search_false_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F6162420561B00FD750D /* provider_search_false_03.swift */; };
+		6D35F61A24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
+		6D35F61B24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
+		6D35F61C24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
+		6D35F61E24205E0400FD750D /* provider_search_image_none_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61D24205E0400FD750D /* provider_search_image_none_01.swift */; };
 		6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
 		6D629AC124203C0D002A88C9 /* provider_search_true_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */; };
 		6D629AC324203C27002A88C9 /* provider_search_true_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D629AC224203C27002A88C9 /* provider_search_true_02.swift */; };
@@ -160,6 +164,8 @@
 		6D35012924204C3A000D15C9 /* PFXAppStoreEventTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFXAppStoreEventTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D35012A24204C3A000D15C9 /* PFXAppStoreEventTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PFXAppStoreEventTests-Info.plist"; path = "/Users/pfxstudio/SourceTree/PFXStudio.github/PFXAppStore.github/PFXAppStore/PFXAppStoreEventTests-Info.plist"; sourceTree = "<absolute>"; };
 		6D35F6162420561B00FD750D /* provider_search_false_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_false_03.swift; path = PFXAppStoreProviderTests/provider_search_false_03.swift; sourceTree = SOURCE_ROOT; };
+		6D35F61924205CCE00FD750D /* CacheHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheHelper.swift; sourceTree = "<group>"; };
+		6D35F61D24205E0400FD750D /* provider_search_image_none_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_image_none_01.swift; path = PFXAppStoreProviderTests/provider_search_image_none_01.swift; sourceTree = SOURCE_ROOT; };
 		6D3F1CE8241FA2050007E551 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6D629AC024203C0D002A88C9 /* provider_search_true_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_true_01.swift; path = PFXAppStoreProviderTests/provider_search_true_01.swift; sourceTree = SOURCE_ROOT; };
 		6D629AC224203C27002A88C9 /* provider_search_true_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = provider_search_true_02.swift; path = PFXAppStoreProviderTests/provider_search_true_02.swift; sourceTree = SOURCE_ROOT; };
@@ -313,6 +319,14 @@
 				6DC0247624204D5E00245869 /* event_search_true_02.swift */,
 			);
 			path = PFXAppStoreEventTests;
+			sourceTree = "<group>";
+		};
+		6D35F61824205CB600FD750D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6D35F61924205CCE00FD750D /* CacheHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		6DAFDECB241F119E00D95EEF /* SearchEBSPs */ = {
@@ -481,6 +495,7 @@
 				6DAFDED3241F127800D95EEF /* Bases */,
 				6DAFDED1241F124F00D95EEF /* Commons */,
 				6DAFDED2241F126B00D95EEF /* Extensions */,
+				6D35F61824205CB600FD750D /* Helpers */,
 				6DC8302A241F0CC000B1F3ED /* Info.plist */,
 				6DAFDECF241F11E700D95EEF /* Models */,
 				6D016055241FBCD800C1CEC5 /* Networks */,
@@ -496,6 +511,7 @@
 		6DC83032241F0CC000B1F3ED /* PFXAppStoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				6D35F61D24205E0400FD750D /* provider_search_image_none_01.swift */,
 				6DC83035241F0CC000B1F3ED /* Info.plist */,
 				6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */,
 			);
@@ -893,6 +909,7 @@
 				6D01603D241FB82200C1CEC5 /* ConstEnums.swift in Sources */,
 				6DC0247E24204E4800245869 /* DependencyInjection.swift in Sources */,
 				6D01603F241FB82200C1CEC5 /* AppStoreRepositoryValidator.swift in Sources */,
+				6D35F61B24205CCE00FD750D /* CacheHelper.swift in Sources */,
 				6D629AC724203C54002A88C9 /* provider_search_false_01.swift in Sources */,
 				6D016043241FB82200C1CEC5 /* AppStoreModel.swift in Sources */,
 				6D629AD324204465002A88C9 /* BaseProviderProtocol.swift in Sources */,
@@ -902,6 +919,7 @@
 				6D016049241FB82200C1CEC5 /* PFXAppStoreTests.swift in Sources */,
 				6D629AEC2420497B002A88C9 /* provider_search_none_01.swift in Sources */,
 				6D629AD124204465002A88C9 /* BaseBlocProtocol.swift in Sources */,
+				6D35F61E24205E0400FD750D /* provider_search_image_none_01.swift in Sources */,
 				6D629ACE2420438D002A88C9 /* SearchProvider.swift in Sources */,
 				6D629AC524203C33002A88C9 /* provider_search_true_03.swift in Sources */,
 				6D35F6172420561B00FD750D /* provider_search_false_03.swift in Sources */,
@@ -929,6 +947,7 @@
 				6DC0248724204ECD00245869 /* BaseBlocProtocol.swift in Sources */,
 				6DC0248124204E7000245869 /* SearchState.swift in Sources */,
 				6DC0248B24204ED100245869 /* AppStoreModel.swift in Sources */,
+				6D35F61C24205CCE00FD750D /* CacheHelper.swift in Sources */,
 				6DC0248C24204ED100245869 /* AppStoreResponseModel.swift in Sources */,
 				6DC0247C24204D7800245869 /* event_search_false_02.swift in Sources */,
 				6DC0248924204ECD00245869 /* BaseProviderProtocol.swift in Sources */,
@@ -968,6 +987,7 @@
 				6D016022241FAB8400C1CEC5 /* BaseSectionTableViewModel.swift in Sources */,
 				6D65CC9C241F3FA800C164E3 /* AppStoreModel.swift in Sources */,
 				6D01602A241FAC5A00C1CEC5 /* BaseProviderProtocol.swift in Sources */,
+				6D35F61A24205CCE00FD750D /* CacheHelper.swift in Sources */,
 				6D016026241FAC3500C1CEC5 /* BaseBlocProtocol.swift in Sources */,
 				6D65CC9F241F40AA00C164E3 /* ConstEnums.swift in Sources */,
 				6D016034241FACFB00C1CEC5 /* SearchState.swift in Sources */,
