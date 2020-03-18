@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02F8466ADE9EEE3995E2BE8D /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
+		02F8466ADE9EEE3995E2BE8D /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		29CB2FEEECFC7603647CAAF9 /* Pods_PFXAppStoreProviderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F38DFD43B9E134105FC569 /* Pods_PFXAppStoreProviderTests.framework */; };
 		6D016019241FAA9200C1CEC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D01601B241FAA9200C1CEC5 /* Localizable.strings */; };
 		6D01601E241FAB1C00C1CEC5 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01601D241FAB1C00C1CEC5 /* BaseCell.swift */; };
@@ -37,11 +37,12 @@
 		6D35F61A24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
 		6D35F61B24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
 		6D35F61C24205CCE00FD750D /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
+		6D38ADEE24222DF8001003D8 /* SearchDynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38ADED24222DF8001003D8 /* SearchDynamicTableViewController.swift */; };
+		6D38ADF92422469D001003D8 /* SearchHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38ADF82422469D001003D8 /* SearchHistoryCellViewModel.swift */; };
+		6D38ADFB24224E66001003D8 /* SearchAppStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38ADFA24224E66001003D8 /* SearchAppStoreCell.swift */; };
+		6D38ADFD24224E9D001003D8 /* SearchAppStoreCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38ADFC24224E9D001003D8 /* SearchAppStoreCellViewModel.swift */; };
 		6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
 		6D48DEB624218DA4000C8B13 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
-		6D48DEB824218DA4000C8B13 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
-		6D48DEB924218DA4000C8B13 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
-		6D48DEBA24218DA4000C8B13 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6D48DEC324218E75000C8B13 /* PFXAppStoreBlocTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D48DEC224218E75000C8B13 /* PFXAppStoreBlocTests-Info.plist */; };
 		6D48DEC524218F10000C8B13 /* PFXAppStoreCoreDataTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D48DEC424218F10000C8B13 /* PFXAppStoreCoreDataTests-Info.plist */; };
 		6D48DEC724218F1F000C8B13 /* PFXAppStoreEventTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D48DEC624218F1F000C8B13 /* PFXAppStoreEventTests-Info.plist */; };
@@ -79,6 +80,7 @@
 		6D48DEF1242192E2000C8B13 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016033241FACFB00C1CEC5 /* SearchState.swift */; };
 		6D48DEF2242192E5000C8B13 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
 		6D48DEF3242192E9000C8B13 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
+		6D48DEF824219C9D000C8B13 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D48DEF724219C9D000C8B13 /* SearchTableViewController.swift */; };
 		6D629ACC24203DE2002A88C9 /* provider_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D629ACB24203DE2002A88C9 /* provider_stub.plist */; };
 		6D629ACD24204108002A88C9 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
 		6D629ACE2420438D002A88C9 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016031241FACE300C1CEC5 /* SearchProvider.swift */; };
@@ -95,6 +97,9 @@
 		6D65CCA2241F4BB000C164E3 /* AppStoreResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */; };
 		6D65CCA5241F4EE400C164E3 /* ObservableType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA4241F4EE400C164E3 /* ObservableType+Extension.swift */; };
 		6D65CCA8241F537500C164E3 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
+		6D660EC22421FDBB00C76B45 /* stub_words.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D660EC12421FDBB00C76B45 /* stub_words.json */; };
+		6D660EC4242205A400C76B45 /* SearchTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D660EC3242205A400C76B45 /* SearchTableViewModel.swift */; };
+		6D660EC724220EF700C76B45 /* SearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D660EC624220EF700C76B45 /* SearchHistoryCell.swift */; };
 		6D74D5552420C04100F8D3D6 /* coredata_delete_true_t4_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74D5542420C04100F8D3D6 /* coredata_delete_true_t4_1.swift */; };
 		6D74D5572420C04C00F8D3D6 /* coredata_delete_true_t4_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74D5562420C04C00F8D3D6 /* coredata_delete_true_t4_2.swift */; };
 		6D74D5592420C05300F8D3D6 /* coredata_delete_true_t4_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74D5582420C05300F8D3D6 /* coredata_delete_true_t4_3.swift */; };
@@ -141,9 +146,7 @@
 		6DC2CAAE2420C68300A8DC5C /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2CAAD2420C68300A8DC5C /* NSManagedObjectContext+Extension.swift */; };
 		6DC2CAAF2420C68300A8DC5C /* NSManagedObjectContext+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2CAAD2420C68300A8DC5C /* NSManagedObjectContext+Extension.swift */; };
 		6DC83018241F0CBF00B1F3ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83017241F0CBF00B1F3ED /* AppDelegate.swift */; };
-		6DC8301C241F0CBF00B1F3ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8301B241F0CBF00B1F3ED /* FirstViewController.swift */; };
-		6DC8301E241F0CBF00B1F3ED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8301D241F0CBF00B1F3ED /* SecondViewController.swift */; };
-		6DC83021241F0CBF00B1F3ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DC8301F241F0CBF00B1F3ED /* Main.storyboard */; };
+		6DC83021241F0CBF00B1F3ED /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DC8301F241F0CBF00B1F3ED /* Search.storyboard */; };
 		6DC83024241F0CBF00B1F3ED /* PFXAppStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83022241F0CBF00B1F3ED /* PFXAppStore.xcdatamodeld */; };
 		6DC83026241F0CC000B1F3ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DC83025241F0CC000B1F3ED /* Assets.xcassets */; };
 		6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DC83027241F0CC000B1F3ED /* LaunchScreen.storyboard */; };
@@ -166,9 +169,6 @@
 		6DFA814A2420996900E71181 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA81492420996900E71181 /* CoreDataHelper.swift */; };
 		6DFA815724209ACB00E71181 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA815624209ACB00E71181 /* HistoryModel.swift */; };
 		6DFA816624209DDC00E71181 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
-		6DFA816824209DDC00E71181 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
-		6DFA816924209DDC00E71181 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
-		6DFA816A24209DDC00E71181 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
 		6DFA81732420A4F900E71181 /* coredata_update_true_t1_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA81722420A4F900E71181 /* coredata_update_true_t1_1.swift */; };
 		6DFA81752420A50700E71181 /* coredata_update_true_t1_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA81742420A50700E71181 /* coredata_update_true_t1_2.swift */; };
 		6DFA81772420A51100E71181 /* coredata_update_true_t1_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA81762420A51100E71181 /* coredata_update_true_t1_3.swift */; };
@@ -187,10 +187,13 @@
 		6DFA818E2420ABA200E71181 /* ConstValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC8A241F3DD100C164E3 /* ConstValues.swift */; };
 		6DFA818F2420ABA200E71181 /* ConstEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CC9E241F40AA00C164E3 /* ConstEnums.swift */; };
 		6DFA81902420AC3D00E71181 /* PFXAppStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83022241F0CBF00B1F3ED /* PFXAppStore.xcdatamodeld */; };
-		6F8F17EE41D66167BC6641FA /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
+		6F8F17EE41D66167BC6641FA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		7154C0AF7FF092192B07C8CC /* Pods_PFXAppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9ED6CA1EF0DB2A196DB52E /* Pods_PFXAppStore.framework */; };
+		7BCA9216B7ED816563EE0045 /* Pods_PFXAppStoreBlocTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836223A367FD8909F78CC1E1 /* Pods_PFXAppStoreBlocTests.framework */; };
+		AAA1794A3FED71CD8DD50CE8 /* Pods_PFXAppStoreCoreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328AE6788BAFA242E3585C91 /* Pods_PFXAppStoreCoreDataTests.framework */; };
+		D2FD83408E6398660A1A70B5 /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D4018E10166CBFFBD207FD /* Pods_PFXAppStoreTests.framework */; };
 		D69C17A30CEB8BC324C3B16D /* Pods_PFXAppStore_PFXAppStoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D61F7ED1DF3E9F4E169EDDA1 /* Pods_PFXAppStore_PFXAppStoreUITests.framework */; };
-		EAD166FC063E3B03641B49FF /* Pods_PFXAppStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */; };
+		EAD166FC063E3B03641B49FF /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		FFFC7B9476DD662EEF914B60 /* Pods_PFXAppStoreEventTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4845B7F5D91B4E6A674C63D /* Pods_PFXAppStoreEventTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -240,11 +243,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11D4018E10166CBFFBD207FD /* Pods_PFXAppStoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF4F2B6CD48D5B5D83CDC78 /* Pods-PFXAppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStore/Pods-PFXAppStore.release.xcconfig"; sourceTree = "<group>"; };
+		328AE6788BAFA242E3585C91 /* Pods_PFXAppStoreCoreDataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreCoreDataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32CD69A587F000E40C4F5D71 /* Pods-PFXAppStoreCoreDataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreCoreDataTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreCoreDataTests/Pods-PFXAppStoreCoreDataTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3A7E5F6E4AFF5C4FE4AF1B64 /* Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStore-PFXAppStoreUITests/Pods-PFXAppStore-PFXAppStoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		49F38DFD43B9E134105FC569 /* Pods_PFXAppStoreProviderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreProviderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D016012241FA92100C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		6D016013241FA92100C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		6D016013241FA92100C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Search.strings; sourceTree = "<group>"; };
 		6D01601A241FAA9200C1CEC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D01601C241FAA9400C1CEC5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6D01601D241FAB1C00C1CEC5 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
@@ -266,6 +272,10 @@
 		6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
 		6D35012924204C3A000D15C9 /* PFXAppStoreEventTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFXAppStoreEventTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D35F61924205CCE00FD750D /* CacheHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheHelper.swift; sourceTree = "<group>"; };
+		6D38ADED24222DF8001003D8 /* SearchDynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDynamicTableViewController.swift; sourceTree = "<group>"; };
+		6D38ADF82422469D001003D8 /* SearchHistoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCellViewModel.swift; sourceTree = "<group>"; };
+		6D38ADFA24224E66001003D8 /* SearchAppStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppStoreCell.swift; sourceTree = "<group>"; };
+		6D38ADFC24224E9D001003D8 /* SearchAppStoreCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppStoreCellViewModel.swift; sourceTree = "<group>"; };
 		6D3F1CE8241FA2050007E551 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6D48DEBF24218DA4000C8B13 /* PFXAppStoreBlocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFXAppStoreBlocTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D48DEC224218E75000C8B13 /* PFXAppStoreBlocTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PFXAppStoreBlocTests-Info.plist"; sourceTree = "<group>"; };
@@ -281,6 +291,7 @@
 		6D48DED6242191CC000C8B13 /* image_bloc_false_t4_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_bloc_false_t4_1.swift; path = PFXAppStoreBlocTests/image_bloc_false_t4_1.swift; sourceTree = SOURCE_ROOT; };
 		6D48DED8242191D8000C8B13 /* image_bloc_none_t5_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_bloc_none_t5_1.swift; path = PFXAppStoreBlocTests/image_bloc_none_t5_1.swift; sourceTree = SOURCE_ROOT; };
 		6D48DEDA2421920B000C8B13 /* bloc_stub.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bloc_stub.plist; sourceTree = "<group>"; };
+		6D48DEF724219C9D000C8B13 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		6D629ACB24203DE2002A88C9 /* provider_stub.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = provider_stub.plist; sourceTree = "<group>"; };
 		6D65CC8A241F3DD100C164E3 /* ConstValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstValues.swift; sourceTree = "<group>"; };
 		6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreModel.swift; sourceTree = "<group>"; };
@@ -288,6 +299,9 @@
 		6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreResponseModel.swift; sourceTree = "<group>"; };
 		6D65CCA4241F4EE400C164E3 /* ObservableType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extension.swift"; sourceTree = "<group>"; };
 		6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRepositoryValidator.swift; sourceTree = "<group>"; };
+		6D660EC12421FDBB00C76B45 /* stub_words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stub_words.json; sourceTree = "<group>"; };
+		6D660EC3242205A400C76B45 /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
+		6D660EC624220EF700C76B45 /* SearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCell.swift; sourceTree = "<group>"; };
 		6D74D5542420C04100F8D3D6 /* coredata_delete_true_t4_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_delete_true_t4_1.swift; sourceTree = "<group>"; };
 		6D74D5562420C04C00F8D3D6 /* coredata_delete_true_t4_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_delete_true_t4_2.swift; sourceTree = "<group>"; };
 		6D74D5582420C05300F8D3D6 /* coredata_delete_true_t4_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_delete_true_t4_3.swift; sourceTree = "<group>"; };
@@ -314,9 +328,7 @@
 		6DC2CAAD2420C68300A8DC5C /* NSManagedObjectContext+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Extension.swift"; sourceTree = "<group>"; };
 		6DC83014241F0CBF00B1F3ED /* PFXAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PFXAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC83017241F0CBF00B1F3ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6DC8301B241F0CBF00B1F3ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		6DC8301D241F0CBF00B1F3ED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		6DC83020241F0CBF00B1F3ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DC83020241F0CBF00B1F3ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		6DC83023241F0CBF00B1F3ED /* PFXAppStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PFXAppStore.xcdatamodel; sourceTree = "<group>"; };
 		6DC83025241F0CC000B1F3ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DC83028241F0CC000B1F3ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -354,11 +366,14 @@
 		6DFA81882420A59300E71181 /* coredata_update_false_t6_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = coredata_update_false_t6_1.swift; path = PFXAppStoreCoreDataTests/coredata_update_false_t6_1.swift; sourceTree = SOURCE_ROOT; };
 		6DFA818A2420A59F00E71181 /* coredata_update_false_t6_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = coredata_update_false_t6_2.swift; path = PFXAppStoreCoreDataTests/coredata_update_false_t6_2.swift; sourceTree = SOURCE_ROOT; };
 		7B8A6829F713FBEEE66CA956 /* Pods-PFXAppStoreProviderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreProviderTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreProviderTests/Pods-PFXAppStoreProviderTests.release.xcconfig"; sourceTree = "<group>"; };
+		836223A367FD8909F78CC1E1 /* Pods_PFXAppStoreBlocTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreBlocTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90501831FE2D2A1DF377B771 /* Pods-PFXAppStoreCoreDataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreCoreDataTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreCoreDataTests/Pods-PFXAppStoreCoreDataTests.release.xcconfig"; sourceTree = "<group>"; };
 		AB9ED6CA1EF0DB2A196DB52E /* Pods_PFXAppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE675F11ECC2E0940849D64C /* Pods-PFXAppStore-PFXAppStoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStore-PFXAppStoreUITests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStore-PFXAppStoreUITests/Pods-PFXAppStore-PFXAppStoreUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B5E7491CBE963EADA40066 /* Pods-PFXAppStoreProviderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreProviderTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreProviderTests/Pods-PFXAppStoreProviderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5AA76B9C45004CF34E8F15B /* Pods-PFXAppStoreBlocTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreBlocTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreBlocTests/Pods-PFXAppStoreBlocTests.release.xcconfig"; sourceTree = "<group>"; };
 		CB1CE53C4B50295C5254E870 /* Pods-PFXAppStoreEventTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreEventTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreEventTests/Pods-PFXAppStoreEventTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D20C06ADD3B17A6F1C912B17 /* Pods-PFXAppStoreBlocTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreBlocTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreBlocTests/Pods-PFXAppStoreBlocTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D61F7ED1DF3E9F4E169EDDA1 /* Pods_PFXAppStore_PFXAppStoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PFXAppStore_PFXAppStoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3E98FE01634163896FE7BF /* Pods-PFXAppStoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreTests.debug.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreTests/Pods-PFXAppStoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE583A17B5A03DF9FD6B2547 /* Pods-PFXAppStoreEventTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PFXAppStoreEventTests.release.xcconfig"; path = "Target Support Files/Pods-PFXAppStoreEventTests/Pods-PFXAppStoreEventTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -388,9 +403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D48DEB824218DA4000C8B13 /* Pods_PFXAppStoreTests.framework in Frameworks */,
-				6D48DEB924218DA4000C8B13 /* Pods_PFXAppStoreTests.framework in Frameworks */,
-				6D48DEBA24218DA4000C8B13 /* Pods_PFXAppStoreTests.framework in Frameworks */,
+				7BCA9216B7ED816563EE0045 /* Pods_PFXAppStoreBlocTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,9 +419,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAD166FC063E3B03641B49FF /* Pods_PFXAppStoreTests.framework in Frameworks */,
-				6F8F17EE41D66167BC6641FA /* Pods_PFXAppStoreTests.framework in Frameworks */,
-				02F8466ADE9EEE3995E2BE8D /* Pods_PFXAppStoreTests.framework in Frameworks */,
+				EAD166FC063E3B03641B49FF /* (null) in Frameworks */,
+				6F8F17EE41D66167BC6641FA /* (null) in Frameworks */,
+				02F8466ADE9EEE3995E2BE8D /* (null) in Frameworks */,
+				D2FD83408E6398660A1A70B5 /* Pods_PFXAppStoreTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,9 +438,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DFA816824209DDC00E71181 /* Pods_PFXAppStoreTests.framework in Frameworks */,
-				6DFA816924209DDC00E71181 /* Pods_PFXAppStoreTests.framework in Frameworks */,
-				6DFA816A24209DDC00E71181 /* Pods_PFXAppStoreTests.framework in Frameworks */,
+				AAA1794A3FED71CD8DD50CE8 /* Pods_PFXAppStoreCoreDataTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +458,10 @@
 				DE583A17B5A03DF9FD6B2547 /* Pods-PFXAppStoreEventTests.release.xcconfig */,
 				B2B5E7491CBE963EADA40066 /* Pods-PFXAppStoreProviderTests.debug.xcconfig */,
 				7B8A6829F713FBEEE66CA956 /* Pods-PFXAppStoreProviderTests.release.xcconfig */,
+				D20C06ADD3B17A6F1C912B17 /* Pods-PFXAppStoreBlocTests.debug.xcconfig */,
+				C5AA76B9C45004CF34E8F15B /* Pods-PFXAppStoreBlocTests.release.xcconfig */,
+				32CD69A587F000E40C4F5D71 /* Pods-PFXAppStoreCoreDataTests.debug.xcconfig */,
+				90501831FE2D2A1DF377B771 /* Pods-PFXAppStoreCoreDataTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -542,6 +558,14 @@
 			path = PFXAppStoreBlocTests;
 			sourceTree = "<group>";
 		};
+		6D660EBE2421FD6700C76B45 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				6D660EC12421FDBB00C76B45 /* stub_words.json */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
 		6DAFDECB241F119E00D95EEF /* SearchEBSPs */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,10 +589,12 @@
 		6DAFDECE241F11DB00D95EEF /* SearchViews */ = {
 			isa = PBXGroup;
 			children = (
-				6DAFDED0241F11EE00D95EEF /* ViewModels */,
-				6DC8301F241F0CBF00B1F3ED /* Main.storyboard */,
-				6DC8301B241F0CBF00B1F3ED /* FirstViewController.swift */,
-				6DC8301D241F0CBF00B1F3ED /* SecondViewController.swift */,
+				6DAFDED0241F11EE00D95EEF /* `ViewModels */,
+				6DC8301F241F0CBF00B1F3ED /* Search.storyboard */,
+				6D38ADFA24224E66001003D8 /* SearchAppStoreCell.swift */,
+				6D660EC624220EF700C76B45 /* SearchHistoryCell.swift */,
+				6D38ADED24222DF8001003D8 /* SearchDynamicTableViewController.swift */,
+				6D48DEF724219C9D000C8B13 /* SearchTableViewController.swift */,
 			);
 			path = SearchViews;
 			sourceTree = "<group>";
@@ -584,11 +610,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6DAFDED0241F11EE00D95EEF /* ViewModels */ = {
+		6DAFDED0241F11EE00D95EEF /* `ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6D660EC3242205A400C76B45 /* SearchTableViewModel.swift */,
+				6D38ADF82422469D001003D8 /* SearchHistoryCellViewModel.swift */,
+				6D38ADFC24224E9D001003D8 /* SearchAppStoreCellViewModel.swift */,
 			);
-			path = ViewModels;
+			path = "`ViewModels";
 			sourceTree = "<group>";
 		};
 		6DAFDED1241F124F00D95EEF /* Commons */ = {
@@ -643,19 +672,20 @@
 		6DAFDED6241F12A200D95EEF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6D660EBE2421FD6700C76B45 /* Files */,
 				6DAFDED8241F14A000D95EEF /* DBs */,
-				6DAFDED7241F12A900D95EEF /* Images */,
+				6DAFDED7241F12A900D95EEF /* Assets */,
 				6D016016241FAA5D00C1CEC5 /* Strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		6DAFDED7241F12A900D95EEF /* Images */ = {
+		6DAFDED7241F12A900D95EEF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				6DC83025241F0CC000B1F3ED /* Assets.xcassets */,
 			);
-			path = Images;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		6DAFDED8241F14A000D95EEF /* DBs */ = {
@@ -786,9 +816,11 @@
 			children = (
 				AB9ED6CA1EF0DB2A196DB52E /* Pods_PFXAppStore.framework */,
 				D61F7ED1DF3E9F4E169EDDA1 /* Pods_PFXAppStore_PFXAppStoreUITests.framework */,
-				B1A55C2F5BC12FB23052FAA9 /* Pods_PFXAppStoreTests.framework */,
 				E4845B7F5D91B4E6A674C63D /* Pods_PFXAppStoreEventTests.framework */,
 				49F38DFD43B9E134105FC569 /* Pods_PFXAppStoreProviderTests.framework */,
+				836223A367FD8909F78CC1E1 /* Pods_PFXAppStoreBlocTests.framework */,
+				328AE6788BAFA242E3585C91 /* Pods_PFXAppStoreCoreDataTests.framework */,
+				11D4018E10166CBFFBD207FD /* Pods_PFXAppStoreTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1017,9 +1049,10 @@
 				6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */,
 				6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */,
 				6DC83026241F0CC000B1F3ED /* Assets.xcassets in Resources */,
+				6D660EC22421FDBB00C76B45 /* stub_words.json in Resources */,
 				6DC0248F2420501E00245869 /* event_stub.plist in Resources */,
 				6D48DEDB2421920B000C8B13 /* bloc_stub.plist in Resources */,
-				6DC83021241F0CBF00B1F3ED /* Main.storyboard in Resources */,
+				6DC83021241F0CBF00B1F3ED /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,7 +1152,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreBlocTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1159,7 +1192,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PFXAppStoreCoreDataTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1386,15 +1419,20 @@
 				6D65CCA2241F4BB000C164E3 /* AppStoreResponseModel.swift in Sources */,
 				6D016032241FACE300C1CEC5 /* SearchProvider.swift in Sources */,
 				6D016030241FACBA00C1CEC5 /* SearchEvent.swift in Sources */,
+				6D660EC4242205A400C76B45 /* SearchTableViewModel.swift in Sources */,
 				6D65CCA5241F4EE400C164E3 /* ObservableType+Extension.swift in Sources */,
-				6DC8301E241F0CBF00B1F3ED /* SecondViewController.swift in Sources */,
-				6DC8301C241F0CBF00B1F3ED /* FirstViewController.swift in Sources */,
+				6D38ADFD24224E9D001003D8 /* SearchAppStoreCellViewModel.swift in Sources */,
 				6D01602C241FAC6C00C1CEC5 /* BaseStateProtocol.swift in Sources */,
 				6D016024241FABA600C1CEC5 /* String+Extension.swift in Sources */,
+				6D38ADF92422469D001003D8 /* SearchHistoryCellViewModel.swift in Sources */,
 				6DFA8138242086C400E71181 /* ImageState.swift in Sources */,
+				6D38ADFB24224E66001003D8 /* SearchAppStoreCell.swift in Sources */,
+				6D660EC724220EF700C76B45 /* SearchHistoryCell.swift in Sources */,
 				6D65CC8B241F3DD100C164E3 /* ConstValues.swift in Sources */,
 				6D016057241FBCFA00C1CEC5 /* RestClient.swift in Sources */,
 				6DC83018241F0CBF00B1F3ED /* AppDelegate.swift in Sources */,
+				6D48DEF824219C9D000C8B13 /* SearchTableViewController.swift in Sources */,
+				6D38ADEE24222DF8001003D8 /* SearchDynamicTableViewController.swift in Sources */,
 				6D016028241FAC4600C1CEC5 /* BaseEventProtocol.swift in Sources */,
 				6DC83024241F0CBF00B1F3ED /* PFXAppStore.xcdatamodeld in Sources */,
 				6DFA8136242086BC00E71181 /* ImageProvider.swift in Sources */,
@@ -1507,13 +1545,13 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		6DC8301F241F0CBF00B1F3ED /* Main.storyboard */ = {
+		6DC8301F241F0CBF00B1F3ED /* Search.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6DC83020241F0CBF00B1F3ED /* Base */,
 				6D016013241FA92100C1CEC5 /* ko */,
 			);
-			name = Main.storyboard;
+			name = Search.storyboard;
 			sourceTree = "<group>";
 		};
 		6DC83027241F0CC000B1F3ED /* LaunchScreen.storyboard */ = {
@@ -1618,7 +1656,7 @@
 		};
 		6D48DEBD24218DA4000C8B13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC3E98FE01634163896FE7BF /* Pods-PFXAppStoreTests.debug.xcconfig */;
+			baseConfigurationReference = D20C06ADD3B17A6F1C912B17 /* Pods-PFXAppStoreBlocTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1640,7 +1678,7 @@
 		};
 		6D48DEBE24218DA4000C8B13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3072C90AA0D51A3D9894223 /* Pods-PFXAppStoreTests.release.xcconfig */;
+			baseConfigurationReference = C5AA76B9C45004CF34E8F15B /* Pods-PFXAppStoreBlocTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1904,7 +1942,7 @@
 		};
 		6DFA816D24209DDC00E71181 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC3E98FE01634163896FE7BF /* Pods-PFXAppStoreTests.debug.xcconfig */;
+			baseConfigurationReference = 32CD69A587F000E40C4F5D71 /* Pods-PFXAppStoreCoreDataTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1926,7 +1964,7 @@
 		};
 		6DFA816E24209DDC00E71181 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3072C90AA0D51A3D9894223 /* Pods-PFXAppStoreTests.release.xcconfig */;
+			baseConfigurationReference = 90501831FE2D2A1DF377B771 /* Pods-PFXAppStoreCoreDataTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

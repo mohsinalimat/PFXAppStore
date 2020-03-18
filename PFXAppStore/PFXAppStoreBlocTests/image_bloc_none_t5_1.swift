@@ -67,11 +67,11 @@ class image_bloc_none_t5_1: XCTestCase {
                 
             })
             .disposed(by: self.disposeBag)
-        
+        // when
         bloc.dispatch(event: DownloadImageEvent(targetPath: targetPath))
 
         waitForExpectations(timeout: self.timeout, handler: nil)
-        
+        // then
         XCTAssertEqual(downloadingImageStateCount, 1)
         XCTAssertEqual(downloadImageStateCount, 1)
         XCTAssertEqual(idleImageStateCount, 1)

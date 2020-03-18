@@ -14,10 +14,12 @@ disabled_rules:
   - identifier_name
   - statement_position
   - colon
+  - force_unwrapping
+  - superfluous_disable_command
   
 # some rules are only opt-in
 opt_in_rules:
-  - force_unwrapping
+#  - force_unwrapping
   - private_action
   - explicit_init
 

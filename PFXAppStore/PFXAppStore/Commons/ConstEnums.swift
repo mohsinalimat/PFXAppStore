@@ -23,6 +23,8 @@ public enum PBError: Int {
 
     case coredata_invalid_initialize
     case coredata_invalid_entity
+    case coredata_select_entity
+    case coredata_delete_entity
 
     case system_deallocated = 44444
     case system_invalid_stub
@@ -38,6 +40,8 @@ public enum PBError: Int {
         case Self.network_invalid_parse.rawValue: return "network_invalid_parse"
         case Self.coredata_invalid_initialize.rawValue: return "coredata_invalid_initialize"
         case Self.coredata_invalid_entity.rawValue: return "coredata_invalid_entity"
+        case Self.coredata_select_entity.rawValue: return "coredata_select_entity"
+        case Self.coredata_delete_entity.rawValue: return "coredata_delete_entity"
         case Self.system_deallocated.rawValue: return "system_deallocated"
         case Self.system_invalid_stub.rawValue: return "system_invalid_stub"
         default:

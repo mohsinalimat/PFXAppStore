@@ -70,11 +70,11 @@ class search_bloc_false_t2_1: XCTestCase {
                 
             })
             .disposed(by: self.disposeBag)
-        
+        // when
         bloc.dispatch(event: FetchingSearchEvent(parameterDict: parameterDict))
 
         waitForExpectations(timeout: self.timeout, handler: nil)
-        
+        // then
         XCTAssertEqual(fetchingSearchStateCount, 1)
         XCTAssertEqual(errorSearchStateCount, 1)
         XCTAssertEqual(idleSearchStateCount, 1)

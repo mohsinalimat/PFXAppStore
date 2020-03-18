@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 import RxSwift
 
-protocol Configurable where Self: UICollectionViewCell {
+protocol Configurable where Self: UITableViewCell {
     func configure(viewModel: BaseCellViewModel)
 }
 
-typealias ConfigurableCell = UICollectionViewCell & Configurable
+typealias ConfigurableCell = UITableViewCell & Configurable
 
 class BaseCell: ConfigurableCell {
 
