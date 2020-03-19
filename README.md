@@ -48,12 +48,13 @@ To run the example project, clone the repo, and run `pod install` from the PFXAp
 
 # Unit Tests
 
-<img src="/unit-1.png" width="400" height="400">
-<img src="/unit-2.png" width="400" height="400">
-<img src="/unit-3.png" width="400" height="400">
-<img src="/unit-4.png" width="400" height="400">
+<img src="/unit-1.png" width="600" height="400">
+<img src="/unit-2.png" width="600" height="400">
+<img src="/unit-3.png" width="600" height="400">
+<img src="/unit-4.png" width="600" height="400">
 
 Google Docs Unit Test List.
+
 https://docs.google.com/spreadsheets/d/1DPubPSjVEHTzc3DpAe-okOdyIHy48sG7AMUycH0Jtzk/edit?usp=sharing
 
 
