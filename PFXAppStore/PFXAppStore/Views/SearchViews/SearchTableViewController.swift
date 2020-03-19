@@ -74,14 +74,15 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
                 guard let viewModel = try? (self.rxDataSource!.model(at: indexPath) as? SearchHistoryCellViewModel) else {
                     return
                 }
-                    
-                self.navigationItem.searchController?.searchBar.text = viewModel.text!
-                self.navigationItem.searchController?.searchBar.becomeFirstResponder()
-                self.viewModel.input.requestSearchObserver.onNext(viewModel.text!)
+                
+                guard let text = viewModel.text else { return }
+                self.focusSearchBar(text: text)
             })
             .disposed(by: self.disposeBag)
         
-        self.tableView.rx.setDelegate(self)
+        self.tableView.rx
+            .setDelegate(self)
+            .disposed(by: self.disposeBag)
     }
     
     func bindSearchBar() {
@@ -102,6 +103,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self, let text = searchController.searchBar.text else { return }
                 self.viewModel.input.requestSearchObserver.onNext(text)
+                searchController.searchBar.resignFirstResponder()
             })
             .disposed(by: self.disposeBag)
         
@@ -178,6 +180,22 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
                 self.stopAnimating()
             })
             .disposed(by: self.disposeBag)
+        
+        self.viewModel.output.selectedHistory
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] text in
+                guard let self = self else { return }
+                self.focusSearchBar(text: text)
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    func focusSearchBar(text: String) {
+        guard let searchController = self.navigationItem.searchController else { return }
+        searchController.searchBar.text = text
+        searchController.searchBar.becomeFirstResponder()
+        self.viewModel.input.requestSearchObserver.onNext(text)
+        searchController.searchBar.resignFirstResponder()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

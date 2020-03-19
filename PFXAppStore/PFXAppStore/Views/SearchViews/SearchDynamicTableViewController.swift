@@ -57,6 +57,24 @@ class SearchDynamicTableViewController: UITableViewController {
             .asDriver(onErrorJustReturn: [])
             .drive(self.tableView.rx.items(dataSource: self.rxDataSource!))
             .disposed(by: self.disposeBag)
+        
+        self.tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                guard let viewModel = try? (self.rxDataSource!.model(at: indexPath) as? BaseCellViewModel) else {
+                    return
+                }
+                
+                if viewModel is SearchAppStoreCellViewModel {
+                    return
+                }
+                
+                if let viewModel = viewModel as? SearchHistoryCellViewModel {
+                    guard let text = viewModel.text else { return }
+                    self.viewModel.input.selectedHistoryObserver.onNext(text)
+                }
+            })
+            .disposed(by: self.disposeBag)
 
         self.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
     }

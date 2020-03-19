@@ -13,6 +13,7 @@ import RxRelay
 class SearchTableViewModel {
     struct Input {
         var historyObserver: AnyObserver<String>
+        var selectedHistoryObserver: AnyObserver<String>
         var requestSearchObserver: AnyObserver<String>
         var cancelSearchObserver: AnyObserver<Bool>
     }
@@ -23,6 +24,7 @@ class SearchTableViewModel {
         var loading: Observable<Bool>
         var empty: Observable<String>
         var error: Observable<NSError>
+        var selectedHistory: Observable<String>
     }
     
     private var disposeBag = DisposeBag()
@@ -41,19 +43,22 @@ class SearchTableViewModel {
     private var stubSubject: PublishSubject<Bool> = PublishSubject()
     private var historySubject: PublishSubject<String> = PublishSubject()
     private var requestSearchSubject: PublishSubject<String> = PublishSubject()
-    
+    private var selectedHistorySubject = PublishSubject<String>()
+
     private let searchBloc = SearchBloc()
 
     init() {
         // swiftlint:disable line_length
         self.input = SearchTableViewModel.Input(historyObserver: self.historySubject.asObserver(),
+                                                selectedHistoryObserver: self.selectedHistorySubject.asObserver(),
                                                 requestSearchObserver: self.requestSearchSubject.asObserver(),
                                                 cancelSearchObserver: self.cancelSearchSubject.asObserver())
         self.output = SearchTableViewModel.Output(recentSections: self.recentSectionsSubject.asObservable(),
                                                   searchDynamicSections: self.searchDynamicSectionsSubject.asObservable(),
                                                   loading: self.loadingSubject.asObservable(),
                                                   empty: self.emptySubject.asObservable(),
-                                                  error: self.errorSubject.asObservable())
+                                                  error: self.errorSubject.asObservable(),
+                                                  selectedHistory: self.selectedHistorySubject.asObservable())
         // swiftlint:enable line_length
 
         self.bindBlocs()
