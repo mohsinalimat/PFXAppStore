@@ -10,6 +10,7 @@ import Foundation
 
 struct ConstStrings {
     static let basePath = "https://itunes.apple.com"
+    static let sqliteFileName = "PFXAppStore.sqlite"
 }
 
 struct ConstNumbers {

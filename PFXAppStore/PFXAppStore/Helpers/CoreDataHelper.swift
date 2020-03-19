@@ -31,10 +31,10 @@ class CoreDataHelper {
         let docURL = self.applicationDocumentsDirectory
         let fileManager = FileManager.default
         let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("PFXAppStore.sqlite")
+        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent(ConstStrings.sqliteFileName)
         if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
             print("DB does not exist in documents folder")
-            let documentsURL = Bundle.main.resourceURL?.appendingPathComponent("PFXAppStore.sqlite")
+            let documentsURL = Bundle.main.resourceURL?.appendingPathComponent(ConstStrings.sqliteFileName)
             do {
                 try fileManager.copyItem(atPath: (documentsURL?.path)!, toPath: finalDatabaseURL.path)
             } catch let error as NSError {
