@@ -23,7 +23,10 @@ class FetchedSearchState: SearchStateProtocol {
 }
 
 class EmptySearchState: SearchStateProtocol {
-    
+    let text: String
+    init(text: String) {
+        self.text = text
+    }
 }
 
 class IdleSearchState: SearchStateProtocol {

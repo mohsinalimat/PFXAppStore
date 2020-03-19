@@ -17,6 +17,7 @@ class SearchHistoryCell: BaseCell {
     }
     
     override func configure(viewModel: BaseCellViewModel) {
+        print(String(describing: self))
         self.initialize()
         guard let viewModel = viewModel as? SearchHistoryCellViewModel else {
             return

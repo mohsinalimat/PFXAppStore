@@ -39,8 +39,12 @@ class FetchingSearchEvent: SearchEventProtocol {
                         self.sendIdleState(observer: observer)
                     }
                     
-                    if appStoreResponseModel.resultCount == 0 {
-                        observer.onNext(EmptySearchState())
+                    guard let term = self.parameterDict["term"], let offset = self.parameterDict["offset"] else {
+                        return
+                    }
+                    
+                    if appStoreResponseModel.resultCount == 0 && Int(offset) == 0 {
+                        observer.onNext(EmptySearchState(text: term))
                         return
                     }
 

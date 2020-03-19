@@ -32,15 +32,15 @@ class SearchDynamicTableViewController: UITableViewController {
         self.tableView.delegate = nil
         self.tableView.dataSource = nil
         self.rxDataSource = RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>(configureCell: { dataSource, tableView, indexPath, cellViewModel in
-            guard let viewModel = try? (dataSource.model(at: indexPath) as! BaseCellViewModel) else {
-                return UITableViewCell()
+            guard let viewModel = try? (dataSource.model(at: indexPath) as? BaseCellViewModel) else {
+                return UITableViewCell(style: .default, reuseIdentifier: String.random())
             }
             
             if viewModel is SearchAppStoreCellViewModel {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier, for: indexPath) as? SearchAppStoreCell else {
-                    return UITableViewCell()
+                    return UITableViewCell(style: .default, reuseIdentifier: String.random())
                 }
-                
+
                 cell.configure(viewModel: viewModel)
                 return cell
             }

@@ -12,7 +12,6 @@ import RxRelay
 
 class SearchTableViewModel {
     struct Input {
-        var stubObserver: AnyObserver<Bool>
         var historyObserver: AnyObserver<String>
         var requestSearchObserver: AnyObserver<String>
         var cancelSearchObserver: AnyObserver<Bool>
@@ -22,7 +21,7 @@ class SearchTableViewModel {
         var recentSections: Observable<[BaseSectionTableViewModel]>
         var searchDynamicSections: Observable<[BaseSectionTableViewModel]>
         var loading: Observable<Bool>
-        var empty: Observable<Bool>
+        var empty: Observable<String>
         var error: Observable<NSError>
     }
     
@@ -36,7 +35,7 @@ class SearchTableViewModel {
     private var recentSectionsSubject = BehaviorRelay<[BaseSectionTableViewModel]>(value: [BaseSectionTableViewModel()])
     private var searchDynamicSectionsSubject = BehaviorRelay<[BaseSectionTableViewModel]>(value: [BaseSectionTableViewModel()])
     private var cancelSearchSubject = PublishSubject<Bool>()
-    private var emptySubject = BehaviorRelay<Bool>(value: true)
+    private var emptySubject = PublishSubject<String>()
     private var loadingSubject = ReplaySubject<Bool>.create(bufferSize: 1)
     private var errorSubject: PublishSubject<NSError> = PublishSubject()
     private var stubSubject: PublishSubject<Bool> = PublishSubject()
@@ -47,6 +46,9 @@ class SearchTableViewModel {
 
     init() {
         // swiftlint:disable line_length
+        self.input = SearchTableViewModel.Input(historyObserver: self.historySubject.asObserver(),
+                                                requestSearchObserver: self.requestSearchSubject.asObserver(),
+                                                cancelSearchObserver: self.cancelSearchSubject.asObserver())
         self.output = SearchTableViewModel.Output(recentSections: self.recentSectionsSubject.asObservable(),
                                                   searchDynamicSections: self.searchDynamicSectionsSubject.asObservable(),
                                                   loading: self.loadingSubject.asObservable(),
@@ -54,11 +56,11 @@ class SearchTableViewModel {
                                                   error: self.errorSubject.asObservable())
         // swiftlint:enable line_length
 
-        self.input = SearchTableViewModel.Input(stubObserver: self.stubSubject.asObserver(),
-                                                historyObserver: self.historySubject.asObserver(),
-                                                requestSearchObserver: self.requestSearchSubject.asObserver(),
-                                                cancelSearchObserver: self.cancelSearchSubject.asObserver())
-        
+        self.bindBlocs()
+        self.bindInputs()
+    }
+    
+    func bindBlocs() {
         self.searchBloc.stateRelay
             .subscribe(onNext: { [weak self] state in
                 guard let self = self else { return }
@@ -67,7 +69,22 @@ class SearchTableViewModel {
                     return
                 }
                 
+                if let state = state as? EmptySearchState {
+                    var sections = self.searchDynamicSectionsSubject.value
+                    if var collectionViewModel = sections.first {
+                        collectionViewModel.items.removeAll()
+                        sections.removeFirst()
+                        sections.append(collectionViewModel)
+                        self.searchDynamicSectionsSubject.accept(sections)
+                    }
+                    
+                    self.emptySubject.onNext("'\(state.text)'")
+                    return
+                }
+                
                 if let state = state as? FetchedSearchState {
+                    print("fetchedSearch count \(state.appStoreResponseModel.resultCount)")
+                    self.emptySubject.onNext("")
                     let models = state.appStoreResponseModel.results
                     var items = [BaseCellViewModel]()
                     for model in models {
@@ -99,7 +116,9 @@ class SearchTableViewModel {
                 }
             })
             .disposed(by: self.disposeBag)
-        
+    }
+    
+    func bindInputs() {
         self.requestSearchSubject
             .subscribe(onNext: { text in
                 if let error = CoreDataHelper.shared.updateHistory(model: HistoryModel(text: text, date: Date())) {
@@ -119,12 +138,15 @@ class SearchTableViewModel {
         self.cancelSearchSubject
             .subscribe(onNext: { [weak self] isCancel in
                 guard let self = self else { return }
-                self.entityHistories()
+                self.emptySubject.onNext("")
             })
             .disposed(by: self.disposeBag)
 
         self.historySubject
-            .subscribe(onNext: { text in
+            .subscribe(onNext: { [weak self] text in
+                guard let self = self else { return }
+                self.emptySubject.onNext("")
+                
                 CoreDataHelper.shared.entityHistories(text: text)
                     .subscribe(onNext: { [weak self] models in
                         guard let self = self else { return }
@@ -149,18 +171,6 @@ class SearchTableViewModel {
                         self.errorSubject.onNext(NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_select_entity.rawValue, userInfo: nil))
                     })
                     .disposed(by: self.disposeBag)
-            })
-            .disposed(by: self.disposeBag)
-
-        self.stubSubject
-            .subscribe(onNext: { _ in
-                CoreDataHelper.shared.initializeStub { error in
-                    if error != nil {
-                        return
-                    }
-                    
-                    self.entityHistories()
-                }
             })
             .disposed(by: self.disposeBag)
     }
@@ -189,6 +199,6 @@ class SearchTableViewModel {
             }, onError: { error in
                 self.errorSubject.onNext(NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_select_entity.rawValue, userInfo: nil))
             })
-            .disposed(by: self.disposeBag)
+            .dispose()
     }
 }

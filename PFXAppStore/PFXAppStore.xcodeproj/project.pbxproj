@@ -81,6 +81,8 @@
 		6D48DEF2242192E5000C8B13 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605D241FBD5C00C1CEC5 /* DependencyInjection.swift */; };
 		6D48DEF3242192E9000C8B13 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
 		6D48DEF824219C9D000C8B13 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D48DEF724219C9D000C8B13 /* SearchTableViewController.swift */; };
+		6D57B6A12422E5CB001A66A3 /* SearchEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D57B6A02422E5CB001A66A3 /* SearchEmptyView.xib */; };
+		6D57B6A32422E5DB001A66A3 /* SearchEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D57B6A22422E5DB001A66A3 /* SearchEmptyView.swift */; };
 		6D629ACC24203DE2002A88C9 /* provider_stub.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D629ACB24203DE2002A88C9 /* provider_stub.plist */; };
 		6D629ACD24204108002A88C9 /* ClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01605A241FBD1400C1CEC5 /* ClientProtocol.swift */; };
 		6D629ACE2420438D002A88C9 /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016031241FACE300C1CEC5 /* SearchProvider.swift */; };
@@ -292,6 +294,8 @@
 		6D48DED8242191D8000C8B13 /* image_bloc_none_t5_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = image_bloc_none_t5_1.swift; path = PFXAppStoreBlocTests/image_bloc_none_t5_1.swift; sourceTree = SOURCE_ROOT; };
 		6D48DEDA2421920B000C8B13 /* bloc_stub.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bloc_stub.plist; sourceTree = "<group>"; };
 		6D48DEF724219C9D000C8B13 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		6D57B6A02422E5CB001A66A3 /* SearchEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchEmptyView.xib; sourceTree = "<group>"; };
+		6D57B6A22422E5DB001A66A3 /* SearchEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyView.swift; sourceTree = "<group>"; };
 		6D629ACB24203DE2002A88C9 /* provider_stub.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = provider_stub.plist; sourceTree = "<group>"; };
 		6D65CC8A241F3DD100C164E3 /* ConstValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstValues.swift; sourceTree = "<group>"; };
 		6D65CC9B241F3FA800C164E3 /* AppStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreModel.swift; sourceTree = "<group>"; };
@@ -592,8 +596,10 @@
 				6DAFDED0241F11EE00D95EEF /* `ViewModels */,
 				6DC8301F241F0CBF00B1F3ED /* Search.storyboard */,
 				6D38ADFA24224E66001003D8 /* SearchAppStoreCell.swift */,
-				6D660EC624220EF700C76B45 /* SearchHistoryCell.swift */,
 				6D38ADED24222DF8001003D8 /* SearchDynamicTableViewController.swift */,
+				6D57B6A22422E5DB001A66A3 /* SearchEmptyView.swift */,
+				6D57B6A02422E5CB001A66A3 /* SearchEmptyView.xib */,
+				6D660EC624220EF700C76B45 /* SearchHistoryCell.swift */,
 				6D48DEF724219C9D000C8B13 /* SearchTableViewController.swift */,
 			);
 			path = SearchViews;
@@ -613,9 +619,9 @@
 		6DAFDED0241F11EE00D95EEF /* `ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				6D660EC3242205A400C76B45 /* SearchTableViewModel.swift */,
-				6D38ADF82422469D001003D8 /* SearchHistoryCellViewModel.swift */,
 				6D38ADFC24224E9D001003D8 /* SearchAppStoreCellViewModel.swift */,
+				6D38ADF82422469D001003D8 /* SearchHistoryCellViewModel.swift */,
+				6D660EC3242205A400C76B45 /* SearchTableViewModel.swift */,
 			);
 			path = "`ViewModels";
 			sourceTree = "<group>";
@@ -1048,6 +1054,7 @@
 				6D629AD5242045C5002A88C9 /* provider_stub.plist in Resources */,
 				6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */,
 				6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */,
+				6D57B6A12422E5CB001A66A3 /* SearchEmptyView.xib in Resources */,
 				6DC83026241F0CC000B1F3ED /* Assets.xcassets in Resources */,
 				6D660EC22421FDBB00C76B45 /* stub_words.json in Resources */,
 				6DC0248F2420501E00245869 /* event_stub.plist in Resources */,
@@ -1412,6 +1419,7 @@
 				6D01605B241FBD1400C1CEC5 /* ClientProtocol.swift in Sources */,
 				6D016059241FBD0500C1CEC5 /* MockClient.swift in Sources */,
 				6D65CCA8241F537500C164E3 /* AppStoreRepositoryValidator.swift in Sources */,
+				6D57B6A32422E5DB001A66A3 /* SearchEmptyView.swift in Sources */,
 				6D01602E241FAC8700C1CEC5 /* SearchBloc.swift in Sources */,
 				6D016020241FAB3200C1CEC5 /* BaseCellViewModel.swift in Sources */,
 				6DC024922420531E00245869 /* StubModel.swift in Sources */,

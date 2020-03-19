@@ -57,12 +57,7 @@
                             <outlet property="delegate" destination="xP0-RA-KAA" id="f79-gE-lDw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="WqJ-Vn-0y5">
-                        <barButtonItem key="leftBarButtonItem" title="Stub" id="uy2-3r-9Zx"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="stubButton" destination="uy2-3r-9Zx" id="QyG-vQ-8Jh"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Search" id="WqJ-Vn-0y5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qqT-D2-C0V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,7 +85,6 @@
         <!--Search Dynamic Table View Controller-->
         <scene sceneID="Qk0-Gy-9jd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="utk-or-vw7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="SearchDynamicTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hw4-RF-NrV" customClass="SearchDynamicTableViewController" customModule="PFXAppStore" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eyh-cC-1zf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -121,6 +115,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="utk-or-vw7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1942.0289855072465" y="0.0"/>
         </scene>

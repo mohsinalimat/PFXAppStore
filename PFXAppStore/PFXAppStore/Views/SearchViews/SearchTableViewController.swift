@@ -20,6 +20,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
     var viewModel = SearchTableViewModel()
     private var disposeBag = DisposeBag()
     private var rxDataSource: RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>?
+    private var searchEmptyView = SearchEmptyView()
 
     deinit {
         self.disposeBag = DisposeBag()
@@ -38,18 +39,34 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         self.tableView.delegate = nil
         self.tableView.dataSource = nil
         self.rxDataSource = RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>(configureCell: { dataSource, tableView, indexPath, cellViewModel in
-            guard let viewModel = try? (dataSource.model(at: indexPath) as! BaseCellViewModel),
+            guard let viewModel = try? (dataSource.model(at: indexPath) as? BaseCellViewModel),
                 let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier, for: indexPath) as? SearchHistoryCell else {
                     return UITableViewCell()
             }
             
             cell.configure(viewModel: viewModel)
             return cell
+        }, titleForHeaderInSection: { (dataSource, index) in
+            let viewModel = dataSource.sectionModels[index]
+            return viewModel.header
         })
-
-        self.viewModel.output.recentSections.asDriver(onErrorJustReturn: [])
-            .drive(self.tableView.rx.items(dataSource: self.rxDataSource!))
-            .disposed(by: self.disposeBag)
+        
+        CoreDataHelper.shared.entityHistories(isAscending: false, limit: 10)
+        .map { models in
+            var sectionModel = [BaseSectionTableViewModel]()
+            var items = [BaseCellViewModel]()
+            for model in models {
+                let viewModel = SearchHistoryCellViewModel(reuseIdentifier: String(describing: SearchHistoryCell.self), identifier: String(describing: SearchHistoryCell.self) + String.random())
+                viewModel.text = model.text
+                viewModel.date = model.date
+                items.append(viewModel)
+            }
+            
+            sectionModel.append(BaseSectionTableViewModel(header: "최근 검색어", items: items))
+            return sectionModel
+        }
+        .bind(to: self.tableView.rx.items(dataSource: self.rxDataSource!))
+        .disposed(by: self.disposeBag)
     }
     
     func bindSearchBar() {
@@ -61,6 +78,10 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         let searchController = UISearchController(searchResultsController: historyTableViewController)
         historyTableViewController.viewModel = self.viewModel
         self.navigationItem.searchController = searchController
+
+        let emptyView = Bundle.main.loadNibNamed("SearchEmptyView", owner: self, options: nil)?.first as! SearchEmptyView
+        searchController.view.addSubview(emptyView)
+        self.searchEmptyView = emptyView
 
         searchController.searchBar.rx.searchButtonClicked
             .subscribe(onNext: { [weak self] _ in
@@ -87,17 +108,23 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
     }
     
     func bindInputs() {
-        self.stubButton.rx.tap
-            .take(1)
-            .subscribe(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                self.viewModel.input.stubObserver.onNext(true)
-                self.stubButton.isEnabled = false
-            })
-            .disposed(by: self.disposeBag)
     }
     
     func bindOutputs() {
+        self.viewModel.output.empty
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { text in
+                self.searchEmptyView.searchTextLabel.text = ""
+                self.searchEmptyView.isHidden = true
+                if text.count > 0 {
+                    self.searchEmptyView.searchTextLabel.text = text
+                    self.searchEmptyView.isHidden = false
+                    self.searchEmptyView.frame = self.view.bounds
+                    return
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
         self.viewModel.output.error
             .asDriver(onErrorJustReturn: NSError())
             .drive(onNext: { error in
