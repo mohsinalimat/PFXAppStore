@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -198,6 +197,13 @@
                                         <constraint firstItem="Qh0-GR-IFE" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="l9j-vk-UQn"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="artworkImageView" destination="6x3-4F-qCb" id="PTb-he-Y9l"/>
+                                    <outlet property="averageUserRatingLabel" destination="Qh0-GR-IFE" id="wbE-qk-zHB"/>
+                                    <outlet property="bgndView" destination="1Kd-52-g0A" id="OyM-mB-HzO"/>
+                                    <outlet property="sellerNameLabel" destination="L7c-cy-2iF" id="PrP-wL-1Pw"/>
+                                    <outlet property="trackNameLabel" destination="TCJ-Q4-eMa" id="Crl-mp-p29"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

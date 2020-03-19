@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 import RxSwift
 
-protocol Configurable where Self: UITableViewCell {
+protocol ConfigurableCollectionViewCellProtocol where Self: UICollectionViewCell {
     func configure(viewModel: BaseCellViewModel)
 }
 
-typealias ConfigurableCell = UITableViewCell & Configurable
+typealias ConfigurableCollectionViewCell = UICollectionViewCell & ConfigurableCollectionViewCellProtocol
 
-class BaseCell: ConfigurableCell {
+class BaseCollectionViewCell: ConfigurableCollectionViewCell {
 
     var disposeBag = DisposeBag()
 

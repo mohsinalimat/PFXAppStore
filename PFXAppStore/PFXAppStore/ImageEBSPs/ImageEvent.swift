@@ -39,7 +39,8 @@ class DownloadImageEvent: ImageEventProtocol {
                         self.sendIdleState(observer: observer)
                     }
 
-                    observer.onNext(DownloadImageState(data: data))
+                    // UIImage로 변경하여 전달하고 싶지만 UIKit 주입을 없애기 위해 Data로 하자.
+                    observer.onNext(DownloadImageState(imagePath: self.targetPath, data: data))
                 }) { error in
                     observer.onNext(ErrorImageState(error: error as NSError))
                     self.sendIdleState(observer: observer)

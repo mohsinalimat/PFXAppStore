@@ -15,8 +15,10 @@ class DownloadingImageState: ImageStateProtocol {
 }
 
 class DownloadImageState: ImageStateProtocol {
+    let imagePath: String
     let data: Data
-    init(data: Data) {
+    init(imagePath: String, data: Data) {
+        self.imagePath = imagePath
         self.data = data
     }
 }

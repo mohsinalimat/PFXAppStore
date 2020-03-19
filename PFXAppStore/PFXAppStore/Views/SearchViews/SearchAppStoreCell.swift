@@ -10,20 +10,45 @@ import Foundation
 import UIKit
 import Hero
 
-class SearchAppStoreCell: BaseCell {
+class SearchAppStoreCell: BaseTableViewCell {
+    @IBOutlet weak var artworkImageView: UIImageView!
+    @IBOutlet weak var trackNameLabel: UILabel!
+    @IBOutlet weak var sellerNameLabel: UILabel!
+    @IBOutlet weak var averageUserRatingLabel: UILabel!
+    @IBOutlet weak var bgndView: UIView!
+    
     private weak var viewModel: SearchHistoryCellViewModel?
+    var imageCollectionViewController: ImageCollectionViewController?
+    private var imageBloc = ImageBloc()
     
     func initialize() {
-        self.textLabel?.text = ""
+        self.trackNameLabel.text = ""
+        self.sellerNameLabel.text = ""
+        self.averageUserRatingLabel.text = ""
+        self.artworkImageView.image = nil
     }
     
     override func configure(viewModel: BaseCellViewModel) {
-        print(String(describing: self))
         self.initialize()
-        guard let viewModel = viewModel as? SearchHistoryCellViewModel else {
+        guard let viewModel = viewModel as? SearchAppStoreCellViewModel else {
             return
         }
+
+        self.trackNameLabel.text = viewModel.trackName
+        self.sellerNameLabel.text = viewModel.sellerName
+        self.averageUserRatingLabel.text = viewModel.averageUserRating
         
-        self.textLabel?.text = viewModel.text
+        guard let targetPath = viewModel.artworkUrl100 else { return }
+        self.imageBloc.stateRelay
+            .asDriver(onErrorJustReturn: IdleImageState())
+            .drive(onNext: { state in
+                if let state = state as? DownloadImageState {
+                    self.artworkImageView.image = UIImage(data: state.data)
+                    return
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+        self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: targetPath))
     }
 }

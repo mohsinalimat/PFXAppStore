@@ -3,7 +3,6 @@
 To run the example project, clone the repo, and run `pod install` from the PFXAppStore directory first!!!!
 
 # Screenshots
-![Collection Screen](/3.png)
 
 # Goal
 
@@ -32,12 +31,18 @@ To run the example project, clone the repo, and run `pod install` from the PFXAp
 - [RxSwift]
 - [RxCocoa]
 - [RxDataSource]
+- [RxCoreData]
 
 # PFXAppStore With Open library
 
+- [SwiftLint]
+- [SwiftMessages]
+- [Hero]
+- [lottie-ios]
 - [NVActivityIndicatorView]
 
 # Architecture
+![Collection Screen](/3.png)
 
 - [Bloc + Provider + MVVM]
 
@@ -49,9 +54,6 @@ To run the example project, clone the repo, and run `pod install` from the PFXAp
 # Unit Tests
 
 <img src="/unit-1.png" width="600" height="400">
-<img src="/unit-2.png" width="600" height="400">
-<img src="/unit-3.png" width="600" height="400">
-<img src="/unit-4.png" width="600" height="400">
 
 Google Docs Unit Test List.
 
@@ -61,7 +63,7 @@ https://docs.google.com/spreadsheets/d/1DPubPSjVEHTzc3DpAe-okOdyIHy48sG7AMUycH0J
 # OpenAPI
 
 https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
-https://itunes.apple.com/search?term=game&media=software&offset=0&limit=110
+https://itunes.apple.com/search?term=game&media=software&offset=0&limit=10
 
 # Medium
 

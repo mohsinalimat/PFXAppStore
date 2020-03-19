@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SearchHistoryCell: BaseCell {
+class SearchHistoryCell: BaseTableViewCell {
     private weak var viewModel: SearchHistoryCellViewModel?
     
     func initialize() {

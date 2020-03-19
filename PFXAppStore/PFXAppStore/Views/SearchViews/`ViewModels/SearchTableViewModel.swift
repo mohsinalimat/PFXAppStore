@@ -94,7 +94,11 @@ class SearchTableViewModel {
                     var items = [BaseCellViewModel]()
                     for model in models {
                         let viewModel = SearchAppStoreCellViewModel(reuseIdentifier: String(describing: SearchAppStoreCell.self), identifier: String(describing: SearchAppStoreCell.self) + String.random())
-                        viewModel.text = model.artistName
+                        viewModel.trackName = model.trackName
+                        viewModel.sellerName = model.sellerName
+                        viewModel.artworkUrl100 = model.artworkUrl100
+                        viewModel.averageUserRating = String(model.averageUserRating)
+                        viewModel.screenshotUrls = model.screenshotUrls
                         items.append(viewModel)
                     }
                     

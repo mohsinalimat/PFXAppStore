@@ -9,5 +9,9 @@
 import Foundation
 
 class SearchAppStoreCellViewModel: BaseCellViewModel {
-    var text: String?
+    var trackName: String?
+    var sellerName: String?
+    var artworkUrl100: String?
+    var averageUserRating: String?
+    var screenshotUrls: [String]?
 }

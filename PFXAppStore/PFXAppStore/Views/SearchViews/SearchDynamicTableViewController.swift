@@ -36,10 +36,24 @@ class SearchDynamicTableViewController: UITableViewController {
                 return UITableViewCell(style: .default, reuseIdentifier: String.random())
             }
             
-            if viewModel is SearchAppStoreCellViewModel {
+            if let viewModel = viewModel as? SearchAppStoreCellViewModel {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier, for: indexPath) as? SearchAppStoreCell else {
                     return UITableViewCell(style: .default, reuseIdentifier: String.random())
                 }
+
+                guard let destination = UIStoryboard(name: "Image", bundle: nil).instantiateViewController(withIdentifier: String(describing: ImageCollectionViewController.self)) as? ImageCollectionViewController else {
+                    return UITableViewCell(style: .default, reuseIdentifier: String.random())
+                }
+
+                self .addChild(destination)
+                cell.imageCollectionViewController = destination
+                
+                if let screenshotUrls = viewModel.screenshotUrls {
+                    cell.imageCollectionViewController?.viewModel.input.screenshotUrlObserver.onNext(screenshotUrls)
+                }
+                
+                cell.bgndView.addSubview(destination.view)
+                destination.didMove(toParent: self)
 
                 cell.configure(viewModel: viewModel)
                 return cell
@@ -72,6 +86,17 @@ class SearchDynamicTableViewController: UITableViewController {
                 if let viewModel = viewModel as? SearchHistoryCellViewModel {
                     guard let text = viewModel.text else { return }
                     self.viewModel.input.selectedHistoryObserver.onNext(text)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.tableView.rx.didEndDisplayingCell
+            .subscribe(onNext: { cell, indexPath in
+                if let cell = cell as? SearchAppStoreCell {
+                    guard let controller = cell.imageCollectionViewController else { return }
+                    controller.removeFromParent()
+                    
+                    return
                 }
             })
             .disposed(by: self.disposeBag)
