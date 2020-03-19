@@ -7,11 +7,13 @@
 //
 
 import XCTest
+import CoreData
 
 class coredata_update_false_t6_1: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        CoreDataHelper.shared.storeType = NSInMemoryStoreType
     }
 
     override func tearDown() {

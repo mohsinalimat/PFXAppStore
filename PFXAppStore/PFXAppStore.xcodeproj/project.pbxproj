@@ -41,6 +41,7 @@
 		6D38ADF92422469D001003D8 /* SearchHistoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38ADF82422469D001003D8 /* SearchHistoryCellViewModel.swift */; };
 		6D38ADFB24224E66001003D8 /* SearchAppStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38ADFA24224E66001003D8 /* SearchAppStoreCell.swift */; };
 		6D38ADFD24224E9D001003D8 /* SearchAppStoreCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D38ADFC24224E9D001003D8 /* SearchAppStoreCellViewModel.swift */; };
+		6D3C384624233A39008089A9 /* PFXAppStore.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6D3C384524233A39008089A9 /* PFXAppStore.sqlite */; };
 		6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6D3F1CE8241FA2050007E551 /* .swiftlint.yml */; };
 		6D48DEB624218DA4000C8B13 /* PFXAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC83033241F0CC000B1F3ED /* PFXAppStoreTests.swift */; };
 		6D48DEC324218E75000C8B13 /* PFXAppStoreBlocTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D48DEC224218E75000C8B13 /* PFXAppStoreBlocTests-Info.plist */; };
@@ -99,7 +100,6 @@
 		6D65CCA2241F4BB000C164E3 /* AppStoreResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */; };
 		6D65CCA5241F4EE400C164E3 /* ObservableType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA4241F4EE400C164E3 /* ObservableType+Extension.swift */; };
 		6D65CCA8241F537500C164E3 /* AppStoreRepositoryValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */; };
-		6D660EC22421FDBB00C76B45 /* stub_words.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D660EC12421FDBB00C76B45 /* stub_words.json */; };
 		6D660EC4242205A400C76B45 /* SearchTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D660EC3242205A400C76B45 /* SearchTableViewModel.swift */; };
 		6D660EC724220EF700C76B45 /* SearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D660EC624220EF700C76B45 /* SearchHistoryCell.swift */; };
 		6D74D5552420C04100F8D3D6 /* coredata_delete_true_t4_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74D5542420C04100F8D3D6 /* coredata_delete_true_t4_1.swift */; };
@@ -278,6 +278,7 @@
 		6D38ADF82422469D001003D8 /* SearchHistoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCellViewModel.swift; sourceTree = "<group>"; };
 		6D38ADFA24224E66001003D8 /* SearchAppStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppStoreCell.swift; sourceTree = "<group>"; };
 		6D38ADFC24224E9D001003D8 /* SearchAppStoreCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppStoreCellViewModel.swift; sourceTree = "<group>"; };
+		6D3C384524233A39008089A9 /* PFXAppStore.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = PFXAppStore.sqlite; path = PFXAppStore.xcdatamodeld/PFXAppStore.sqlite; sourceTree = "<group>"; };
 		6D3F1CE8241FA2050007E551 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6D48DEBF24218DA4000C8B13 /* PFXAppStoreBlocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PFXAppStoreBlocTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D48DEC224218E75000C8B13 /* PFXAppStoreBlocTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PFXAppStoreBlocTests-Info.plist"; sourceTree = "<group>"; };
@@ -303,7 +304,6 @@
 		6D65CCA1241F4BB000C164E3 /* AppStoreResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreResponseModel.swift; sourceTree = "<group>"; };
 		6D65CCA4241F4EE400C164E3 /* ObservableType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extension.swift"; sourceTree = "<group>"; };
 		6D65CCA7241F537500C164E3 /* AppStoreRepositoryValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRepositoryValidator.swift; sourceTree = "<group>"; };
-		6D660EC12421FDBB00C76B45 /* stub_words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stub_words.json; sourceTree = "<group>"; };
 		6D660EC3242205A400C76B45 /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
 		6D660EC624220EF700C76B45 /* SearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCell.swift; sourceTree = "<group>"; };
 		6D74D5542420C04100F8D3D6 /* coredata_delete_true_t4_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_delete_true_t4_1.swift; sourceTree = "<group>"; };
@@ -565,7 +565,6 @@
 		6D660EBE2421FD6700C76B45 /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				6D660EC12421FDBB00C76B45 /* stub_words.json */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -697,6 +696,7 @@
 		6DAFDED8241F14A000D95EEF /* DBs */ = {
 			isa = PBXGroup;
 			children = (
+				6D3C384524233A39008089A9 /* PFXAppStore.sqlite */,
 				6DC83022241F0CBF00B1F3ED /* PFXAppStore.xcdatamodeld */,
 			);
 			path = DBs;
@@ -1050,13 +1050,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D3C384624233A39008089A9 /* PFXAppStore.sqlite in Resources */,
 				6D016019241FAA9200C1CEC5 /* Localizable.strings in Resources */,
 				6D629AD5242045C5002A88C9 /* provider_stub.plist in Resources */,
 				6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */,
 				6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */,
 				6D57B6A12422E5CB001A66A3 /* SearchEmptyView.xib in Resources */,
 				6DC83026241F0CC000B1F3ED /* Assets.xcassets in Resources */,
-				6D660EC22421FDBB00C76B45 /* stub_words.json in Resources */,
 				6DC0248F2420501E00245869 /* event_stub.plist in Resources */,
 				6D48DEDB2421920B000C8B13 /* bloc_stub.plist in Resources */,
 				6DC83021241F0CBF00B1F3ED /* Search.storyboard in Resources */,

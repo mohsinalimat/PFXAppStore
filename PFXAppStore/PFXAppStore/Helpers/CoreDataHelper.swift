@@ -14,6 +14,8 @@ import RxSwift
 
 class CoreDataHelper {
     static let shared = CoreDataHelper()
+    var storeType = NSSQLiteStoreType
+    
     lazy var managedObjectModel: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: "PFXAppStore", withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
@@ -27,12 +29,28 @@ class CoreDataHelper {
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator! = {
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let docURL = self.applicationDocumentsDirectory
-        let storeURL = docURL.appendingPathComponent("PFXAppStore.sqlite")
+        let fileManager = FileManager.default
+        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("PFXAppStore.sqlite")
+        if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
+            print("DB does not exist in documents folder")
+            let documentsURL = Bundle.main.resourceURL?.appendingPathComponent("PFXAppStore.sqlite")
+            do {
+                try fileManager.copyItem(atPath: (documentsURL?.path)!, toPath: finalDatabaseURL.path)
+            } catch let error as NSError {
+                print("Couldn't copy file to final location! Error:\(error.description)")
+            }
+        }
+        else {
+            print("Database file found at path: \(finalDatabaseURL.path)")
+        }
+
         let mOptions = [NSMigratePersistentStoresAutomaticallyOption: true,
                         NSInferMappingModelAutomaticallyOption: true]
         
         do {
-            try coordinator!.addPersistentStore(ofType: NSInMemoryStoreType, configurationName: nil, at: nil, options: nil)
+            try coordinator!.addPersistentStore(ofType: self.storeType, configurationName: nil, at: finalDatabaseURL, options: nil)
+//            try coordinator!.addPersistentStore(ofType: self.storeType, configurationName: nil, at: nil, options: nil)
 
         } catch {
             coordinator = nil

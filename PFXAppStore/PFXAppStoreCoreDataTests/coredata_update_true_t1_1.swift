@@ -9,6 +9,7 @@
 import XCTest
 import RxSwift
 import RxDataSources
+import CoreData
 
 class coredata_update_true_t1_1: XCTestCase {
     let timeout = TimeInterval(10)
@@ -16,6 +17,7 @@ class coredata_update_true_t1_1: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        CoreDataHelper.shared.storeType = NSInMemoryStoreType
     }
 
     override func tearDown() {

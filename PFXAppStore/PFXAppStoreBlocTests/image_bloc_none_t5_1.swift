@@ -16,7 +16,7 @@ class image_bloc_none_t5_1: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-//        DependencyInjection.clientType = .mock
+        DependencyInjection.clientType = .rest
 //        DependencyInjection.stubModel = StubModel(fileName: "bloc_stub", key: String(describing: type(of: self)))
     }
 
