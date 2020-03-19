@@ -1,12 +1,14 @@
 # PFXAppStore
-PFXAppStore
 
-https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
+To run the example project, clone the repo, and run `pod install` from the PFXAppStore directory first!!!!
+
+# Screenshots
+![Collection Screen](/3.png)
+
+# Goal
 
 검색 첫 화면
  - 최근 검색어 10개 보여주기
-
- https://itunes.apple.com/search?term=game&media=software&offset=0&limit=30
 
 검색 중 화면
  - 히스토리에서 검색해서 보여주기
@@ -25,5 +27,44 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 기타
  - 팟 포함 되어 있음
 
+# PFXAppStore With RxSwift
 
+- [RxSwift]
+- [RxCocoa]
+- [RxDataSource]
+
+# PFXAppStore With Open library
+
+- [NVActivityIndicatorView]
+
+# Architecture
+
+- [Bloc + Provider + MVVM]
+
+# Use Controllers
+
+- [TableView]
+- [Cells]
+
+# Unit Tests
+
+<img src="/unit-1.png" width="400" height="400">
+<img src="/unit-2.png" width="400" height="400">
+<img src="/unit-3.png" width="400" height="400">
+<img src="/unit-4.png" width="400" height="400">
+
+Google Docs Unit Test List.
 https://docs.google.com/spreadsheets/d/1DPubPSjVEHTzc3DpAe-okOdyIHy48sG7AMUycH0Jtzk/edit?usp=sharing
+
+
+# OpenAPI
+
+https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
+https://itunes.apple.com/search?term=game&media=software&offset=0&limit=110
+
+# Medium
+
+- https://medium.com/@pfxstudio21/architecture-bloc-provider-mvvm-with-rxswift-c3088ef7988d
+
+
+Thank u!! ❤️

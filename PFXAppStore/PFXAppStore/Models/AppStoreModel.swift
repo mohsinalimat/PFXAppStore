@@ -9,12 +9,12 @@
 import Foundation
 
 struct AppStoreModel: Codable {
-    var screenshotUrls = [String]()
+    var screenshotUrls = [String]() // image list
     var ipadScreenshotUrls = [String]()
     var appletvScreenshotUrls = [String]()
     var artworkUrl60 = ""
     var artworkUrl512 = ""
-    var artworkUrl100 = ""
+    var artworkUrl100 = "" // icon image url
     var artistViewUrl = ""
     var supportedDevices = [String]()
     var advisories = [String]()
