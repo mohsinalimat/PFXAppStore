@@ -31,6 +31,11 @@ class ImageCell: BaseCollectionViewCell {
         self.animationView = animationView
     }
     
+    func willDisplay() {
+        guard let viewModel = self.viewModel else { return }
+        viewModel.input.willDisplay.onNext(true)
+    }
+    
     override func configure(viewModel: BaseCellViewModel) {
         self.initialize()
         
@@ -67,6 +72,5 @@ class ImageCell: BaseCollectionViewCell {
                 
             })
             .disposed(by: self.disposeBag)
-        
     }
 }

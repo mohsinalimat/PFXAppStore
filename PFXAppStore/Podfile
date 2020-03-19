@@ -15,7 +15,8 @@ target 'PFXAppStore' do
   pod 'Hero'
   pod 'lottie-ios'
   pod 'NVActivityIndicatorView'
-
+  pod 'SnapKit'
+  
   target 'PFXAppStoreTests' do
     inherit! :search_paths
     # Pods for testing

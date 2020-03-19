@@ -11,6 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import SnapKit
 
 class SearchDynamicTableViewController: UITableViewController {
     var viewModel = SearchTableViewModel()
@@ -44,16 +45,20 @@ class SearchDynamicTableViewController: UITableViewController {
                 guard let destination = UIStoryboard(name: "Image", bundle: nil).instantiateViewController(withIdentifier: String(describing: ImageCollectionViewController.self)) as? ImageCollectionViewController else {
                     return UITableViewCell(style: .default, reuseIdentifier: String.random())
                 }
-
-                self .addChild(destination)
-                cell.imageCollectionViewController = destination
                 
-                if let screenshotUrls = viewModel.screenshotUrls {
-                    cell.imageCollectionViewController?.viewModel.input.screenshotUrlObserver.onNext(screenshotUrls)
+                if cell.imageCollectionViewController == nil {
+                    self .addChild(destination)
+                    cell.imageCollectionViewController = destination
+                    
+                    cell.bgndView.addSubview(destination.view)
+                    destination.view.snp.makeConstraints { make in
+                        make.top.equalTo(cell.bgndView).offset(0)
+                        make.left.equalTo(cell.bgndView).offset(0)
+                        make.bottom.equalTo(cell.bgndView).offset(0)
+                        make.right.equalTo(cell.bgndView).offset(0)
+                    }
+                    destination.didMove(toParent: self)
                 }
-                
-                cell.bgndView.addSubview(destination.view)
-                destination.didMove(toParent: self)
 
                 cell.configure(viewModel: viewModel)
                 return cell
@@ -90,14 +95,22 @@ class SearchDynamicTableViewController: UITableViewController {
             })
             .disposed(by: self.disposeBag)
         
+        self.tableView.rx.willDisplayCell
+            .subscribe(onNext: { cell, indexPath in
+                guard let cell = cell as? SearchAppStoreCell else { return }
+                cell.willDisplay()
+            })
+            .disposed(by: self.disposeBag)
+        
         self.tableView.rx.didEndDisplayingCell
             .subscribe(onNext: { cell, indexPath in
-                if let cell = cell as? SearchAppStoreCell {
-                    guard let controller = cell.imageCollectionViewController else { return }
-                    controller.removeFromParent()
-                    
-                    return
-                }
+//                if let cell = cell as? SearchAppStoreCell {
+//                    guard let controller = cell.imageCollectionViewController else { return }
+//                    controller.view.removeFromSuperview()
+//                    controller.removeFromParent()
+//
+//                    return
+//                }
             })
             .disposed(by: self.disposeBag)
 

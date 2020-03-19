@@ -18,6 +18,7 @@ PODS:
   - RxRelay (5.1.0):
     - RxSwift (~> 5)
   - RxSwift (5.1.0)
+  - SnapKit (5.0.1)
   - SwiftLint (0.39.1)
   - SwiftMessages (7.0.1):
     - SwiftMessages/App (= 7.0.1)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - RxCoreData
   - RxDataSources
   - RxSwift
+  - SnapKit
   - SwiftLint
   - SwiftMessages
 
@@ -45,6 +47,7 @@ SPEC REPOS:
     - RxDataSources
     - RxRelay
     - RxSwift
+    - SnapKit
     - SwiftLint
     - SwiftMessages
 
@@ -58,9 +61,10 @@ SPEC CHECKSUMS:
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
   RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
   SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
 
-PODFILE CHECKSUM: 522a76645e52ac3c1680acb1649d9ee44597c269
+PODFILE CHECKSUM: 309ab02bc819f3b4f7617239a6e0867bade4db36
 
 COCOAPODS: 1.9.0

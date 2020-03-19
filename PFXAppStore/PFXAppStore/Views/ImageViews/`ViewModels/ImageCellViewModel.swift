@@ -12,7 +12,7 @@ import RxRelay
 
 class ImageCellViewModel: BaseCellViewModel {
     struct Input {
-        var requestDownloadObserver: AnyObserver<String>
+        var willDisplay: AnyObserver<Bool>
     }
     
     struct Output {
@@ -26,10 +26,10 @@ class ImageCellViewModel: BaseCellViewModel {
         self.disposeBag = DisposeBag()
     }
     
-    var targetPath = ""
     var input: ImageCellViewModel.Input!
     var output: ImageCellViewModel.Output!
-    private var requestDownloadSubject = PublishSubject<String>()
+    var targetPath: String?
+    private var willDisplaySubject = PublishSubject<Bool>()
     private var loadingSubject = ReplaySubject<Bool>.create(bufferSize: 1)
     private var downloadedSubject = PublishSubject<Data>()
     private var errorSubject: PublishSubject<NSError> = PublishSubject()
@@ -38,14 +38,14 @@ class ImageCellViewModel: BaseCellViewModel {
     func initialize() {
         self.disposeBag = DisposeBag()
         // swiftlint:disable line_length
-        self.input = ImageCellViewModel.Input(requestDownloadObserver: self.requestDownloadSubject.asObserver())
+        self.input = ImageCellViewModel.Input(willDisplay: self.willDisplaySubject.asObserver())
         self.output = ImageCellViewModel.Output(downloaded: self.downloadedSubject.asObservable(),
                                                 loading: self.loadingSubject.asObservable(),
                                                 error: self.errorSubject.asObservable())
         // swiftlint:enable line_length
         
         self.bindBlocs()
-        self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: targetPath))
+        self.bindInputs()
     }
     
     func bindBlocs() {
@@ -71,6 +71,15 @@ class ImageCellViewModel: BaseCellViewModel {
                     self.loadingSubject.onNext(true)
                     return
                 }
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    func bindInputs() {
+        self.willDisplaySubject
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self, let targetPath = self.targetPath else { return }
+                self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: targetPath))
             })
             .disposed(by: self.disposeBag)
     }

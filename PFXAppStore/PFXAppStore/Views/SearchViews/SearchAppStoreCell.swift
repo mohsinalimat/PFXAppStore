@@ -17,7 +17,7 @@ class SearchAppStoreCell: BaseTableViewCell {
     @IBOutlet weak var averageUserRatingLabel: UILabel!
     @IBOutlet weak var bgndView: UIView!
     
-    private weak var viewModel: SearchHistoryCellViewModel?
+    private weak var viewModel: SearchAppStoreCellViewModel?
     var imageCollectionViewController: ImageCollectionViewController?
     private var imageBloc = ImageBloc()
     
@@ -28,12 +28,21 @@ class SearchAppStoreCell: BaseTableViewCell {
         self.artworkImageView.image = nil
     }
     
+    func willDisplay() {
+        guard let viewModel = self.viewModel, let screenshotUrls = viewModel.screenshotUrls else {
+            return
+        }
+
+        self.imageCollectionViewController?.willDisplay(screenshotUrls: screenshotUrls)
+    }
+    
     override func configure(viewModel: BaseCellViewModel) {
         self.initialize()
         guard let viewModel = viewModel as? SearchAppStoreCellViewModel else {
             return
         }
 
+        self.viewModel = viewModel
         self.trackNameLabel.text = viewModel.trackName
         self.sellerNameLabel.text = viewModel.sellerName
         self.averageUserRatingLabel.text = viewModel.averageUserRating

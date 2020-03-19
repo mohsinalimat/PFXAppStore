@@ -19,9 +19,11 @@ class ImageCollectionViewController: UICollectionViewController {
         self.disposeBag = DisposeBag()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func willDisplay(screenshotUrls: [String]) {
+        self.disposeBag = DisposeBag()
+        self.viewModel = ImageCollectionViewModel()
         self.bindOutput()
+        self.viewModel.input.screenshotUrlObserver.onNext(screenshotUrls)
     }
     
     func bindOutput() {
@@ -44,6 +46,13 @@ class ImageCollectionViewController: UICollectionViewController {
         
         self.viewModel.output.sections.asDriver(onErrorJustReturn: [])
             .drive(self.collectionView.rx.items(dataSource: self.rxDataSource!))
+            .disposed(by: self.disposeBag)
+        
+        self.collectionView.rx.willDisplayCell
+            .subscribe(onNext: { cell, indexPath in
+                guard let cell = cell as? ImageCell else { return }
+                cell.willDisplay()
+            })
             .disposed(by: self.disposeBag)
     }
     
