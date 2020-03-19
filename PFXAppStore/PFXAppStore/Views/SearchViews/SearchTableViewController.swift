@@ -62,11 +62,26 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
                 items.append(viewModel)
             }
             
-            sectionModel.append(BaseSectionTableViewModel(header: "최근 검색어", items: items))
+            sectionModel.append(BaseSectionTableViewModel(header: "Latest Search Words", items: items))
             return sectionModel
         }
         .bind(to: self.tableView.rx.items(dataSource: self.rxDataSource!))
         .disposed(by: self.disposeBag)
+        
+        self.tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                guard let viewModel = try? (self.rxDataSource!.model(at: indexPath) as? SearchHistoryCellViewModel) else {
+                    return
+                }
+                    
+                self.navigationItem.searchController?.searchBar.text = viewModel.text!
+                self.navigationItem.searchController?.searchBar.becomeFirstResponder()
+                self.viewModel.input.requestSearchObserver.onNext(viewModel.text!)
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.tableView.rx.setDelegate(self)
     }
     
     func bindSearchBar() {
@@ -79,7 +94,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         historyTableViewController.viewModel = self.viewModel
         self.navigationItem.searchController = searchController
 
-        let emptyView = Bundle.main.loadNibNamed("SearchEmptyView", owner: self, options: nil)?.first as! SearchEmptyView
+        guard let emptyView = Bundle.main.loadNibNamed("SearchEmptyView", owner: self, options: nil)?.first as? SearchEmptyView else { return }
         searchController.view.addSubview(emptyView)
         self.searchEmptyView = emptyView
 
@@ -165,6 +180,15 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             .disposed(by: self.disposeBag)
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let destination = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: String(describing: SearchHeaderSectionViewController.self))
+        return destination.view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+
     private let presentingIndicatorTypes = {
         return NVActivityIndicatorType.allCases.filter { $0 != .blank }
     }()

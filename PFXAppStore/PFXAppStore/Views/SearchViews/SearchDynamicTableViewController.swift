@@ -52,10 +52,24 @@ class SearchDynamicTableViewController: UITableViewController {
             cell.configure(viewModel: viewModel)
             return cell
         })
-
+        
         self.viewModel.output.searchDynamicSections
             .asDriver(onErrorJustReturn: [])
             .drive(self.tableView.rx.items(dataSource: self.rxDataSource!))
             .disposed(by: self.disposeBag)
+
+        self.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let viewModel = try? (self.rxDataSource!.model(at: indexPath) as? BaseCellViewModel) else {
+            return 44
+        }
+        
+        if viewModel is SearchAppStoreCellViewModel {
+            return 400
+        }
+        
+        return 44
     }
 }
