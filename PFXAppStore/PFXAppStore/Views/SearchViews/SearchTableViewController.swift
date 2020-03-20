@@ -21,7 +21,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
     private var disposeBag = DisposeBag()
     private var rxDataSource: RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>?
     private var searchEmptyView = SearchEmptyView()
-
+    private var ignore = false
     deinit {
         self.disposeBag = DisposeBag()
     }
@@ -50,33 +50,23 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             let viewModel = dataSource.sectionModels[index]
             return viewModel.header
         })
-        
-        CoreDataHelper.shared.entityHistories(isAscending: false, limit: 10)
-        .map { models in
-            var sectionModel = [BaseSectionTableViewModel]()
-            var items = [BaseCellViewModel]()
-            for model in models {
-                let viewModel = SearchHistoryCellViewModel(reuseIdentifier: String(describing: SearchHistoryCell.self), identifier: String(describing: SearchHistoryCell.self) + String.random())
-                viewModel.text = model.text
-                viewModel.date = model.date
-                items.append(viewModel)
-            }
-            
-            sectionModel.append(BaseSectionTableViewModel(header: "Latest Search Words", items: items))
-            return sectionModel
-        }
-        .bind(to: self.tableView.rx.items(dataSource: self.rxDataSource!))
-        .disposed(by: self.disposeBag)
+
+        self.viewModel.output.recentSections
+            .bind(to: self.tableView.rx.items(dataSource: self.rxDataSource!))
+            .disposed(by: self.disposeBag)
         
         self.tableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
+            .asDriver()
+            .drive(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                guard let viewModel = try? (self.rxDataSource!.model(at: indexPath) as? SearchHistoryCellViewModel) else {
-                    return
+                do {
+                    guard let viewModel = try (self.rxDataSource!.model(at: indexPath) as? SearchHistoryCellViewModel) else { return }
+                    guard let text = viewModel.text else { return }
+                    self.focusSearchBar(text: text)
                 }
-                
-                guard let text = viewModel.text else { return }
-                self.focusSearchBar(text: text)
+                catch {
+                    
+                }
             })
             .disposed(by: self.disposeBag)
         
@@ -103,7 +93,6 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self, let text = searchController.searchBar.text else { return }
                 self.viewModel.input.requestSearchObserver.onNext(text)
-                searchController.searchBar.resignFirstResponder()
             })
             .disposed(by: self.disposeBag)
         
@@ -115,16 +104,24 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
 
         searchController.searchBar.rx.text
             .orEmpty
+            .skip(1)
             .distinctUntilChanged()
+            .filter({ $0.count > 0 })
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] text in
                 guard let self = self else { return }
+                print("searchController.searchBar.rx.text text \(text)")
+                if self.ignore == true {
+                    self.ignore = false
+                    return
+                }
                 self.viewModel.input.historyObserver.onNext(text)
             })
             .disposed(by: self.disposeBag)
     }
     
     func bindInputs() {
+        self.viewModel.input.refreshHistoryObserver.onNext(true)
     }
     
     func bindOutputs() {
@@ -188,14 +185,25 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
                 self.focusSearchBar(text: text)
             })
             .disposed(by: self.disposeBag)
+        
+        self.viewModel.output.beginScroll
+        .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isScroll in
+                guard let self = self, let searchController = self.navigationItem.searchController else { return }
+                // TODO : i want hide keyboard!!!!!
+                // 버그로 인하여 플래그 추가.
+                self.ignore = true
+                searchController.searchBar.resignFirstResponder()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     func focusSearchBar(text: String) {
+        print("\(#function) text \(text)")
         guard let searchController = self.navigationItem.searchController else { return }
         searchController.searchBar.text = text
-        searchController.searchBar.becomeFirstResponder()
+        searchController.searchBar.searchTextField.becomeFirstResponder()
         self.viewModel.input.requestSearchObserver.onNext(text)
-        searchController.searchBar.resignFirstResponder()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

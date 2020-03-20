@@ -16,6 +16,8 @@ class SearchTableViewModel {
         var selectedHistoryObserver: AnyObserver<String>
         var requestSearchObserver: AnyObserver<String>
         var cancelSearchObserver: AnyObserver<Bool>
+        var beginScrollObserver: AnyObserver<Bool>
+        var refreshHistoryObserver: AnyObserver<Bool>
     }
     
     struct Output {
@@ -25,6 +27,7 @@ class SearchTableViewModel {
         var empty: Observable<String>
         var error: Observable<NSError>
         var selectedHistory: Observable<String>
+        var beginScroll: Observable<Bool>
     }
     
     private var disposeBag = DisposeBag()
@@ -34,6 +37,7 @@ class SearchTableViewModel {
     
     var input: SearchTableViewModel.Input!
     var output: SearchTableViewModel.Output!
+    private var refreshHistorySubject = PublishSubject<Bool>()
     private var recentSectionsSubject = BehaviorRelay<[BaseSectionTableViewModel]>(value: [BaseSectionTableViewModel()])
     private var searchDynamicSectionsSubject = BehaviorRelay<[BaseSectionTableViewModel]>(value: [BaseSectionTableViewModel()])
     private var cancelSearchSubject = PublishSubject<Bool>()
@@ -44,6 +48,7 @@ class SearchTableViewModel {
     private var historySubject: PublishSubject<String> = PublishSubject()
     private var requestSearchSubject: PublishSubject<String> = PublishSubject()
     private var selectedHistorySubject = PublishSubject<String>()
+    private var beginScrollSubject = PublishSubject<Bool>()
 
     private let searchBloc = SearchBloc()
 
@@ -52,13 +57,16 @@ class SearchTableViewModel {
         self.input = SearchTableViewModel.Input(historyObserver: self.historySubject.asObserver(),
                                                 selectedHistoryObserver: self.selectedHistorySubject.asObserver(),
                                                 requestSearchObserver: self.requestSearchSubject.asObserver(),
-                                                cancelSearchObserver: self.cancelSearchSubject.asObserver())
+                                                cancelSearchObserver: self.cancelSearchSubject.asObserver(),
+                                                beginScrollObserver: self.beginScrollSubject.asObserver(),
+                                                refreshHistoryObserver: self.refreshHistorySubject.asObserver())
         self.output = SearchTableViewModel.Output(recentSections: self.recentSectionsSubject.asObservable(),
                                                   searchDynamicSections: self.searchDynamicSectionsSubject.asObservable(),
                                                   loading: self.loadingSubject.asObservable(),
                                                   empty: self.emptySubject.asObservable(),
                                                   error: self.errorSubject.asObservable(),
-                                                  selectedHistory: self.selectedHistorySubject.asObservable())
+                                                  selectedHistory: self.selectedHistorySubject.asObservable(),
+                                                  beginScroll: self.beginScrollSubject.asObservable())
         // swiftlint:enable line_length
 
         self.bindBlocs()
@@ -151,12 +159,14 @@ class SearchTableViewModel {
     
     func bindInputs() {
         self.requestSearchSubject
-            .subscribe(onNext: { text in
+            .do(onNext: { text in
                 if let error = CoreDataHelper.shared.updateHistory(model: HistoryModel(text: text, date: Date())) {
-                    self.errorSubject.onNext(error)
-                    return
+                    print(error)
+    //                        self.errorSubject.onNext(error)
+    //                        return
                 }
-                
+            })
+            .subscribe(onNext: { text in
                 let parameterDict = ["term" : text,
                                      "media" : "software",
                                      "offset" : "0",
@@ -178,8 +188,10 @@ class SearchTableViewModel {
             .subscribe(onNext: { [weak self] text in
                 guard let self = self else { return }
                 self.emptySubject.onNext("")
+                print("request history...")
                 
                 CoreDataHelper.shared.entityHistories(text: text)
+                    .distinctUntilChanged()
                     .subscribe(onNext: { [weak self] models in
                         guard let self = self else { return }
                         
@@ -205,21 +217,33 @@ class SearchTableViewModel {
                     .disposed(by: self.disposeBag)
             })
             .disposed(by: self.disposeBag)
+        
+        self.refreshHistorySubject
+            .subscribe(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.refreshRecentHistory()
+            })
+            .disposed(by: self.disposeBag)
     }
     
-    func entityHistories() {
-        CoreDataHelper.shared.entityHistories(isAscending: false, limit: 10)
+    func refreshRecentHistory() {
+        CoreDataHelper.shared.entityHistories(isAscending: false, limit: ConstNumbers.maxRecentHistoryCount)
             .subscribe(onNext: { [weak self] models in
                 guard let self = self else { return }
-                
                 var items = [BaseCellViewModel]()
-                for model in models {
+                
+                for i in 0..<models.count {
+                    if i >= ConstNumbers.maxRecentHistoryCount {
+                        break
+                    }
+                    
+                    let model = models[i]
                     let viewModel = SearchHistoryCellViewModel(reuseIdentifier: String(describing: SearchHistoryCell.self), identifier: String(describing: SearchHistoryCell.self) + String.random())
                     viewModel.text = model.text
                     viewModel.date = model.date
                     items.append(viewModel)
                 }
-                
+
                 var sections = self.recentSectionsSubject.value
                 if var collectionViewModel = sections.first {
                     collectionViewModel.items.removeAll()
@@ -231,6 +255,6 @@ class SearchTableViewModel {
             }, onError: { error in
                 self.errorSubject.onNext(NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_select_entity.rawValue, userInfo: nil))
             })
-            .dispose()
+            .disposed(by: self.disposeBag)
     }
 }

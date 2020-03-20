@@ -17,6 +17,7 @@ struct ConstNumbers {
     static let maxLoadLimit = 30
     static let maxTermLength = 32
     static let maxHistoryLength = 32
+    static let maxRecentHistoryCount = 10
     static let artworkImageViewRound: Float = 5
     static let appStoreImageViewRound: Float = 5
 }

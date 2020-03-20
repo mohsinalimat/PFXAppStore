@@ -38,6 +38,7 @@ class SearchDynamicTableViewController: UITableViewController {
             }
             
             if let viewModel = viewModel as? SearchAppStoreCellViewModel {
+                print("SearchAppStoreCellViewModel")
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier, for: indexPath) as? SearchAppStoreCell else {
                     return UITableViewCell(style: .default, reuseIdentifier: String.random())
                 }
@@ -113,6 +114,12 @@ class SearchDynamicTableViewController: UITableViewController {
 //                }
             })
             .disposed(by: self.disposeBag)
+        
+        self.tableView.rx.willBeginDragging
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.viewModel.input.beginScrollObserver.onNext(true)
+            }).disposed(by: self.disposeBag)
 
         self.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
     }

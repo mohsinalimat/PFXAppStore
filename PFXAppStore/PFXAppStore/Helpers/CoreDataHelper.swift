@@ -32,19 +32,16 @@ class CoreDataHelper {
         let fileManager = FileManager.default
         let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         let finalDatabaseURL = documentsUrl.first!.appendingPathComponent(ConstStrings.sqliteFileName)
-        if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
-            print("DB does not exist in documents folder")
-            let documentsURL = Bundle.main.resourceURL?.appendingPathComponent(ConstStrings.sqliteFileName)
-            do {
+        do {
+            let fileExists = try finalDatabaseURL.checkResourceIsReachable()
+            if fileExists == false {
+                let documentsURL = Bundle.main.resourceURL?.appendingPathComponent(ConstStrings.sqliteFileName)
                 try fileManager.copyItem(atPath: (documentsURL?.path)!, toPath: finalDatabaseURL.path)
-            } catch let error as NSError {
-                print("Couldn't copy file to final location! Error:\(error.description)")
             }
+        } catch let error as NSError {
+            print("path : \(finalDatabaseURL.path) error : \(error)")
         }
-        else {
-            print("Database file found at path: \(finalDatabaseURL.path)")
-        }
-
+        
         let mOptions = [NSMigratePersistentStoresAutomaticallyOption: true,
                         NSInferMappingModelAutomaticallyOption: true]
         
@@ -59,7 +56,7 @@ class CoreDataHelper {
         
         return coordinator
     }()
-    
+
     lazy var managedObjectContext: NSManagedObjectContext = {
         let coordinator = self.persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
@@ -84,10 +81,12 @@ class CoreDataHelper {
     }
     
     func entityHistories(isAscending: Bool, limit: Int) -> Observable<[HistoryModel]> {
-        return managedObjectContext.rx.entities(HistoryModel.self, limit: 10, sortDescriptors: [NSSortDescriptor(key: "date", ascending: isAscending)])
+        print("recent load histories")
+        return managedObjectContext.rx.entities(HistoryModel.self, limit: limit, sortDescriptors: [NSSortDescriptor(key: "date", ascending: isAscending)])
     }
 
     func entityHistories(text: String) -> Observable<[HistoryModel]> {
+        print("select histories")
         return managedObjectContext.rx.entities(HistoryModel.self, predicate: NSPredicate(format: "text beginsWith[c] %@", text))
     }
 

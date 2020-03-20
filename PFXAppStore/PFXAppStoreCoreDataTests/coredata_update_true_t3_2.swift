@@ -35,7 +35,7 @@ class coredata_update_true_t3_2: XCTestCase {
         CoreDataHelper.shared.updateHistory(model: HistoryModel(text: "game", date: Date()))
         // true면 옛날것부터
         // false면 최근것부터
-        CoreDataHelper.shared.entityHistories(isAscending: false, limit: 10)
+        CoreDataHelper.shared.entityHistories(isAscending: false, limit: ConstNumbers.maxRecentHistoryCount)
             .subscribe(onNext: { models in
                 XCTAssertTrue(models.first!.text == "game")
                 expt.fulfill()

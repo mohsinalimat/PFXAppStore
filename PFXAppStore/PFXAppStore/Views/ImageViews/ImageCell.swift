@@ -23,7 +23,6 @@ class ImageCell: BaseCollectionViewCell {
         
         setNeedsLayout()
         layoutIfNeeded()
-        
         var frame = layoutAttributes.frame
         frame.size.width = CGFloat(viewModel.screenshotModel.width)
         frame.size.height = CGFloat(viewModel.screenshotModel.height)
@@ -57,24 +56,16 @@ class ImageCell: BaseCollectionViewCell {
     }
     
     func updateLoadingView() {
-        guard let animationView = self.animationView, let viewModel = self.viewModel else {
+        guard let animationView = self.animationView else {
             return
         }
         
-        // 다운로드 받은 lottie 파일이라 좌표 및 크기 수정이 잘 안돼서 좌표 설정 해 버림.
         animationView.snp.removeConstraints()
         animationView.snp.makeConstraints { make in
-            make.top.equalTo(self.imageView).offset(0)
-            make.bottom.equalTo(self.imageView).offset(0)
-            
-            if viewModel.screenshotModel.isPortrait() {
-                make.right.equalTo(self.imageView).offset(0)
-                make.left.equalTo(self.imageView).offset(0)
-            }
-            else {
-                make.right.equalTo(self.imageView).offset(-70)
-                make.left.equalTo(self.imageView).offset(70)
-            }
+            make.top.equalTo(self.loadingView).offset(0)
+            make.bottom.equalTo(self.loadingView).offset(0)
+            make.right.equalTo(self.loadingView).offset(0)
+            make.left.equalTo(self.loadingView).offset(0)
         }
         
         animationView.play()
