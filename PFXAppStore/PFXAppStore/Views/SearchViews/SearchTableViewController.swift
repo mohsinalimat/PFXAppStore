@@ -15,8 +15,6 @@ import SwiftMessages
 import NVActivityIndicatorView
 
 class SearchTableViewController: UITableViewController, NVActivityIndicatorViewable {
-    @IBOutlet weak var stubButton: UIBarButtonItem!
-    
     var viewModel = SearchTableViewModel()
     private var disposeBag = DisposeBag()
     private var rxDataSource: RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>?
@@ -84,7 +82,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         let searchController = UISearchController(searchResultsController: historyTableViewController)
         historyTableViewController.viewModel = self.viewModel
         self.navigationItem.searchController = searchController
-
+        self.definesPresentationContext = true
         guard let emptyView = Bundle.main.loadNibNamed("SearchEmptyView", owner: self, options: nil)?.first as? SearchEmptyView else { return }
         searchController.view.addSubview(emptyView)
         self.searchEmptyView = emptyView

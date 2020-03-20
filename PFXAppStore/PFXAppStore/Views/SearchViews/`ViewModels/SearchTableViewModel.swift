@@ -106,7 +106,8 @@ class SearchTableViewModel {
                         viewModel.sellerName = model.sellerName
                         viewModel.artworkUrl100 = model.artworkUrl100
                         viewModel.averageUserRating = String(model.averageUserRating)
-                        
+                        viewModel.appStoreModel = model
+
                         var imageWidth: Float = 150
                         var imageHeight: Float = 300
                         for url in model.screenshotUrls {

@@ -85,7 +85,16 @@ class SearchDynamicTableViewController: UITableViewController {
                     return
                 }
                 
-                if viewModel is SearchAppStoreCellViewModel {
+                if let viewModel = viewModel as? SearchAppStoreCellViewModel {
+                    guard let destination = UIStoryboard(name: "AppInfo", bundle: nil).instantiateViewController(withIdentifier: String(describing: AppInfoTableViewController.self)) as? AppInfoTableViewController, let appStoreModel = viewModel.appStoreModel else {
+                        return
+                    }
+                    
+                    self.tableView.deselectRow(at: indexPath, animated: false)
+                    
+                    destination.viewModel = AppInfoViewModel(appStoreModel: appStoreModel)
+                    self.presentingViewController?.navigationController?.pushViewController(destination, animated:true)
+//                    self.navigationController?.pushViewController(destination, animated: true)
                     return
                 }
                 
