@@ -59,7 +59,7 @@ class SearchDynamicTableViewController: UITableViewController {
                     }
                     destination.didMove(toParent: self)
                 }
-
+                
                 cell.configure(viewModel: viewModel)
                 return cell
             }
@@ -122,8 +122,9 @@ class SearchDynamicTableViewController: UITableViewController {
             return 44
         }
         
-        if viewModel is SearchAppStoreCellViewModel {
-            return 400
+        if let viewModel = viewModel as? SearchAppStoreCellViewModel {
+            let height = viewModel.screenshotModel!.height!
+            return CGFloat(height + 100)
         }
         
         return 44

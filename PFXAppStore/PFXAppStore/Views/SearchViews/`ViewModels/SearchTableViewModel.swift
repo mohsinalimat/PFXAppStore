@@ -98,7 +98,29 @@ class SearchTableViewModel {
                         viewModel.sellerName = model.sellerName
                         viewModel.artworkUrl100 = model.artworkUrl100
                         viewModel.averageUserRating = String(model.averageUserRating)
-                        viewModel.screenshotUrls = model.screenshotUrls
+                        
+                        var imageWidth: Float = 150
+                        var imageHeight: Float = 300
+                        for url in model.screenshotUrls {
+                            var fileName = (url as NSString).lastPathComponent
+                            fileName = (fileName as NSString).deletingPathExtension
+                            fileName = fileName.replacingOccurrences(of: "bb", with: "")
+                            let tokens = fileName.components(separatedBy: "x")
+                            guard let first = tokens.first, let last = tokens.last else {
+                                continue
+                            }
+                            
+                            guard let width = Int(first), let height = Int(last) else {
+                                continue
+                            }
+                            
+                            if width > height {
+                                imageWidth = 300
+                                imageHeight = 180
+                            }
+                        }
+                        
+                        viewModel.screenshotModel = ScreenshotModel(targetPaths: model.screenshotUrls, width: imageWidth, height: imageHeight)
                         items.append(viewModel)
                     }
                     
@@ -138,6 +160,7 @@ class SearchTableViewModel {
                 let parameterDict = ["term" : text,
                                      "media" : "software",
                                      "offset" : "0",
+                                     "country" : "kr",
                                      "limit" : String(ConstNumbers.maxLoadLimit)]
 
                 self.searchBloc.dispatch(event: FetchingSearchEvent(parameterDict: parameterDict))

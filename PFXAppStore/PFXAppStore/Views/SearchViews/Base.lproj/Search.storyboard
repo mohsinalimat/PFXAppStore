@@ -118,27 +118,27 @@
         <scene sceneID="Qk0-Gy-9jd">
             <objects>
                 <tableViewController storyboardIdentifier="SearchDynamicTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hw4-RF-NrV" customClass="SearchDynamicTableViewController" customModule="PFXAppStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eyh-cC-1zf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eyh-cC-1zf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SearchHistoryCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchHistoryCell" id="T0d-X5-xDA" customClass="SearchHistoryCell" customModule="PFXAppStore" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T0d-X5-xDA" id="I5J-Zw-Swt">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchAppStoreCell" rowHeight="400" id="ATU-Gj-rdQ" customClass="SearchAppStoreCell" customModule="PFXAppStore" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="71.5" width="414" height="400"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchAppStoreCell" id="ATU-Gj-rdQ" customClass="SearchAppStoreCell" customModule="PFXAppStore" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="328" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ATU-Gj-rdQ" id="Zcg-Kd-kNk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6x3-4F-qCb">
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6x3-4F-qCb">
                                             <rect key="frame" x="20" y="11" width="64" height="64"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="64" id="90c-23-44d"/>
@@ -173,26 +173,24 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kd-52-g0A">
-                                            <rect key="frame" x="20" y="83" width="374" height="300"/>
+                                            <rect key="frame" x="20" y="83" width="374" height="206"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="300" id="ziT-Aw-tf1"/>
-                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="1Kd-52-g0A" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="2Qh-AU-ebd"/>
                                         <constraint firstItem="Qh0-GR-IFE" firstAttribute="leading" secondItem="6x3-4F-qCb" secondAttribute="trailing" constant="8" id="4Zu-P6-7bl"/>
                                         <constraint firstItem="L7c-cy-2iF" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="7KA-NN-fJn"/>
                                         <constraint firstItem="Qh0-GR-IFE" firstAttribute="top" secondItem="L7c-cy-2iF" secondAttribute="bottom" constant="2" id="7cB-Wk-Wg0"/>
-                                        <constraint firstItem="1Kd-52-g0A" firstAttribute="leading" secondItem="Zcg-Kd-kNk" secondAttribute="leadingMargin" id="7t6-Ru-hOV"/>
+                                        <constraint firstItem="1Kd-52-g0A" firstAttribute="top" secondItem="6x3-4F-qCb" secondAttribute="bottom" constant="8" id="8Mi-Kg-gYP"/>
                                         <constraint firstItem="6x3-4F-qCb" firstAttribute="top" secondItem="Zcg-Kd-kNk" secondAttribute="topMargin" id="FhM-Qo-Ffa"/>
                                         <constraint firstItem="TCJ-Q4-eMa" firstAttribute="top" secondItem="Zcg-Kd-kNk" secondAttribute="topMargin" id="Mdg-7W-f7a"/>
+                                        <constraint firstItem="1Kd-52-g0A" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="N0g-Xj-XTQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="1Kd-52-g0A" secondAttribute="bottom" id="Nu9-qD-vqW"/>
                                         <constraint firstItem="TCJ-Q4-eMa" firstAttribute="leading" secondItem="6x3-4F-qCb" secondAttribute="trailing" constant="8" id="P9z-zU-quX"/>
                                         <constraint firstItem="TCJ-Q4-eMa" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="QGw-ro-KbZ"/>
                                         <constraint firstItem="6x3-4F-qCb" firstAttribute="leading" secondItem="Zcg-Kd-kNk" secondAttribute="leadingMargin" id="cC0-3y-gkT"/>
-                                        <constraint firstItem="1Kd-52-g0A" firstAttribute="top" secondItem="6x3-4F-qCb" secondAttribute="bottom" constant="8" id="doz-vG-EyH"/>
                                         <constraint firstItem="L7c-cy-2iF" firstAttribute="leading" secondItem="6x3-4F-qCb" secondAttribute="trailing" constant="8" id="gqY-ik-HGY"/>
+                                        <constraint firstItem="1Kd-52-g0A" firstAttribute="leading" secondItem="Zcg-Kd-kNk" secondAttribute="leadingMargin" id="hiF-27-6F7"/>
                                         <constraint firstItem="L7c-cy-2iF" firstAttribute="top" secondItem="TCJ-Q4-eMa" secondAttribute="bottom" constant="2" id="jGx-rC-RcK"/>
                                         <constraint firstItem="Qh0-GR-IFE" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="l9j-vk-UQn"/>
                                     </constraints>

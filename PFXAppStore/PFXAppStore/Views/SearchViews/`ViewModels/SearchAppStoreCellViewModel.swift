@@ -13,5 +13,5 @@ class SearchAppStoreCellViewModel: BaseCellViewModel {
     var sellerName: String?
     var artworkUrl100: String?
     var averageUserRating: String?
-    var screenshotUrls: [String]?
+    var screenshotModel: ScreenshotModel?
 }

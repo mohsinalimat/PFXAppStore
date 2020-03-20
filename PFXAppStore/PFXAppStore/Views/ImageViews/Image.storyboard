@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Yg-Ui-qYR">
-                            <size key="itemSize" width="189" height="360"/>
+                            <size key="itemSize" width="200" height="300"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -29,23 +29,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="azA-Qi-KsJ">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="azA-Qi-KsJ">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7s5-cY-H0G">
-                                            <rect key="frame" x="0.0" y="50" width="200" height="200"/>
+                                        <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7s5-cY-H0G">
+                                            <rect key="frame" x="78" y="128" width="44" height="44"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="ULP-25-6CU"/>
-                                                <constraint firstAttribute="width" constant="200" id="dci-iO-0dL"/>
+                                                <constraint firstAttribute="height" constant="44" id="I9e-21-jqz"/>
+                                                <constraint firstAttribute="width" constant="44" id="vNW-d6-urW"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="7s5-cY-H0G" firstAttribute="centerX" secondItem="F6N-sH-FFx" secondAttribute="centerX" id="7i1-At-M2Y"/>
-                                        <constraint firstItem="7s5-cY-H0G" firstAttribute="centerY" secondItem="F6N-sH-FFx" secondAttribute="centerY" id="Ue8-3I-pBA"/>
+                                        <constraint firstItem="7s5-cY-H0G" firstAttribute="centerY" secondItem="F6N-sH-FFx" secondAttribute="centerY" id="YNW-bR-NxM"/>
                                         <constraint firstItem="azA-Qi-KsJ" firstAttribute="leading" secondItem="F6N-sH-FFx" secondAttribute="leading" id="aMe-U9-Iji"/>
                                         <constraint firstItem="azA-Qi-KsJ" firstAttribute="top" secondItem="F6N-sH-FFx" secondAttribute="top" id="aQG-qu-enx"/>
+                                        <constraint firstItem="7s5-cY-H0G" firstAttribute="centerX" secondItem="F6N-sH-FFx" secondAttribute="centerX" id="fcm-nm-Ga6"/>
                                         <constraint firstAttribute="bottom" secondItem="azA-Qi-KsJ" secondAttribute="bottom" id="h0c-2x-Ls9"/>
                                         <constraint firstAttribute="trailing" secondItem="azA-Qi-KsJ" secondAttribute="trailing" id="kDM-YT-z60"/>
                                     </constraints>

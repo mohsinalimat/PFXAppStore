@@ -20,20 +20,32 @@ class SearchAppStoreCell: BaseTableViewCell {
     private weak var viewModel: SearchAppStoreCellViewModel?
     var imageCollectionViewController: ImageCollectionViewController?
     private var imageBloc = ImageBloc()
+    private var screenshotModel: ScreenshotModel!
     
     func initialize() {
         self.trackNameLabel.text = ""
         self.sellerNameLabel.text = ""
         self.averageUserRatingLabel.text = ""
         self.artworkImageView.image = nil
+        if self.artworkImageView.isHidden == false {
+            return
+        }
+        
+        self.artworkImageView.isHidden = false
+        self.artworkImageView.roundLayer(value: CGFloat(ConstNumbers.artworkImageViewRound))
     }
     
     func willDisplay() {
-        guard let viewModel = self.viewModel, let screenshotUrls = viewModel.screenshotUrls else {
+        guard let viewModel = self.viewModel, let screenshotModel = viewModel.screenshotModel else {
             return
         }
 
-        self.imageCollectionViewController?.willDisplay(screenshotUrls: screenshotUrls)
+        self.imageCollectionViewController?.willDisplay(screenshotModel: screenshotModel)
+    }
+    
+    func configure(viewModel: BaseCellViewModel, screenshotModel: ScreenshotModel) {
+        self.configure(viewModel: viewModel)
+        self.screenshotModel = screenshotModel
     }
     
     override func configure(viewModel: BaseCellViewModel) {

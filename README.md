@@ -63,7 +63,7 @@ https://docs.google.com/spreadsheets/d/1DPubPSjVEHTzc3DpAe-okOdyIHy48sG7AMUycH0J
 # OpenAPI
 
 https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
-https://itunes.apple.com/search?term=game&media=software&offset=0&limit=10
+https://itunes.apple.com/search?term=game&media=software&offset=0&limit=10&country=kr
 
 # Medium
 

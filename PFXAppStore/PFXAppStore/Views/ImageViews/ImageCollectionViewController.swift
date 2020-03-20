@@ -12,18 +12,18 @@ import RxSwift
 import RxDataSources
 
 class ImageCollectionViewController: UICollectionViewController {
-    var viewModel = ImageCollectionViewModel()
-    var disposeBag = DisposeBag()
+    private var viewModel: ImageCollectionViewModel!
+    private var disposeBag = DisposeBag()
     private var rxDataSource: RxCollectionViewSectionedAnimatedDataSource<BaseSectionCollectionViewModel>?
     deinit {
         self.disposeBag = DisposeBag()
     }
     
-    func willDisplay(screenshotUrls: [String]) {
+    func willDisplay(screenshotModel: ScreenshotModel) {
         self.disposeBag = DisposeBag()
         self.viewModel = ImageCollectionViewModel()
         self.bindOutput()
-        self.viewModel.input.screenshotUrlObserver.onNext(screenshotUrls)
+        self.viewModel.input.screenshotUrlObserver.onNext(screenshotModel)
     }
     
     func bindOutput() {
@@ -55,6 +55,7 @@ class ImageCollectionViewController: UICollectionViewController {
             })
             .disposed(by: self.disposeBag)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
