@@ -115,6 +115,7 @@
 		6D74D5592420C05300F8D3D6 /* coredata_delete_true_t4_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74D5582420C05300F8D3D6 /* coredata_delete_true_t4_3.swift */; };
 		6D74D55B2420C06800F8D3D6 /* coredata_delete_false_t5_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74D55A2420C06800F8D3D6 /* coredata_delete_false_t5_1.swift */; };
 		6D74D55D2420C06E00F8D3D6 /* coredata_delete_false_t5_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D74D55C2420C06E00F8D3D6 /* coredata_delete_false_t5_2.swift */; };
+		6D7856532425F8D100EC58ED /* intro.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D7856522425F8D100EC58ED /* intro.json */; };
 		6D878938242456120078C4F5 /* LandscapeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D878937242456120078C4F5 /* LandscapeImageCell.swift */; };
 		6D87893C242467C70078C4F5 /* ScreenshotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D87893B242467C70078C4F5 /* ScreenshotModel.swift */; };
 		6D8CD0D024207ED900F5AC89 /* search_provider_true_t1_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8CD0CF24207ED900F5AC89 /* search_provider_true_t1_1.swift */; };
@@ -177,7 +178,8 @@
 		6DCF8CEC2423A8550056A073 /* image_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8CEB2423A8550056A073 /* image_loading.json */; };
 		6DD5CDEF2425EC30004AD398 /* CloseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5CDEE2425EC30004AD398 /* CloseSectionView.xib */; };
 		6DD5CDF12425EC3A004AD398 /* CloseSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD5CDF02425EC3A004AD398 /* CloseSectionView.swift */; };
-		6DD5CDF42425F3E4004AD398 /* launchscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5CDF32425F3E4004AD398 /* launchscreen.json */; };
+		6DD5CDF82425F641004AD398 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5CDF72425F641004AD398 /* Intro.storyboard */; };
+		6DD5CDFA2425F64B004AD398 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD5CDF92425F64B004AD398 /* IntroViewController.swift */; };
 		6DFA8132242086A100E71181 /* ImageBloc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8131242086A100E71181 /* ImageBloc.swift */; };
 		6DFA8134242086B400E71181 /* ImageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8133242086B400E71181 /* ImageEvent.swift */; };
 		6DFA8136242086BC00E71181 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8135242086BC00E71181 /* ImageProvider.swift */; };
@@ -338,6 +340,7 @@
 		6D74D5582420C05300F8D3D6 /* coredata_delete_true_t4_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_delete_true_t4_3.swift; sourceTree = "<group>"; };
 		6D74D55A2420C06800F8D3D6 /* coredata_delete_false_t5_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_delete_false_t5_1.swift; sourceTree = "<group>"; };
 		6D74D55C2420C06E00F8D3D6 /* coredata_delete_false_t5_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coredata_delete_false_t5_2.swift; sourceTree = "<group>"; };
+		6D7856522425F8D100EC58ED /* intro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intro.json; sourceTree = "<group>"; };
 		6D878937242456120078C4F5 /* LandscapeImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeImageCell.swift; sourceTree = "<group>"; };
 		6D87893B242467C70078C4F5 /* ScreenshotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotModel.swift; sourceTree = "<group>"; };
 		6D8CD0CF24207ED900F5AC89 /* search_provider_true_t1_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = search_provider_true_t1_1.swift; path = PFXAppStoreProviderTests/search_provider_true_t1_1.swift; sourceTree = SOURCE_ROOT; };
@@ -385,7 +388,8 @@
 		6DCF8CEB2423A8550056A073 /* image_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = image_loading.json; sourceTree = "<group>"; };
 		6DD5CDEE2425EC30004AD398 /* CloseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloseSectionView.xib; sourceTree = "<group>"; };
 		6DD5CDF02425EC3A004AD398 /* CloseSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseSectionView.swift; sourceTree = "<group>"; };
-		6DD5CDF32425F3E4004AD398 /* launchscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = launchscreen.json; path = ../../../../../../../Downloads/launchscreen.json; sourceTree = "<group>"; };
+		6DD5CDF72425F641004AD398 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		6DD5CDF92425F64B004AD398 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		6DFA8131242086A100E71181 /* ImageBloc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBloc.swift; sourceTree = "<group>"; };
 		6DFA8133242086B400E71181 /* ImageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEvent.swift; sourceTree = "<group>"; };
 		6DFA8135242086BC00E71181 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -636,7 +640,7 @@
 		6D660EBE2421FD6700C76B45 /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				6DD5CDF32425F3E4004AD398 /* launchscreen.json */,
+				6D7856522425F8D100EC58ED /* intro.json */,
 				6DCF8CEB2423A8550056A073 /* image_loading.json */,
 			);
 			path = Files;
@@ -656,6 +660,7 @@
 		6DAFDECD241F11C700D95EEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6DD5CDF52425F62A004AD398 /* IntroViews */,
 				6D57DB202424FDCE00426D3B /* AppInfoViews */,
 				6D0C2006242596770027E4B0 /* ErrorViews */,
 				6DCF8CDB2423902B0056A073 /* ImageViews */,
@@ -878,6 +883,23 @@
 			children = (
 				6DCF8CE7242391850056A073 /* ImageCellViewModel.swift */,
 				6DCF8CE3242391710056A073 /* ImageCollectionViewModel.swift */,
+			);
+			path = "`ViewModels";
+			sourceTree = "<group>";
+		};
+		6DD5CDF52425F62A004AD398 /* IntroViews */ = {
+			isa = PBXGroup;
+			children = (
+				6DD5CDF62425F632004AD398 /* `ViewModels */,
+				6DD5CDF72425F641004AD398 /* Intro.storyboard */,
+				6DD5CDF92425F64B004AD398 /* IntroViewController.swift */,
+			);
+			path = IntroViews;
+			sourceTree = "<group>";
+		};
+		6DD5CDF62425F632004AD398 /* `ViewModels */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = "`ViewModels";
 			sourceTree = "<group>";
@@ -1151,12 +1173,13 @@
 				6D016019241FAA9200C1CEC5 /* Localizable.strings in Resources */,
 				6DCF8CEC2423A8550056A073 /* image_loading.json in Resources */,
 				6D629AD5242045C5002A88C9 /* provider_stub.plist in Resources */,
-				6DD5CDF42425F3E4004AD398 /* launchscreen.json in Resources */,
 				6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */,
 				6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */,
 				6D57B6A12422E5CB001A66A3 /* SearchEmptyView.xib in Resources */,
 				6DC83026241F0CC000B1F3ED /* Assets.xcassets in Resources */,
+				6DD5CDF82425F641004AD398 /* Intro.storyboard in Resources */,
 				6D0C200C2425A0B40027E4B0 /* iPadSectionView.xib in Resources */,
+				6D7856532425F8D100EC58ED /* intro.json in Resources */,
 				6DCF8CDD2423903B0056A073 /* Image.storyboard in Resources */,
 				6DC0248F2420501E00245869 /* event_stub.plist in Resources */,
 				6D57DB222424FE3000426D3B /* AppInfo.storyboard in Resources */,
@@ -1534,6 +1557,7 @@
 				6D3C384A24234E78008089A9 /* UIView+Extension.swift in Sources */,
 				6D9F8EC624258F950018543B /* ScreenshotCell.swift in Sources */,
 				6D65CCA2241F4BB000C164E3 /* AppStoreResponseModel.swift in Sources */,
+				6DD5CDFA2425F64B004AD398 /* IntroViewController.swift in Sources */,
 				6D016032241FACE300C1CEC5 /* SearchProvider.swift in Sources */,
 				6DD5CDF12425EC3A004AD398 /* CloseSectionView.swift in Sources */,
 				6D57DB252424FE4300426D3B /* AppInfoTableViewController.swift in Sources */,

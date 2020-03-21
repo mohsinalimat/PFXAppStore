@@ -50,6 +50,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
         self.downloadButton.roundLayer(value: CGFloat(ConstNumbers.buttonRound))
         self.moreButton.roundLayer(value: CGFloat(ConstNumbers.buttonRound))
         self.bindOutputs()
+        self.bindButtons()
         
         self.averageUserRatingView.rateColorRange = ConstColors.rateColorRange
     }
@@ -133,6 +134,21 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
             .disposed(by: self.disposeBag)
     }
     
+    func bindButtons() {
+        self.moreButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                if self.moreButton.tag != 0 {
+                    return
+                }
+                
+                self.moreButton.tag = 1
+                self.moreButton.isHidden = true
+                self.tableView.reloadData()
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == AppInfoSectionType.info.rawValue {
             guard let sectionView = Bundle.main.loadNibNamed("CloseSectionView", owner: self, options: nil)?.first as? CloseSectionView else {
@@ -200,7 +216,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == AppInfoSectionType.info.rawValue {
-            return 165
+            return UITableView.automaticDimension
         }
 
         if indexPath.section == AppInfoSectionType.iphoneScreenshot.rawValue {
@@ -226,11 +242,14 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
         }
         
         if indexPath.section == AppInfoSectionType.description.rawValue {
+            if self.moreButton.tag == 1 {
+                return UITableView.automaticDimension
+            }
+            
             return 100
         }
         
-
-        return 100
+        return UITableView.automaticDimension
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -283,7 +302,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
         self.updateLoadingView()
         animationView.alpha = 0.8
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .autoReverse
+        animationView.loopMode = .loop
         animationView.play()
     }
     

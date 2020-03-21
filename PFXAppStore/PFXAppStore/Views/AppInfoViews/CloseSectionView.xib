@@ -21,7 +21,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="tintColor" red="0.24737465380000001" green="0.55762696270000001" blue="0.57205778360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="Button" image="xmark.circle" catalog="system">
+                    <state key="normal" image="xmark.circle" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -30,7 +30,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="cLs-AK-Ii1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="13q-Hg-Oh6"/>
                 <constraint firstItem="cLs-AK-Ii1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CTT-CY-eb4"/>

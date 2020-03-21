@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9tS-uZ-Bb6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Intro View Controller-->
+        <scene sceneID="Pc1-D3-QXN">
+            <objects>
+                <viewController storyboardIdentifier="IntroViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9tS-uZ-Bb6" customClass="IntroViewController" customModule="PFXAppStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E5r-ZC-iVL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-h0-F62" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="75" y="216" width="264" height="464"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PFXAppStore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVF-b4-A6l">
+                                        <rect key="frame" x="52.5" y="217.5" width="159" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="24"/>
+                                        <color key="textColor" red="0.38039215686274508" green="0.64313725490196072" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="fVF-b4-A6l" firstAttribute="centerX" secondItem="bRi-h0-F62" secondAttribute="centerX" id="3Cq-Ej-uhR"/>
+                                    <constraint firstItem="fVF-b4-A6l" firstAttribute="centerY" secondItem="bRi-h0-F62" secondAttribute="centerY" id="EBc-O5-mDR"/>
+                                    <constraint firstAttribute="width" constant="264" id="egO-yJ-dTL"/>
+                                    <constraint firstAttribute="height" constant="464" id="lYH-k0-j1r"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="intro"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bRi-h0-F62" firstAttribute="centerX" secondItem="E5r-ZC-iVL" secondAttribute="centerX" id="OYZ-Yg-hXi"/>
+                            <constraint firstItem="bRi-h0-F62" firstAttribute="centerY" secondItem="E5r-ZC-iVL" secondAttribute="centerY" id="bI8-cV-sg0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hI2-Vw-bSW"/>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="bRi-h0-F62" id="Qwp-dx-NH7"/>
+                        <outlet property="titleLabel" destination="fVF-b4-A6l" id="shl-NE-Hry"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewl-Se-nrb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247.82608695652175" y="-219.64285714285714"/>
+        </scene>
+    </scenes>
+</document>

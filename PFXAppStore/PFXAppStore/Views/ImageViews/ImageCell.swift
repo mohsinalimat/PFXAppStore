@@ -51,7 +51,7 @@ class ImageCell: BaseCollectionViewCell {
         self.updateLoadingView()
         animationView.alpha = 0.8
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .autoReverse
+        animationView.loopMode = .loop
         animationView.play()
     }
     
