@@ -11,15 +11,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-import SwiftMessages
 import NVActivityIndicatorView
 
 class SearchTableViewController: UITableViewController, NVActivityIndicatorViewable {
     var viewModel = SearchTableViewModel()
-    private var disposeBag = DisposeBag()
     private var rxDataSource: RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>?
     private var searchEmptyView = SearchEmptyView()
     private var ignore = false
+    private let presentingIndicatorTypes = {
+        return NVActivityIndicatorType.allCases.filter { $0 != .blank }
+    }()
+
+    private var disposeBag = DisposeBag()
     deinit {
         self.disposeBag = DisposeBag()
     }
@@ -140,23 +143,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         self.viewModel.output.error
             .asDriver(onErrorJustReturn: NSError())
             .drive(onNext: { error in
-                var config = SwiftMessages.Config()
-                config.presentationStyle = .top
-                config.presentationContext = .window(windowLevel: .statusBar)
-                config.duration = .automatic
-                config.dimMode = .gray(interactive: true)
-                config.interactiveHide = false
-                config.preferredStatusBarStyle = .lightContent
-
-                let view = MessageView.viewFromNib(layout: .cardView)
-                view.configureTheme(.error)
-                view.configureDropShadow()
-                let iconText = "😡"
-                view.configureContent(title: "Error", body: PBError.messageKey(value: error.code), iconText: iconText)
-                view.button?.isHidden = true
-                view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-                (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
-                SwiftMessages.show(config: config, view: view)
+                ErrorViewHelper.show(error: error)
             })
             .disposed(by: self.disposeBag)
         
@@ -212,8 +199,4 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
-
-    private let presentingIndicatorTypes = {
-        return NVActivityIndicatorType.allCases.filter { $0 != .blank }
-    }()
 }

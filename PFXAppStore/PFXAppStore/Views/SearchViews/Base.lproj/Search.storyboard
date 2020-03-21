@@ -146,7 +146,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCJ-Q4-eMa">
-                                            <rect key="frame" x="92" y="11" width="302" height="21"/>
+                                            <rect key="frame" x="92" y="11" width="260" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="vgU-eC-VNh"/>
                                             </constraints>
@@ -155,7 +155,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7c-cy-2iF">
-                                            <rect key="frame" x="92" y="34" width="302" height="18"/>
+                                            <rect key="frame" x="92" y="34" width="260" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="fnq-OZ-INl"/>
                                             </constraints>
@@ -164,7 +164,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh0-GR-IFE">
-                                            <rect key="frame" x="92" y="54" width="302" height="18"/>
+                                            <rect key="frame" x="92" y="54" width="260" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="VNd-te-3nl"/>
                                             </constraints>
@@ -176,10 +176,22 @@
                                             <rect key="frame" x="20" y="83" width="374" height="206"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </view>
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p17-ll-tAt">
+                                            <rect key="frame" x="360" y="11" width="34" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="34" id="3cg-sR-ahI"/>
+                                                <constraint firstAttribute="height" constant="64" id="qu2-bK-nW5"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.24737465380000001" green="0.55762696270000001" blue="0.57205778360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <state key="normal" image="chevron.right.circle" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="p17-ll-tAt" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="0au-dl-8ya"/>
                                         <constraint firstItem="Qh0-GR-IFE" firstAttribute="leading" secondItem="6x3-4F-qCb" secondAttribute="trailing" constant="8" id="4Zu-P6-7bl"/>
-                                        <constraint firstItem="L7c-cy-2iF" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="7KA-NN-fJn"/>
+                                        <constraint firstItem="L7c-cy-2iF" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" constant="-42" id="7KA-NN-fJn"/>
                                         <constraint firstItem="Qh0-GR-IFE" firstAttribute="top" secondItem="L7c-cy-2iF" secondAttribute="bottom" constant="2" id="7cB-Wk-Wg0"/>
                                         <constraint firstItem="1Kd-52-g0A" firstAttribute="top" secondItem="6x3-4F-qCb" secondAttribute="bottom" constant="8" id="8Mi-Kg-gYP"/>
                                         <constraint firstItem="6x3-4F-qCb" firstAttribute="top" secondItem="Zcg-Kd-kNk" secondAttribute="topMargin" id="FhM-Qo-Ffa"/>
@@ -187,15 +199,17 @@
                                         <constraint firstItem="1Kd-52-g0A" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="N0g-Xj-XTQ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="1Kd-52-g0A" secondAttribute="bottom" id="Nu9-qD-vqW"/>
                                         <constraint firstItem="TCJ-Q4-eMa" firstAttribute="leading" secondItem="6x3-4F-qCb" secondAttribute="trailing" constant="8" id="P9z-zU-quX"/>
-                                        <constraint firstItem="TCJ-Q4-eMa" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="QGw-ro-KbZ"/>
+                                        <constraint firstItem="TCJ-Q4-eMa" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" constant="-42" id="QGw-ro-KbZ"/>
                                         <constraint firstItem="6x3-4F-qCb" firstAttribute="leading" secondItem="Zcg-Kd-kNk" secondAttribute="leadingMargin" id="cC0-3y-gkT"/>
                                         <constraint firstItem="L7c-cy-2iF" firstAttribute="leading" secondItem="6x3-4F-qCb" secondAttribute="trailing" constant="8" id="gqY-ik-HGY"/>
                                         <constraint firstItem="1Kd-52-g0A" firstAttribute="leading" secondItem="Zcg-Kd-kNk" secondAttribute="leadingMargin" id="hiF-27-6F7"/>
                                         <constraint firstItem="L7c-cy-2iF" firstAttribute="top" secondItem="TCJ-Q4-eMa" secondAttribute="bottom" constant="2" id="jGx-rC-RcK"/>
-                                        <constraint firstItem="Qh0-GR-IFE" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" id="l9j-vk-UQn"/>
+                                        <constraint firstItem="Qh0-GR-IFE" firstAttribute="trailing" secondItem="Zcg-Kd-kNk" secondAttribute="trailingMargin" constant="-42" id="l9j-vk-UQn"/>
+                                        <constraint firstItem="p17-ll-tAt" firstAttribute="top" secondItem="Zcg-Kd-kNk" secondAttribute="topMargin" id="let-8d-3tZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="appInfoButton" destination="p17-ll-tAt" id="b2y-3W-LQz"/>
                                     <outlet property="artworkImageView" destination="6x3-4F-qCb" id="PTb-he-Y9l"/>
                                     <outlet property="averageUserRatingLabel" destination="Qh0-GR-IFE" id="wbE-qk-zHB"/>
                                     <outlet property="bgndView" destination="1Kd-52-g0A" id="OyM-mB-HzO"/>
@@ -216,6 +230,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right.circle" catalog="system" width="64" height="60"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
     </resources>
 </document>

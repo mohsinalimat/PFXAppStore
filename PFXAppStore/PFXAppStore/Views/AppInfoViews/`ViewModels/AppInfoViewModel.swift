@@ -15,6 +15,8 @@ class AppInfoViewModel {
     }
     
     struct Output {
+        var loading: Observable<Bool>
+        var error: Observable<NSError>
         var artworkImage: Observable<Data>
         var trackName: Observable<String>
         var sellerName: Observable<String>
@@ -23,12 +25,6 @@ class AppInfoViewModel {
         var trackContentRating: Observable<String>
         var description: Observable<String>
     }
-
-    //    @IBOutlet weak var downloadButton: UIButton!
-    //    @IBOutlet weak var shareButton: UIButton!
-    //    @IBOutlet weak var moreButton: UIButton!
-    //    @IBOutlet weak var Label: UILabel!
-        // screenshotUrls
 
     private var disposeBag = DisposeBag()
     deinit {
@@ -39,6 +35,8 @@ class AppInfoViewModel {
     var input: AppInfoViewModel.Input!
     var output: AppInfoViewModel.Output!
     private var refreshSubject = PublishSubject<Bool>()
+    private var loadingSubject = PublishSubject<Bool>()
+    private var errorSubject = PublishSubject<NSError>()
     private var artworkImageSubject = PublishSubject<Data>()
     private var trackNameSubject = PublishSubject<String>()
     private var sellerNameSubject = PublishSubject<String>()
@@ -53,7 +51,15 @@ class AppInfoViewModel {
         self.appStoreModel = appStoreModel
         // swiftlint:disable line_length
         self.input = AppInfoViewModel.Input(refreshObserver: self.refreshSubject.asObserver())
-        self.output = AppInfoViewModel.Output(artworkImage: self.artworkImageSubject.asObservable(), trackName: self.trackNameSubject.asObservable(), sellerName: self.sellerNameSubject.asObservable(), averageUserRating: self.averageUserRatingSubject.asObservable(), genres: self.genresSubject.asObservable(), trackContentRating: self.trackContentRatingSubject.asObservable(), description: self.descriptionSubject.asObservable())
+        self.output = AppInfoViewModel.Output(loading: self.loadingSubject.asObserver(),
+                                              error: self.errorSubject.asObserver(),
+                                              artworkImage: self.artworkImageSubject.asObservable(),
+                                              trackName: self.trackNameSubject.asObservable(),
+                                              sellerName: self.sellerNameSubject.asObservable(),
+                                              averageUserRating: self.averageUserRatingSubject.asObservable(),
+                                              genres: self.genresSubject.asObservable(),
+                                              trackContentRating: self.trackContentRatingSubject.asObservable(),
+                                              description: self.descriptionSubject.asObservable())
         // swiftlint:enable line_length
 
         self.bindBlocs()
@@ -63,7 +69,25 @@ class AppInfoViewModel {
     func bindBlocs() {
         self.imageBloc.stateRelay
             .subscribe(onNext: { [weak self] state in
+                guard let self = self else { return }
+                if let _ = state as? IdleImageState {
+                    self.loadingSubject.onNext(false)
+                    return
+                }
                 
+                if let _ = state as? DownloadingImageState {
+                    self.loadingSubject.onNext(true)
+                    return
+                }
+                
+                if let state = state as? DownloadImageState {
+                    self.artworkImageSubject.onNext(state.data)
+                    return
+                }
+                
+                if let state = state as? ErrorImageState {
+                    self.errorSubject.onNext(state.error)
+                }
             })
             .disposed(by: self.disposeBag)
     }
@@ -72,8 +96,16 @@ class AppInfoViewModel {
         self.refreshSubject
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
+                self.trackNameSubject.onNext(self.appStoreModel.trackName)
+                self.sellerNameSubject.onNext(self.appStoreModel.sellerName)
+                self.averageUserRatingSubject.onNext(String(self.appStoreModel.averageUserRating))
+                if let genre = self.appStoreModel.genres.first {
+                    self.genresSubject.onNext(genre)
+                }
                 
-                
+                self.trackContentRatingSubject.onNext(self.appStoreModel.trackContentRating)
+                self.descriptionSubject.onNext(self.appStoreModel.description)
+                self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: self.appStoreModel.artworkUrl512))
             })
             .disposed(by: self.disposeBag)
     }

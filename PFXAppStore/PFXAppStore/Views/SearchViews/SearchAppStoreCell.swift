@@ -16,11 +16,11 @@ class SearchAppStoreCell: BaseTableViewCell {
     @IBOutlet weak var sellerNameLabel: UILabel!
     @IBOutlet weak var averageUserRatingLabel: UILabel!
     @IBOutlet weak var bgndView: UIView!
-    
+    @IBOutlet weak var appInfoButton: UIButton!
+
     private weak var viewModel: SearchAppStoreCellViewModel?
     var imageCollectionViewController: ImageCollectionViewController?
     private var imageBloc = ImageBloc()
-    private var screenshotModel: ScreenshotModel!
     
     func initialize() {
         self.trackNameLabel.text = ""
@@ -41,11 +41,6 @@ class SearchAppStoreCell: BaseTableViewCell {
         }
 
         self.imageCollectionViewController?.willDisplay(screenshotModel: screenshotModel)
-    }
-    
-    func configure(viewModel: BaseCellViewModel, screenshotModel: ScreenshotModel) {
-        self.configure(viewModel: viewModel)
-        self.screenshotModel = screenshotModel
     }
     
     override func configure(viewModel: BaseCellViewModel) {

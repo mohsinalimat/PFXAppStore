@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import RxSwift
 import RxDataSources
+import NVActivityIndicatorView
 
-class AppInfoTableViewController: UITableViewController {
+class AppInfoTableViewController: UITableViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var artworkImageView: UIImageView!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var sellerNameLabel: UILabel!
@@ -22,17 +23,16 @@ class AppInfoTableViewController: UITableViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
-    // screenshotUrls
-    // ipadScreenshotUrls
-    // trackContentRating
-    // genres
-    // artworkUrl512
 
-    var viewModel: AppInfoViewModel?
+    var viewModel: AppInfoViewModel!
+    private var toggleValue = false
+    private var iphoneImageCollectionViewController: ImageCollectionViewController?
+    private var ipadImageCollectionViewController: ImageCollectionViewController?
+    private let presentingIndicatorTypes = {
+        return NVActivityIndicatorType.allCases.filter { $0 != .blank }
+    }()
+
     private var disposeBag = DisposeBag()
-    private var rxDataSource: RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>?
-    private var searchEmptyView = SearchEmptyView()
-    private var ignore = false
     deinit {
         self.disposeBag = DisposeBag()
     }
@@ -40,45 +40,199 @@ class AppInfoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.bindTableView()
-        self.bindInputs()
+        self.artworkImageView.roundLayer(value: CGFloat(ConstNumbers.artworkImageViewRound))
+        self.downloadButton.roundLayer(value: CGFloat(ConstNumbers.buttonRound))
+        self.moreButton.roundLayer(value: CGFloat(ConstNumbers.buttonRound))
         self.bindOutputs()
     }
     
-    func bindTableView() {
-        self.tableView.delegate = nil
-        self.tableView.dataSource = nil
-        self.rxDataSource = RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>(configureCell: { dataSource, tableView, indexPath, cellViewModel in
-            guard let viewModel = try? (dataSource.model(at: indexPath) as? BaseCellViewModel),
-                let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.reuseIdentifier, for: indexPath) as? SearchHistoryCell else {
-                    return UITableViewCell()
-            }
-            
-            cell.configure(viewModel: viewModel)
-            return cell
-        }, titleForHeaderInSection: { (dataSource, index) in
-            let viewModel = dataSource.sectionModels[index]
-            return viewModel.header
-        })
-
-//        self.viewModel.output.recentSections
-//            .bind(to: self.tableView.rx.items(dataSource: self.rxDataSource!))
-//            .disposed(by: self.disposeBag)
-    }
-    
-    func bindInputs() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.input.refreshObserver.onNext(true)
     }
     
     func bindOutputs() {
+        self.viewModel.output.loading
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isLoading in
+                guard let self = self else { return }
+                if isLoading == true {
+                    let size = CGSize(width: 30, height: 30)
+                    let selectedIndicatorIndex = 15
+                    let indicatorType = self.presentingIndicatorTypes[selectedIndicatorIndex]
+                    self.startAnimating(size, message: "Loading...", type: indicatorType, fadeInAnimation: nil)
+                    return
+                }
+                
+                self.stopAnimating()
+            })
+            .disposed(by: self.disposeBag)
         
+        self.viewModel.output.error
+            .asDriver(onErrorJustReturn: NSError())
+            .drive(onNext: { error in
+                ErrorViewHelper.show(error: error)
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.output.artworkImage
+            .asDriver(onErrorJustReturn: Data())
+            .drive(onNext: { [weak self] value in
+                guard let self = self, let image = UIImage(data: value) else { return }
+                self.artworkImageView.image = image
+            })
+            .disposed(by: self.disposeBag)
+
+        self.viewModel.output.trackName
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.trackNameLabel.text = value
+            })
+            .disposed(by: self.disposeBag)
+
+        self.viewModel.output.sellerName
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.sellerNameLabel.text = value
+            })
+            .disposed(by: self.disposeBag)
+
+        self.viewModel.output.averageUserRating
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.averageUserRatingLabel.text = value
+            })
+            .disposed(by: self.disposeBag)
+
+        self.viewModel.output.genres
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.genresLabel.text = value
+            })
+            .disposed(by: self.disposeBag)
+
+        self.viewModel.output.trackContentRating
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.trackContentRatingLabel.text = value
+            })
+            .disposed(by: self.disposeBag)
+
+        self.viewModel.output.description
+            .asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] value in
+                guard let self = self else { return }
+                self.descriptionLabel.text = value
+            })
+            .disposed(by: self.disposeBag)
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let destination = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: String(describing: SearchHeaderSectionViewController.self))
-//        return destination.view
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 60
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == AppInfoSectionType.ipadScreenshot.rawValue {
+            if self.viewModel.appStoreModel.ipadScreenshotUrls.count == 0 {
+                return UIView()
+            }
+            
+            guard let sectionView = Bundle.main.loadNibNamed("iPadSectionView", owner: self, options: nil)?.first as? iPadSectionView else {
+                return UIView()
+            }
+            
+            if self.toggleValue == true {
+                sectionView.toggleButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
+                sectionView.toggleButton.setTitle("iPhone", for: .normal)
+                sectionView.toggleButton.isEnabled = false
+            }
+            
+            sectionView.toggleButton.rx.tap
+                .subscribe(onNext: { [weak self] _ in
+                    guard let self = self else { return }
+                    if self.toggleValue == true {
+                        return
+                    }
+                    
+                    self.toggleValue = !self.toggleValue
+                    self.tableView.reloadData()
+                })
+                .disposed(by: self.disposeBag)
+            
+            return sectionView
+        }
+        
+        if section == AppInfoSectionType.description.rawValue {
+            if self.toggleValue == true {
+                guard let sectionView = Bundle.main.loadNibNamed("iPadSectionView", owner: self, options: nil)?.first as? iPadSectionView else {
+                    return UIView()
+                }
+                
+                if self.toggleValue == true {
+                    sectionView.toggleButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
+                    sectionView.toggleButton.setTitle("iPad", for: .normal)
+                    sectionView.toggleButton.isEnabled = false
+                    
+                    return sectionView
+                }
+            }
+        }
+        
+        return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == AppInfoSectionType.info.rawValue {
+            return 165
+        }
+
+        if indexPath.section == AppInfoSectionType.iphoneScreenshot.rawValue {
+            if self.viewModel.appStoreModel.screenshotUrls.count == 0 {
+                return 0
+            }
+            
+            return 550
+        }
+        
+        if indexPath.section == AppInfoSectionType.ipadScreenshot.rawValue {
+            if self.viewModel.appStoreModel.ipadScreenshotUrls.count == 0 {
+                return 0
+            }
+            
+            if self.toggleValue == true {
+                return 450
+            }
+            
+            return 0
+        }
+        
+        if indexPath.section == AppInfoSectionType.description.rawValue {
+            return 100
+        }
+        
+
+        return 100
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let destination = segue.destination as? ImageCollectionViewController else {
+            return
+        }
+        
+        var screenshotModel = ScreenshotModel()
+        defer {
+            destination.willDisplay(screenshotModel: screenshotModel)
+        }
+
+        if segue.identifier == "iphoneImageCollectionViewController" {
+            self.iphoneImageCollectionViewController = destination
+            screenshotModel = ScreenshotModel(targetPaths: self.viewModel.appStoreModel.screenshotUrls, width: 250, height: 550)
+            return
+        }
+        
+        self.ipadImageCollectionViewController = destination
+        screenshotModel = ScreenshotModel(targetPaths: self.viewModel.appStoreModel.ipadScreenshotUrls, width: 300, height: 450)
+    }
 }

@@ -57,3 +57,12 @@ struct AdaptError: Error {
 extension Error {
     var nsError: NSError? { return (self as? AdaptError)?.error }
 }
+
+public enum AppInfoSectionType: Int {
+    case info = 0
+    case iphoneScreenshot
+    case ipadScreenshot
+    case description
+}
+
+

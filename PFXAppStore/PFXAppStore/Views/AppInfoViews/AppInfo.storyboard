@@ -10,12 +10,12 @@
         <scene sceneID="ytD-ck-FcA">
             <objects>
                 <tableViewController storyboardIdentifier="AppInfoTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qao-25-POb" customClass="AppInfoTableViewController" customModule="PFXAppStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TZQ-Yx-cdH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TZQ-Yx-cdH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="7rV-JM-ocx">
+                            <tableViewSection headerTitle="" id="7rV-JM-ocx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="164" id="pl2-Pc-XOI">
                                         <rect key="frame" x="0.0" y="28" width="414" height="164"/>
@@ -51,7 +51,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz2-jA-a8X">
                                                     <rect key="frame" x="128" y="81" width="69" height="30"/>
-                                                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.24737465380000001" green="0.55762696270000001" blue="0.57205778360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="C6n-vf-C9y"/>
                                                         <constraint firstAttribute="width" constant="69" id="LEX-B3-2gI"/>
@@ -65,6 +65,7 @@
                                                         <constraint firstAttribute="height" constant="35" id="Dob-bO-M41"/>
                                                         <constraint firstAttribute="width" constant="35" id="nef-0r-s1o"/>
                                                     </constraints>
+                                                    <color key="tintColor" red="0.24737465380000001" green="0.55762696270000001" blue="0.57205778360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" image="square.and.arrow.up" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                                     </state>
@@ -153,17 +154,17 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Section-2" id="NHw-US-oxq">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="8gZ-RL-aRJ">
-                                        <rect key="frame" x="0.0" y="248" width="414" height="300"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ScreenshotCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScreenshotCell" rowHeight="550" id="8gZ-RL-aRJ" customClass="ScreenshotCell" customModule="PFXAppStore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="248" width="414" height="550"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8gZ-RL-aRJ" id="uv5-yW-61I">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTu-g0-M50">
-                                                    <rect key="frame" x="20" y="10" width="374" height="278"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="528"/>
                                                     <connections>
-                                                        <segue destination="4hf-1N-vpH" kind="embed" id="5Z5-kP-dMa"/>
+                                                        <segue destination="4hf-1N-vpH" kind="embed" identifier="iphoneImageCollectionViewController" id="5Z5-kP-dMa"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -179,17 +180,17 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Section-3" id="kvA-h8-a8L">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="lo7-yj-2iy">
-                                        <rect key="frame" x="0.0" y="604" width="414" height="300"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScreenshotCell" rowHeight="450" id="lo7-yj-2iy" customClass="ScreenshotCell" customModule="PFXAppStore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="854" width="414" height="450"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lo7-yj-2iy" id="NFj-76-Uco">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W20-2t-0lZ">
-                                                    <rect key="frame" x="20" y="14" width="374" height="272"/>
+                                                    <rect key="frame" x="20" y="14" width="374" height="422"/>
                                                     <connections>
-                                                        <segue destination="tXJ-qR-ej7" kind="embed" id="RP4-aq-kk5"/>
+                                                        <segue destination="tXJ-qR-ej7" kind="embed" identifier="ipadImageCollectionViewController" id="RP4-aq-kk5"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -206,7 +207,7 @@
                             <tableViewSection headerTitle="Section-4" id="4Jx-Pu-MrP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="sRR-xJ-a6e">
-                                        <rect key="frame" x="0.0" y="960" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="1360" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sRR-xJ-a6e" id="euo-gk-Koc">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -220,11 +221,13 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHH-hw-plD">
                                                     <rect key="frame" x="348" y="60" width="46" height="30"/>
+                                                    <color key="backgroundColor" red="0.24737465380000001" green="0.55762696270000001" blue="0.57205778360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="LzL-6U-QKB"/>
                                                         <constraint firstAttribute="width" constant="46" id="MoI-dO-Jeb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="more.."/>
                                                 </button>
                                             </subviews>
@@ -269,7 +272,7 @@
                 <viewControllerPlaceholder storyboardName="Image" referencedIdentifier="ImageCollectionViewController" id="4hf-1N-vpH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ept-uM-I8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="18"/>
+            <point key="canvasLocation" x="726" y="-19"/>
         </scene>
         <!--ImageCollectionViewController-->
         <scene sceneID="vTC-KD-uem">
@@ -277,7 +280,7 @@
                 <viewControllerPlaceholder storyboardName="Image" referencedIdentifier="ImageCollectionViewController" id="tXJ-qR-ej7" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bxk-cY-qhF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="253"/>
+            <point key="canvasLocation" x="726" y="279"/>
         </scene>
     </scenes>
     <resources>

@@ -20,4 +20,5 @@ struct ConstNumbers {
     static let maxRecentHistoryCount = 10
     static let artworkImageViewRound: Float = 5
     static let appStoreImageViewRound: Float = 5
+    static let buttonRound: Float = 5
 }
