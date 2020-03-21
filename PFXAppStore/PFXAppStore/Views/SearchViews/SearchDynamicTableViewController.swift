@@ -87,7 +87,14 @@ class SearchDynamicTableViewController: UITableViewController {
                 
                 self.tableView.deselectRow(at: indexPath, animated: false)
                 if let viewModel = viewModel as? SearchAppStoreCellViewModel {
-                    self.pushAppInfo(viewModel: viewModel)
+                    guard let cell = self.tableView.cellForRow(at: indexPath) as? SearchAppStoreCell else {
+                        return
+                    }
+                    
+                    if let heroId = cell.contentView.hero.id {
+                        self.pushAppInfo(viewModel: viewModel, heroId: heroId)
+                    }
+
                     return
                 }
                 
@@ -126,13 +133,15 @@ class SearchDynamicTableViewController: UITableViewController {
         self.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
     }
     
-    func pushAppInfo(viewModel: SearchAppStoreCellViewModel) {
+    func pushAppInfo(viewModel: SearchAppStoreCellViewModel, heroId: String) {
         guard let destination = UIStoryboard(name: "AppInfo", bundle: nil).instantiateViewController(withIdentifier: String(describing: AppInfoTableViewController.self)) as? AppInfoTableViewController, let appStoreModel = viewModel.appStoreModel else {
             return
         }
         
-        destination.viewModel = AppInfoViewModel(appStoreModel: appStoreModel)
-        self.presentingViewController?.navigationController?.pushViewController(destination, animated:true)
+        destination.viewModel = AppInfoViewModel(appStoreModel: appStoreModel, heroId: heroId)
+        destination.modalPresentationStyle = .fullScreen
+        self.present(destination, animated: true, completion: nil)
+//        self.presentingViewController?.navigationController?.pushViewController(destination, animated:true)
 //                    self.navigationController?.pushViewController(destination, animated: true)
     }
     
@@ -142,7 +151,7 @@ class SearchDynamicTableViewController: UITableViewController {
         }
         
         if let viewModel = viewModel as? SearchAppStoreCellViewModel {
-            let height = viewModel.screenshotModel!.height!
+            let height = viewModel.screenshotModel!.size.height
             return CGFloat(height + 100)
         }
         

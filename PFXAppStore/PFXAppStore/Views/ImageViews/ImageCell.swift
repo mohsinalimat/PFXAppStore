@@ -24,8 +24,8 @@ class ImageCell: BaseCollectionViewCell {
         setNeedsLayout()
         layoutIfNeeded()
         var frame = layoutAttributes.frame
-        frame.size.width = CGFloat(viewModel.screenshotModel.width)
-        frame.size.height = CGFloat(viewModel.screenshotModel.height)
+        frame.size.width = CGFloat(viewModel.screenshotModel.size.width)
+        frame.size.height = CGFloat(viewModel.screenshotModel.size.height)
         layoutAttributes.frame = frame
         return layoutAttributes
     }

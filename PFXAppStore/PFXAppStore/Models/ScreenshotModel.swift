@@ -10,10 +10,5 @@ import Foundation
 
 struct ScreenshotModel {
     var targetPaths: [String]!
-    var width: Float!
-    var height: Float!
-    
-    func isPortrait() -> Bool {
-        return height > width
-    }
+    var size: Size!
 }

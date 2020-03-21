@@ -25,18 +25,18 @@ class ImageCollectionViewModel {
         self.disposeBag = DisposeBag()
     }
     
-    var portraitSize: CGSize? = nil
-    var landscapeSize: CGSize? = nil
+    var size: Size
     var input: ImageCollectionViewModel.Input!
     var output: ImageCollectionViewModel.Output!
     private var sectionsSubject = BehaviorRelay<[BaseSectionCollectionViewModel]>(value: [BaseSectionCollectionViewModel()])
     private var screenshotModelSubject = PublishSubject<ScreenshotModel>()
     private var errorSubject: PublishSubject<NSError> = PublishSubject()
 
-    init() {
+    init(size: Size) {
         
         self.input = ImageCollectionViewModel.Input(screenshotUrlObserver: self.screenshotModelSubject.asObserver())
         self.output = ImageCollectionViewModel.Output(sections: self.sectionsSubject.asObservable(), error: self.errorSubject.asObservable())
+        self.size = size
         
         self.bindInputs()
     }
@@ -48,7 +48,7 @@ class ImageCollectionViewModel {
                 var items = [ImageCellViewModel]()
                 for targetPath in targetPaths {
                     let viewModel = ImageCellViewModel(reuseIdentifier: String(describing: ImageCell.self), identifier: String(describing: ImageCell.self) + String.random())
-                    let screenshotModel = ScreenshotModel(targetPaths: [targetPath], width: model.width, height: model.height)
+                    let screenshotModel = ScreenshotModel(targetPaths: [targetPath], size: self.size)
                     viewModel.initialize(screenshotModel: screenshotModel)
                     items.append(viewModel)
                 }

@@ -17,7 +17,7 @@
                     <rect key="frame" x="20" y="0.0" width="374" height="44"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="iPad" image="arrow.down" catalog="system">
+                    <state key="normal" title=" iPad" image="arrow.down" catalog="system">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>

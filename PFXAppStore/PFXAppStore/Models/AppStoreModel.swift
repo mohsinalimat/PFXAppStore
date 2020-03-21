@@ -189,4 +189,45 @@ struct AppStoreModel: Codable {
         case averageUserRating = "averageUserRating"
         case userRatingCount = "userRatingCount"
     }
+    
+    func isPortraitPhoneScreenshot() -> Bool {
+        for url in self.screenshotUrls {
+            var fileName = (url as NSString).lastPathComponent
+            fileName = (fileName as NSString).deletingPathExtension
+            fileName = fileName.replacingOccurrences(of: "bb", with: "")
+            let tokens = fileName.components(separatedBy: "x")
+            guard let first = tokens.first, let last = tokens.last else {
+                break
+            }
+            
+            guard let width = Int(first), let height = Int(last) else {
+                break
+            }
+            
+            return height > width
+        }
+        
+        return false
+    }
+
+    // https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/5c/c5/cf/5cc5cf62-b6c5-13ed-4c1d-06af6ba89179/pr_source.jpg/576x768bb.jpg
+    func isPortraitPadScreenshot() -> Bool {
+        for url in self.ipadScreenshotUrls {
+            var fileName = (url as NSString).lastPathComponent
+            fileName = (fileName as NSString).deletingPathExtension
+            fileName = fileName.replacingOccurrences(of: "bb", with: "")
+            let tokens = fileName.components(separatedBy: "x")
+            guard let first = tokens.first, let last = tokens.last else {
+                break
+            }
+            
+            guard let width = Int(first), let height = Int(last) else {
+                break
+            }
+            
+            return height > width
+        }
+        
+        return false
+    }
 }

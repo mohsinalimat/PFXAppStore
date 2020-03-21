@@ -175,6 +175,9 @@
 		6DCF8CE8242391850056A073 /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8CE7242391850056A073 /* ImageCellViewModel.swift */; };
 		6DCF8CEA242395990056A073 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF8CE9242395990056A073 /* BaseCollectionViewCell.swift */; };
 		6DCF8CEC2423A8550056A073 /* image_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF8CEB2423A8550056A073 /* image_loading.json */; };
+		6DD5CDEF2425EC30004AD398 /* CloseSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5CDEE2425EC30004AD398 /* CloseSectionView.xib */; };
+		6DD5CDF12425EC3A004AD398 /* CloseSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD5CDF02425EC3A004AD398 /* CloseSectionView.swift */; };
+		6DD5CDF42425F3E4004AD398 /* launchscreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5CDF32425F3E4004AD398 /* launchscreen.json */; };
 		6DFA8132242086A100E71181 /* ImageBloc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8131242086A100E71181 /* ImageBloc.swift */; };
 		6DFA8134242086B400E71181 /* ImageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8133242086B400E71181 /* ImageEvent.swift */; };
 		6DFA8136242086BC00E71181 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFA8135242086BC00E71181 /* ImageProvider.swift */; };
@@ -380,6 +383,9 @@
 		6DCF8CE7242391850056A073 /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
 		6DCF8CE9242395990056A073 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		6DCF8CEB2423A8550056A073 /* image_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = image_loading.json; sourceTree = "<group>"; };
+		6DD5CDEE2425EC30004AD398 /* CloseSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloseSectionView.xib; sourceTree = "<group>"; };
+		6DD5CDF02425EC3A004AD398 /* CloseSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseSectionView.swift; sourceTree = "<group>"; };
+		6DD5CDF32425F3E4004AD398 /* launchscreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = launchscreen.json; path = ../../../../../../../Downloads/launchscreen.json; sourceTree = "<group>"; };
 		6DFA8131242086A100E71181 /* ImageBloc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBloc.swift; sourceTree = "<group>"; };
 		6DFA8133242086B400E71181 /* ImageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEvent.swift; sourceTree = "<group>"; };
 		6DFA8135242086BC00E71181 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
@@ -609,9 +615,11 @@
 				6D57DB212424FE3000426D3B /* AppInfo.storyboard */,
 				6D9F8EC1242586DC0018543B /* AppInfoCell.swift */,
 				6D57DB242424FE4300426D3B /* AppInfoTableViewController.swift */,
-				6D9F8EC524258F950018543B /* ScreenshotCell.swift */,
-				6D0C200B2425A0B40027E4B0 /* iPadSectionView.xib */,
+				6DD5CDF02425EC3A004AD398 /* CloseSectionView.swift */,
+				6DD5CDEE2425EC30004AD398 /* CloseSectionView.xib */,
 				6D0C200D2425A0BF0027E4B0 /* iPadSectionView.swift */,
+				6D0C200B2425A0B40027E4B0 /* iPadSectionView.xib */,
+				6D9F8EC524258F950018543B /* ScreenshotCell.swift */,
 			);
 			path = AppInfoViews;
 			sourceTree = "<group>";
@@ -628,6 +636,7 @@
 		6D660EBE2421FD6700C76B45 /* Files */ = {
 			isa = PBXGroup;
 			children = (
+				6DD5CDF32425F3E4004AD398 /* launchscreen.json */,
 				6DCF8CEB2423A8550056A073 /* image_loading.json */,
 			);
 			path = Files;
@@ -1142,6 +1151,7 @@
 				6D016019241FAA9200C1CEC5 /* Localizable.strings in Resources */,
 				6DCF8CEC2423A8550056A073 /* image_loading.json in Resources */,
 				6D629AD5242045C5002A88C9 /* provider_stub.plist in Resources */,
+				6DD5CDF42425F3E4004AD398 /* launchscreen.json in Resources */,
 				6D3F1CE9241FA2050007E551 /* .swiftlint.yml in Resources */,
 				6DC83029241F0CC000B1F3ED /* LaunchScreen.storyboard in Resources */,
 				6D57B6A12422E5CB001A66A3 /* SearchEmptyView.xib in Resources */,
@@ -1150,6 +1160,7 @@
 				6DCF8CDD2423903B0056A073 /* Image.storyboard in Resources */,
 				6DC0248F2420501E00245869 /* event_stub.plist in Resources */,
 				6D57DB222424FE3000426D3B /* AppInfo.storyboard in Resources */,
+				6DD5CDEF2425EC30004AD398 /* CloseSectionView.xib in Resources */,
 				6D48DEDB2421920B000C8B13 /* bloc_stub.plist in Resources */,
 				6DC83021241F0CBF00B1F3ED /* Search.storyboard in Resources */,
 			);
@@ -1524,6 +1535,7 @@
 				6D9F8EC624258F950018543B /* ScreenshotCell.swift in Sources */,
 				6D65CCA2241F4BB000C164E3 /* AppStoreResponseModel.swift in Sources */,
 				6D016032241FACE300C1CEC5 /* SearchProvider.swift in Sources */,
+				6DD5CDF12425EC3A004AD398 /* CloseSectionView.swift in Sources */,
 				6D57DB252424FE4300426D3B /* AppInfoTableViewController.swift in Sources */,
 				6DCF8CEA242395990056A073 /* BaseCollectionViewCell.swift in Sources */,
 				6D0C200E2425A0BF0027E4B0 /* iPadSectionView.swift in Sources */,
@@ -1931,8 +1943,9 @@
 			baseConfigurationReference = F80B613B935C305ED2E9BA7F /* Pods-PFXAppStore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7HRPNLU6RA;
 				INFOPLIST_FILE = PFXAppStore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1952,8 +1965,9 @@
 			baseConfigurationReference = 1CF4F2B6CD48D5B5D83CDC78 /* Pods-PFXAppStore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7HRPNLU6RA;
 				INFOPLIST_FILE = PFXAppStore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -11,18 +11,23 @@ import UIKit
 import RxSwift
 import RxDataSources
 import NVActivityIndicatorView
+import TTGEmojiRate
+import Lottie
 
 class AppInfoTableViewController: UITableViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var artworkImageView: UIImageView!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var sellerNameLabel: UILabel!
     @IBOutlet weak var averageUserRatingLabel: UILabel!
+    @IBOutlet weak var averageUserRatingView: EmojiRateView!
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var trackContentRatingLabel: UILabel!
     @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    private weak var animationView: AnimationView?
 
     var viewModel: AppInfoViewModel!
     private var toggleValue = false
@@ -40,10 +45,13 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.artworkImageView.hero.id = "artworkImageView" + self.viewModel.heroId
         self.artworkImageView.roundLayer(value: CGFloat(ConstNumbers.artworkImageViewRound))
         self.downloadButton.roundLayer(value: CGFloat(ConstNumbers.buttonRound))
         self.moreButton.roundLayer(value: CGFloat(ConstNumbers.buttonRound))
         self.bindOutputs()
+        
+        self.averageUserRatingView.rateColorRange = ConstColors.rateColorRange
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,15 +64,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
             .asDriver(onErrorJustReturn: false)
             .drive(onNext: { [weak self] isLoading in
                 guard let self = self else { return }
-                if isLoading == true {
-                    let size = CGSize(width: 30, height: 30)
-                    let selectedIndicatorIndex = 15
-                    let indicatorType = self.presentingIndicatorTypes[selectedIndicatorIndex]
-                    self.startAnimating(size, message: "Loading...", type: indicatorType, fadeInAnimation: nil)
-                    return
-                }
-                
-                self.stopAnimating()
+                self.showLoading(isLoading: isLoading)
             })
             .disposed(by: self.disposeBag)
         
@@ -102,8 +102,9 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
         self.viewModel.output.averageUserRating
             .asDriver(onErrorJustReturn: "")
             .drive(onNext: { [weak self] value in
-                guard let self = self else { return }
+                guard let self = self, let rateValue = Float(value) else { return }
                 self.averageUserRatingLabel.text = value
+                self.averageUserRatingView.rateValue = rateValue
             })
             .disposed(by: self.disposeBag)
 
@@ -133,6 +134,21 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == AppInfoSectionType.info.rawValue {
+            guard let sectionView = Bundle.main.loadNibNamed("CloseSectionView", owner: self, options: nil)?.first as? CloseSectionView else {
+                return UIView()
+            }
+            
+            sectionView.closeButton.rx.tap
+                .subscribe(onNext: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.dismiss(animated: true, completion: nil)
+                })
+                .disposed(by: self.disposeBag)
+            
+            return sectionView
+        }
+
         if section == AppInfoSectionType.ipadScreenshot.rawValue {
             if self.viewModel.appStoreModel.ipadScreenshotUrls.count == 0 {
                 return UIView()
@@ -144,7 +160,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
             
             if self.toggleValue == true {
                 sectionView.toggleButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
-                sectionView.toggleButton.setTitle("iPhone", for: .normal)
+                sectionView.toggleButton.setTitle(" iPhone", for: .normal)
                 sectionView.toggleButton.isEnabled = false
             }
             
@@ -171,7 +187,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
                 
                 if self.toggleValue == true {
                     sectionView.toggleButton.setImage(UIImage(systemName: "info.circle"), for: .normal)
-                    sectionView.toggleButton.setTitle("iPad", for: .normal)
+                    sectionView.toggleButton.setTitle(" iPad", for: .normal)
                     sectionView.toggleButton.isEnabled = false
                     
                     return sectionView
@@ -192,7 +208,8 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
                 return 0
             }
             
-            return 550
+            return self.viewModel.appStoreModel.isPortraitPhoneScreenshot() == true ?
+                CGFloat(ConstNumbers.portraitPhoneImageSize.height + 40) : CGFloat(ConstNumbers.landscapePhoneImageSize.height + 40)
         }
         
         if indexPath.section == AppInfoSectionType.ipadScreenshot.rawValue {
@@ -201,7 +218,8 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
             }
             
             if self.toggleValue == true {
-                return 450
+                return self.viewModel.appStoreModel.isPortraitPadScreenshot() == true ?
+                    CGFloat(ConstNumbers.portraitPadImageSize.height + 40) : CGFloat(ConstNumbers.landscapePadImageSize.height + 40)
             }
             
             return 0
@@ -228,11 +246,63 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
 
         if segue.identifier == "iphoneImageCollectionViewController" {
             self.iphoneImageCollectionViewController = destination
-            screenshotModel = ScreenshotModel(targetPaths: self.viewModel.appStoreModel.screenshotUrls, width: 250, height: 550)
+            destination.collectionView.hero.id = self.viewModel.heroId
+            var size = ConstNumbers.portraitPhoneImageSize
+            if self.viewModel.appStoreModel.isPortraitPhoneScreenshot() == false {
+                size = ConstNumbers.landscapePhoneImageSize
+            }
+            
+            screenshotModel = ScreenshotModel(targetPaths: self.viewModel.appStoreModel.screenshotUrls, size: size)
             return
         }
         
         self.ipadImageCollectionViewController = destination
-        screenshotModel = ScreenshotModel(targetPaths: self.viewModel.appStoreModel.ipadScreenshotUrls, width: 300, height: 450)
+        var size = ConstNumbers.portraitPadImageSize
+        if self.viewModel.appStoreModel.isPortraitPadScreenshot() == false {
+            size = ConstNumbers.landscapePadImageSize
+        }
+        
+        screenshotModel = ScreenshotModel(targetPaths: self.viewModel.appStoreModel.ipadScreenshotUrls, size: size)
     }
+    
+    func showLoading(isLoading: Bool) {
+        if isLoading == false {
+            UIView.animate(withDuration: 1) {
+                self.animationView?.alpha = 0
+            }
+        }
+        
+        if self.animationView != nil {
+            self.updateLoadingView()
+            return
+        }
+        
+        let animationView = AnimationView(name: "image_loading")
+        self.artworkImageView.addSubview(animationView)
+        self.animationView = animationView
+        self.updateLoadingView()
+        animationView.alpha = 0.8
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .autoReverse
+        animationView.play()
+    }
+    
+    func updateLoadingView() {
+        guard let animationView = self.animationView else {
+            return
+        }
+        
+        animationView.snp.removeConstraints()
+        animationView.snp.makeConstraints { make in
+            make.centerX.equalTo(self.artworkImageView)
+            make.centerY.equalTo(self.artworkImageView)
+            make.width.height.equalTo(44)
+        }
+        
+        animationView.play()
+
+        return
+    }
+    
+
 }

@@ -32,14 +32,6 @@ class AppInfoCell: BaseTableViewCell {
 //        self.artworkImageView.roundLayer(value: CGFloat(ConstNumbers.artworkImageViewRound))
     }
     
-    func willDisplay() {
-        guard let viewModel = self.viewModel, let screenshotModel = viewModel.appStoreModel?.screenshotUrls else {
-            return
-        }
-
-        self.imageCollectionViewController?.willDisplay(screenshotModel: ScreenshotModel(targetPaths: screenshotModel, width: 200, height: 450))
-    }
-    
     override func configure(viewModel: BaseCellViewModel) {
         self.initialize()
         guard let viewModel = viewModel as? AppInfoCellViewModel else {

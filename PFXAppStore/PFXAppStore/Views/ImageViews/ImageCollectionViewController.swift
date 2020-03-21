@@ -21,7 +21,7 @@ class ImageCollectionViewController: UICollectionViewController {
     
     func willDisplay(screenshotModel: ScreenshotModel) {
         self.disposeBag = DisposeBag()
-        self.viewModel = ImageCollectionViewModel()
+        self.viewModel = ImageCollectionViewModel(size: screenshotModel.size)
         self.bindOutput()
         self.viewModel.input.screenshotUrlObserver.onNext(screenshotModel)
     }
@@ -34,7 +34,7 @@ class ImageCollectionViewController: UICollectionViewController {
             layout.sectionFootersPinToVisibleBounds = true
         }
         self.rxDataSource = RxCollectionViewSectionedAnimatedDataSource<BaseSectionCollectionViewModel>(configureCell: { dataSource, collectionView, indexPath, cellViewModel in
-            guard let viewModel = try? (dataSource.model(at: indexPath) as! BaseCellViewModel),
+            guard let viewModel = try? (dataSource.model(at: indexPath) as? BaseCellViewModel),
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.reuseIdentifier, for: indexPath) as? ImageCell else {
                     assert(true)
                     return UICollectionViewCell()
@@ -66,4 +66,3 @@ class ImageCollectionViewController: UICollectionViewController {
 //        destination.viewModel = viewModel
     }
 }
-

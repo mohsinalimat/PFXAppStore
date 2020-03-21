@@ -32,6 +32,7 @@ class AppInfoViewModel {
     }
     
     var appStoreModel: AppStoreModel
+    var heroId: String
     var input: AppInfoViewModel.Input!
     var output: AppInfoViewModel.Output!
     private var refreshSubject = PublishSubject<Bool>()
@@ -47,8 +48,9 @@ class AppInfoViewModel {
     
     var imageBloc = ImageBloc()
 
-    init(appStoreModel: AppStoreModel) {
+    init(appStoreModel: AppStoreModel, heroId: String) {
         self.appStoreModel = appStoreModel
+        self.heroId = heroId
         // swiftlint:disable line_length
         self.input = AppInfoViewModel.Input(refreshObserver: self.refreshSubject.asObserver())
         self.output = AppInfoViewModel.Output(loading: self.loadingSubject.asObserver(),
@@ -105,6 +107,7 @@ class AppInfoViewModel {
                 
                 self.trackContentRatingSubject.onNext(self.appStoreModel.trackContentRating)
                 self.descriptionSubject.onNext(self.appStoreModel.description)
+                self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: self.appStoreModel.artworkUrl100))
                 self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: self.appStoreModel.artworkUrl512))
             })
             .disposed(by: self.disposeBag)
