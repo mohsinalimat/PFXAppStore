@@ -10,7 +10,7 @@
         <scene sceneID="ytD-ck-FcA">
             <objects>
                 <tableViewController storyboardIdentifier="AppInfoTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qao-25-POb" customClass="AppInfoTableViewController" customModule="PFXAppStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" id="TZQ-Yx-cdH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="TZQ-Yx-cdH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -18,7 +18,7 @@
                             <tableViewSection headerTitle="Section-1" id="7rV-JM-ocx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="165" id="pl2-Pc-XOI">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="165"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="165"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pl2-Pc-XOI" id="AeV-xk-ngw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
@@ -40,7 +40,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="H3x-U9-Um1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVQ-FO-chf">
@@ -185,7 +185,7 @@
                             <tableViewSection headerTitle="Section-2" id="NHw-US-oxq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ScreenshotCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScreenshotCell" rowHeight="550" id="8gZ-RL-aRJ" customClass="ScreenshotCell" customModule="PFXAppStore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="249" width="414" height="550"/>
+                                        <rect key="frame" x="0.0" y="276.5" width="414" height="550"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8gZ-RL-aRJ" id="uv5-yW-61I">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
@@ -211,7 +211,7 @@
                             <tableViewSection headerTitle="Section-3" id="kvA-h8-a8L">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScreenshotCell" rowHeight="450" id="lo7-yj-2iy" customClass="ScreenshotCell" customModule="PFXAppStore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="855" width="414" height="450"/>
+                                        <rect key="frame" x="0.0" y="882.5" width="414" height="450"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lo7-yj-2iy" id="NFj-76-Uco">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
@@ -237,7 +237,7 @@
                             <tableViewSection headerTitle="Section-4" id="4Jx-Pu-MrP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="sRR-xJ-a6e">
-                                        <rect key="frame" x="0.0" y="1361" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="1388.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sRR-xJ-a6e" id="euo-gk-Koc">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -245,8 +245,8 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgx-4g-Mjc">
                                                     <rect key="frame" x="20" y="10" width="374" height="80"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHH-hw-plD">

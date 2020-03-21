@@ -88,6 +88,12 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         self.definesPresentationContext = true
         guard let emptyView = Bundle.main.loadNibNamed("SearchEmptyView", owner: self, options: nil)?.first as? SearchEmptyView else { return }
         searchController.view.addSubview(emptyView)
+        emptyView.snp.makeConstraints { make in
+            make.centerX.equalTo(searchController.view)
+            make.centerY.equalTo(searchController.view)
+            make.width.height.equalTo(250)
+        }
+        
         self.searchEmptyView = emptyView
 
         searchController.searchBar.rx.searchButtonClicked
@@ -102,7 +108,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
                 self?.viewModel.input.cancelSearchObserver.onNext(true)
             })
             .disposed(by: self.disposeBag)
-
+        
         searchController.searchBar.rx.text
             .orEmpty
             .skip(1)
@@ -134,7 +140,6 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
                 if text.count > 0 {
                     self.searchEmptyView.searchTextLabel.text = text
                     self.searchEmptyView.isHidden = false
-                    self.searchEmptyView.frame = self.view.bounds
                     return
                 }
             })

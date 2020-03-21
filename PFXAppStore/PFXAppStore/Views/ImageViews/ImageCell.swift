@@ -62,10 +62,9 @@ class ImageCell: BaseCollectionViewCell {
         
         animationView.snp.removeConstraints()
         animationView.snp.makeConstraints { make in
-            make.top.equalTo(self.loadingView).offset(0)
-            make.bottom.equalTo(self.loadingView).offset(0)
-            make.right.equalTo(self.loadingView).offset(0)
-            make.left.equalTo(self.loadingView).offset(0)
+            make.centerX.equalTo(self.loadingView)
+            make.centerY.equalTo(self.loadingView)
+            make.width.height.equalTo(44)
         }
         
         animationView.play()

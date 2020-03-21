@@ -170,7 +170,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
                 return UIView()
             }
             
-            guard let sectionView = Bundle.main.loadNibNamed("iPadSectionView", owner: self, options: nil)?.first as? iPadSectionView else {
+            guard let sectionView = Bundle.main.loadNibNamed("PadSectionView", owner: self, options: nil)?.first as? PadSectionView else {
                 return UIView()
             }
             
@@ -197,7 +197,7 @@ class AppInfoTableViewController: UITableViewController, NVActivityIndicatorView
         
         if section == AppInfoSectionType.description.rawValue {
             if self.toggleValue == true {
-                guard let sectionView = Bundle.main.loadNibNamed("iPadSectionView", owner: self, options: nil)?.first as? iPadSectionView else {
+                guard let sectionView = Bundle.main.loadNibNamed("PadSectionView", owner: self, options: nil)?.first as? PadSectionView else {
                     return UIView()
                 }
                 

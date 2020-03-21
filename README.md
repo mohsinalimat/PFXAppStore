@@ -3,7 +3,7 @@
 To run the example project, clone the repo, and run `pod install` from the PFXAppStore directory first!!!!
 
 # Screenshots
-<img src="/app-1.png" width="250" height="480">
+<img src="/appstore.gif" width="250" height="480">
 <img src="/app-2.png" width="250" height="480">
 <img src="/app-3.png" width="250" height="480">
 
