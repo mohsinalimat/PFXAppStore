@@ -1,24 +1,23 @@
 //
-//  coredata_delete_true_t4_1.swift
-//  PFXAppStoreCoreDataTests
+//  history_update_true_t1_1.swift
+//  PFXAppStoreHistoryTests
 //
-//  Created by PFXStudio on 2020/03/17.
+//  Created by PFXStudio on 2020/03/21.
 //  Copyright © 2020 PFXStudio. All rights reserved.
 //
 
 import XCTest
 import RxSwift
-import RxCoreData
 import CoreData
 
-class coredata_delete_true_t4_1: XCTestCase {
+class history_update_true_t1_1: XCTestCase {
     let timeout = TimeInterval(10)
     var disposeBag = DisposeBag()
+    var provider: HistoryProviderProtocol = HistoryProvider()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.coreDataType = NSInMemoryStoreType
-        CoreDataHelper.shared.updateHistory(model: HistoryModel(text: "game", date: Date()))
     }
 
     override func tearDown() {
@@ -29,11 +28,26 @@ class coredata_delete_true_t4_1: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        if let _ = CoreDataHelper.shared.deleteHistory(model: HistoryModel(text: "game", date: Date())) {
-            XCTAssertTrue(false)
-        }
+        let expt = expectation(description: "Waiting done unit tests...")
+        self.provider.update(model: HistoryModel(text: "game", date: Date()))
+            .subscribe(onCompleted: {
+                XCTAssertTrue(true)
+                expt.fulfill()
+            }) { error in
+                XCTAssertTrue(false, error.localizedDescription)
+                expt.fulfill()
+            }
+            .disposed(by: self.disposeBag)
+
+        waitForExpectations(timeout: self.timeout, handler: { (error) in
+            if error == nil {
+                return
+            }
+            
+            XCTFail("Fail timeout")
+        })
         
-        XCTAssertTrue(true)
+        withExtendedLifetime(self) {}
     }
 
     func testPerformanceExample() {

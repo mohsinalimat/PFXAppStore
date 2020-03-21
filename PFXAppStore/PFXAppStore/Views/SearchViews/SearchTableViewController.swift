@@ -17,12 +17,12 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
     var viewModel = SearchTableViewModel()
     private var rxDataSource: RxTableViewSectionedAnimatedDataSource<BaseSectionTableViewModel>?
     private var searchEmptyView = SearchEmptyView()
-    private var ignore = false
     private let presentingIndicatorTypes = {
         return NVActivityIndicatorType.allCases.filter { $0 != .blank }
     }()
 
     private var disposeBag = DisposeBag()
+    private var focusMode = false
     deinit {
         self.disposeBag = DisposeBag()
     }
@@ -113,15 +113,15 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             .orEmpty
             .skip(1)
             .distinctUntilChanged()
-            .filter({ $0.count > 0 })
+            .filter({
+                let focusMode = self.focusMode
+                self.focusMode = false
+                return $0.count > 0 && focusMode == false
+            })
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] text in
                 guard let self = self else { return }
                 print("searchController.searchBar.rx.text text \(text)")
-                if self.ignore == true {
-                    self.ignore = false
-                    return
-                }
                 self.viewModel.input.historyObserver.onNext(text)
             })
             .disposed(by: self.disposeBag)
@@ -165,6 +165,8 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
                 }
                 
                 self.stopAnimating()
+                guard let searchController = self.navigationItem.searchController else { return }
+                searchController.searchBar.resignFirstResponder()
             })
             .disposed(by: self.disposeBag)
         
@@ -181,8 +183,6 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             .drive(onNext: { [weak self] isScroll in
                 guard let self = self, let searchController = self.navigationItem.searchController else { return }
                 // TODO : i want hide keyboard!!!!!
-                // 버그로 인하여 플래그 추가.
-                self.ignore = true
                 searchController.searchBar.resignFirstResponder()
             })
             .disposed(by: self.disposeBag)
@@ -194,6 +194,7 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         searchController.searchBar.text = text
         searchController.searchBar.searchTextField.becomeFirstResponder()
         self.viewModel.input.requestSearchObserver.onNext(text)
+        self.focusMode = true
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

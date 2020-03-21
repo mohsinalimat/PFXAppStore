@@ -17,7 +17,8 @@ class coredata_delete_true_t4_3: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        CoreDataHelper.shared.storeType = NSInMemoryStoreType
+        DependencyInjection.coreDataType = NSInMemoryStoreType
+        CoreDataHelper.shared.updateHistory(model: HistoryModel(text: "3lMvTNjyoZSj2dxbo77yhGIkEjoua5fy", date: Date()))
     }
 
     override func tearDown() {
@@ -28,10 +29,7 @@ class coredata_delete_true_t4_3: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let model = HistoryModel(text: "3lMvTNjyoZSj2dxbo77yhGIkEjoua5fy", date: Date())
-        CoreDataHelper.shared.updateHistory(model: model)
-
-        if let error = CoreDataHelper.shared.deleteHistory(model: model) {
+        if let error = CoreDataHelper.shared.deleteHistory(model: HistoryModel(text: "3lMvTNjyoZSj2dxbo77yhGIkEjoua5fy", date: Date())) {
             XCTAssertTrue(false)
         }
         

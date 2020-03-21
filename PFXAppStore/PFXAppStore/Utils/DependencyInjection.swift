@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
 class DependencyInjection {
     static let shared = DependencyInjection()
     static var clientType = ClientType.rest
+    static var coreDataType = NSSQLiteStoreType
     static var stubModel = StubModel()
     
     func currentClient() -> ClientProtocol {

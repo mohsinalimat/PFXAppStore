@@ -17,7 +17,7 @@ class coredata_update_true_t1_1: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        CoreDataHelper.shared.storeType = NSInMemoryStoreType
+        DependencyInjection.coreDataType = NSInMemoryStoreType
     }
 
     override func tearDown() {

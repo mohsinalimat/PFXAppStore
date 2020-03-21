@@ -34,6 +34,7 @@ excluded:
   - PFXAppStoreEventTests
   - PFXAppStoreCoreDataTests
   - PFXAppStoreBlocTests
+  - PFXAppStoreHistoryTests
 
 line_length:
   warning: 250

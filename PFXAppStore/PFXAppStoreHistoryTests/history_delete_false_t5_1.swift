@@ -1,23 +1,28 @@
 //
-//  coredata_update_true_t1_3.swift
-//  PFXAppStoreCoreDataTests
+//  history_delete_false_t5_1.swift
+//  PFXAppStoreHistoryTests
 //
-//  Created by PFXStudio on 2020/03/17.
+//  Created by PFXStudio on 2020/03/21.
 //  Copyright © 2020 PFXStudio. All rights reserved.
 //
 
 import XCTest
 import RxSwift
-import RxCoreData
 import CoreData
 
-class coredata_update_true_t1_3: XCTestCase {
+class history_delete_false_t5_1: XCTestCase {
     let timeout = TimeInterval(10)
     var disposeBag = DisposeBag()
+    var provider: HistoryProviderProtocol = HistoryProvider()
+    var historyBloc = HistoryBloc()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         DependencyInjection.coreDataType = NSInMemoryStoreType
+        // 비동기라... 임시 데이터 넣어야 함...
+        self.historyBloc.dispatch(event: UpdateHistoryEvent(historyModel: HistoryModel(text: "game", date: Date())))
+        self.historyBloc.dispatch(event: UpdateHistoryEvent(historyModel: HistoryModel(text: "은행", date: Date())))
+        self.historyBloc.dispatch(event: UpdateHistoryEvent(historyModel: HistoryModel(text: "3lMvTNjyoZSj2dxbo77yhGIkEjoua5fy", date: Date())))
     }
 
     override func tearDown() {
@@ -29,13 +34,15 @@ class coredata_update_true_t1_3: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let expt = expectation(description: "Waiting done unit tests...")
-
-        if let error = CoreDataHelper.shared.updateHistory(model: HistoryModel(text: "3lMvTNjyoZSj2dxbo77yhGIkEjoua5fy", date: Date())) {
-            XCTAssertTrue(false, error.description)
-        }
-
-        XCTAssertTrue(true)
-        expt.fulfill()
+        self.provider.delete(model: HistoryModel(text: "", date: Date()))
+            .subscribe(onCompleted: {
+                XCTAssertTrue(false)
+                expt.fulfill()
+            }) { error in
+                XCTAssertTrue(true)
+                expt.fulfill()
+            }
+            .disposed(by: self.disposeBag)
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {

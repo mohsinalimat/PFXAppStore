@@ -51,6 +51,7 @@ class SearchTableViewModel {
     private var beginScrollSubject = PublishSubject<Bool>()
 
     private let searchBloc = SearchBloc()
+    private let historyBloc = HistoryBloc()
 
     init() {
         // swiftlint:disable line_length
@@ -74,6 +75,70 @@ class SearchTableViewModel {
     }
     
     func bindBlocs() {
+        self.historyBloc.stateRelay
+            .subscribe(onNext: { [weak self] state in
+                guard let self = self else { return }
+                if let _ = state as? IdleHistoryState {
+                    return
+                }
+
+                if let _ = state as? FetchingHistoryState {
+                    return
+                }
+
+                if let state = state as? ErrorHistoryState {
+                    self.errorSubject.onNext(state.error)
+                    return
+                }
+
+                if let state = state as? RecentHistoryState {
+                    var items = [BaseCellViewModel]()
+                    for model in state.datas {
+                        let viewModel = SearchHistoryCellViewModel(reuseIdentifier: String(describing: SearchHistoryCell.self), identifier: String(describing: SearchHistoryCell.self) + String.random())
+                        viewModel.text = model.text
+                        viewModel.date = model.date
+                        items.append(viewModel)
+                    }
+
+                    var sections = self.recentSectionsSubject.value
+                    if var collectionViewModel = sections.first {
+                        collectionViewModel.items.removeAll()
+                        collectionViewModel.items.append(contentsOf: items)
+                        sections.removeFirst()
+                        sections.append(collectionViewModel)
+                        self.recentSectionsSubject.accept(sections)
+                    }
+                    
+                    return
+                }
+                
+                if let state = state as? AllHistoryState {
+                    var items = [BaseCellViewModel]()
+                    for model in state.datas {
+                        let viewModel = SearchHistoryCellViewModel(reuseIdentifier: String(describing: SearchHistoryCell.self), identifier: String(describing: SearchHistoryCell.self) + String.random())
+                        viewModel.text = model.text
+                        viewModel.date = model.date
+                        items.append(viewModel)
+                    }
+
+                    var sections = self.searchDynamicSectionsSubject.value
+                    if var collectionViewModel = sections.first {
+                        collectionViewModel.items.removeAll()
+                        collectionViewModel.items.append(contentsOf: items)
+                        sections.removeFirst()
+                        sections.append(collectionViewModel)
+                        self.searchDynamicSectionsSubject.accept(sections)
+                    }
+                    
+                    return
+                }
+                
+                if let _ = state as? CompletedHistoryState {
+                    return
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
         self.searchBloc.stateRelay
             .subscribe(onNext: { [weak self] state in
                 guard let self = self else { return }
@@ -145,11 +210,8 @@ class SearchTableViewModel {
     func bindInputs() {
         self.requestSearchSubject
             .do(onNext: { text in
-                if let error = CoreDataHelper.shared.updateHistory(model: HistoryModel(text: text, date: Date())) {
-                    print(error)
-    //                        self.errorSubject.onNext(error)
-    //                        return
-                }
+                self.historyBloc.dispatch(event: UpdateHistoryEvent(historyModel: HistoryModel(text: text, date: Date())))
+                self.refreshRecentHistory()
             })
             .subscribe(onNext: { text in
                 let parameterDict = ["term" : text,
@@ -174,32 +236,8 @@ class SearchTableViewModel {
                 guard let self = self else { return }
                 self.emptySubject.onNext("")
                 print("request history...")
-                
-                CoreDataHelper.shared.entityHistories(text: text)
-                    .distinctUntilChanged()
-                    .subscribe(onNext: { [weak self] models in
-                        guard let self = self else { return }
-                        
-                        var items = [BaseCellViewModel]()
-                        for model in models {
-                            let viewModel = SearchHistoryCellViewModel(reuseIdentifier: String(describing: SearchHistoryCell.self), identifier: String(describing: SearchHistoryCell.self) + String.random())
-                            viewModel.text = model.text
-                            viewModel.date = model.date
-                            items.append(viewModel)
-                        }
-                        
-                        var sections = self.searchDynamicSectionsSubject.value
-                        if var collectionViewModel = sections.first {
-                            collectionViewModel.items.removeAll()
-                            collectionViewModel.items.append(contentsOf: items)
-                            sections.removeFirst()
-                            sections.append(collectionViewModel)
-                            self.searchDynamicSectionsSubject.accept(sections)
-                        }
-                    }, onError: { error in
-                        self.errorSubject.onNext(NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_select_entity.rawValue, userInfo: nil))
-                    })
-                    .disposed(by: self.disposeBag)
+
+                self.historyBloc.dispatch(event: AllHistoryEvent(text: text))
             })
             .disposed(by: self.disposeBag)
         
@@ -212,34 +250,6 @@ class SearchTableViewModel {
     }
     
     func refreshRecentHistory() {
-        CoreDataHelper.shared.entityHistories(isAscending: false, limit: ConstNumbers.maxRecentHistoryCount)
-            .subscribe(onNext: { [weak self] models in
-                guard let self = self else { return }
-                var items = [BaseCellViewModel]()
-                
-                for i in 0..<models.count {
-                    if i >= ConstNumbers.maxRecentHistoryCount {
-                        break
-                    }
-                    
-                    let model = models[i]
-                    let viewModel = SearchHistoryCellViewModel(reuseIdentifier: String(describing: SearchHistoryCell.self), identifier: String(describing: SearchHistoryCell.self) + String.random())
-                    viewModel.text = model.text
-                    viewModel.date = model.date
-                    items.append(viewModel)
-                }
-
-                var sections = self.recentSectionsSubject.value
-                if var collectionViewModel = sections.first {
-                    collectionViewModel.items.removeAll()
-                    collectionViewModel.items.append(contentsOf: items)
-                    sections.removeFirst()
-                    sections.append(collectionViewModel)
-                    self.recentSectionsSubject.accept(sections)
-                }
-            }, onError: { error in
-                self.errorSubject.onNext(NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_select_entity.rawValue, userInfo: nil))
-            })
-            .disposed(by: self.disposeBag)
+        self.historyBloc.dispatch(event: RecentHistoryEvent(isAscending: false, limit: ConstNumbers.maxRecentHistoryCount))
     }
 }

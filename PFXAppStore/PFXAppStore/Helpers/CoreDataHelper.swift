@@ -8,141 +8,163 @@
 
 import Foundation
 import CoreData
-import RxCoreData
 import RxDataSources
 import RxSwift
 
 class CoreDataHelper {
     static let shared = CoreDataHelper()
-    var storeType = NSSQLiteStoreType
     
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = Bundle.main.url(forResource: "PFXAppStore", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOf: modelURL)!
+       let modelURL = Bundle.main.url(forResource: "PFXAppStore", withExtension: "momd")!
+       return NSManagedObjectModel(contentsOf: modelURL)!
     }()
-    
+
     lazy var applicationDocumentsDirectory: URL = {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return urls.last!
+       let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+       return urls.last!
     }()
 
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator! = {
-        var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let docURL = self.applicationDocumentsDirectory
-        let fileManager = FileManager.default
-        let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent(ConstStrings.sqliteFileName)
-        do {
-            let fileExists = try finalDatabaseURL.checkResourceIsReachable()
-            if fileExists == false {
-                let documentsURL = Bundle.main.resourceURL?.appendingPathComponent(ConstStrings.sqliteFileName)
-                try fileManager.copyItem(atPath: (documentsURL?.path)!, toPath: finalDatabaseURL.path)
-            }
-        } catch let error as NSError {
-            print("path : \(finalDatabaseURL.path) error : \(error)")
-        }
-        
-        let mOptions = [NSMigratePersistentStoresAutomaticallyOption: true,
-                        NSInferMappingModelAutomaticallyOption: true]
-        
-        do {
-            try coordinator!.addPersistentStore(ofType: self.storeType, configurationName: nil, at: finalDatabaseURL, options: nil)
-//            try coordinator!.addPersistentStore(ofType: self.storeType, configurationName: nil, at: nil, options: nil)
+       var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+       let docURL = self.applicationDocumentsDirectory
+       let fileManager = FileManager.default
+       let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+       let finalDatabaseURL = documentsUrl.first!.appendingPathComponent(ConstStrings.sqliteFileName)
+       do {
+           let fileExists = try finalDatabaseURL.checkResourceIsReachable()
+           if fileExists == false {
+               let documentsURL = Bundle.main.resourceURL?.appendingPathComponent(ConstStrings.sqliteFileName)
+               try fileManager.copyItem(atPath: (documentsURL?.path)!, toPath: finalDatabaseURL.path)
+           }
+       } catch let error as NSError {
+           print("path : \(finalDatabaseURL.path) error : \(error)")
+       }
+       
+       let mOptions = [NSMigratePersistentStoresAutomaticallyOption: true,
+                       NSInferMappingModelAutomaticallyOption: true]
+       
+       do {
+        try coordinator!.addPersistentStore(ofType: DependencyInjection.coreDataType, configurationName: nil, at: finalDatabaseURL, options: nil)
 
-        } catch {
-            coordinator = nil
-            abort()
-        }
-        
-        return coordinator
+       } catch {
+           coordinator = nil
+           abort()
+       }
+       
+       return coordinator
     }()
 
     lazy var managedObjectContext: NSManagedObjectContext = {
-        let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        managedObjectContext.persistentStoreCoordinator = coordinator
-        return managedObjectContext
+       let coordinator = self.persistentStoreCoordinator
+       var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+       managedObjectContext.persistentStoreCoordinator = coordinator
+       return managedObjectContext
     }()
-    
+
     func updateHistory(model: HistoryModel) -> NSError? {
         if model.text.count <= 0 || model.text.count > ConstNumbers.maxHistoryLength {
-            return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
+           return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
         }
-        
+
         do {
-            try self.managedObjectContext.rx.update(model)
+           try self.managedObjectContext.rx.update(model)
         }
         catch {
-            return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
+           return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
         }
-        
+
         self.managedObjectContext.saveContextWithoutErrorHandling()
         return nil
     }
-    
-    func entityHistories(isAscending: Bool, limit: Int) -> Observable<[HistoryModel]> {
+
+    func recentHistories(isAscending: Bool, limit: Int) -> [HistoryModel]? {
         print("recent load histories")
-        return managedObjectContext.rx.entities(HistoryModel.self, limit: limit, sortDescriptors: [NSSortDescriptor(key: "date", ascending: isAscending)])
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HistoryModel")
+        let sort = NSSortDescriptor(key: "date", ascending: isAscending)
+        request.sortDescriptors = [sort]
+        request.fetchLimit = limit
+         
+        do {
+            var results = [HistoryModel]()
+            guard let values = try managedObjectContext.fetch(request) as? [NSManagedObject] else {
+                return results
+            }
+            
+            for value in values {
+                guard let text = value.value(forKey: "text") as? String,
+                    let date = value.value(forKey: "date") as? Date else {
+                        return results
+                }
+                
+                let model = HistoryModel(text: text, date: date)
+                results.append(model)
+            }
+            
+            return results
+        } catch {
+            fatalError("Failed to fetch employees: \(error)")
+        }
     }
 
-    func entityHistories(text: String) -> Observable<[HistoryModel]> {
-        print("select histories")
-        return managedObjectContext.rx.entities(HistoryModel.self, predicate: NSPredicate(format: "text beginsWith[c] %@", text))
+    func allHistories(text: String) -> [HistoryModel]? {
+       print("select histories")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HistoryModel")
+        request.predicate = NSPredicate(format: "text beginsWith[c] %@", text)
+
+        do {
+            var results = [HistoryModel]()
+            guard let values = try managedObjectContext.fetch(request) as? [NSManagedObject] else {
+                return results
+            }
+            
+            for value in values {
+                guard let text = value.value(forKey: "text") as? String,
+                    let date = value.value(forKey: "date") as? Date else {
+                        return results
+                }
+                
+                let model = HistoryModel(text: text, date: date)
+                results.append(model)
+            }
+            
+            return results
+        } catch {
+            fatalError("Failed to fetch employees: \(error)")
+        }
     }
+
 
     func deleteHistory(model: HistoryModel) -> NSError? {
-        if model.text.count <= 0 || model.text.count > ConstNumbers.maxHistoryLength {
-            return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
-        }
-        
-        do {
-            try self.managedObjectContext.rx.delete(model)
-        } catch {
-            return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
-        }
-    
-        self.managedObjectContext.saveContextWithoutErrorHandling()
-        return nil
+       if model.text.count <= 0 || model.text.count > ConstNumbers.maxHistoryLength {
+           return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
+       }
+       
+       do {
+           try self.managedObjectContext.rx.delete(model)
+       } catch {
+           return NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_invalid_entity.rawValue, userInfo: nil)
+       }
+
+       self.managedObjectContext.saveContextWithoutErrorHandling()
+       return nil
     }
-    
+
     func deleteAllHistory(completion: @escaping ((NSError?) -> Void)) {
-        DispatchQueue.global().async {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: HistoryModel.entityName)
-            fetchRequest.returnsObjectsAsFaults = false
-            do {
-                let results = try self.managedObjectContext.fetch(fetchRequest)
-                for object in results {
-                    guard let objectData = object as? NSManagedObject else {continue}
-                    self.managedObjectContext.delete(objectData)
-                }
-                
-                completion(nil)
-                
-            } catch {
-                completion(NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_delete_entity.rawValue, userInfo: nil))
-            }
-        }
-    }
-    
-    func initializeStub(completion: @escaping ((NSError?) -> Void)) {
-        self.deleteAllHistory { error in
-            if error != nil { return }
-            do {
-                guard let url = Bundle.main.url(forResource: "stub_words", withExtension: "json"),
-                    let data = try? Data(contentsOf: url) else { return }
-                let words = try JSONDecoder().decode([String].self, from: data)
-                for word in words {
-                    if let error = self.updateHistory(model: HistoryModel(text: word, date: Date())) {
-                        print(error.description)
-                    }
-                }
-                
-                self.managedObjectContext.saveContextWithoutErrorHandling()
-                completion(nil)
-            }
-            catch {
-                
-            }
-        }
+       DispatchQueue.global().async {
+           let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: HistoryModel.entityName)
+           fetchRequest.returnsObjectsAsFaults = false
+           do {
+               let results = try self.managedObjectContext.fetch(fetchRequest)
+               for object in results {
+                   guard let objectData = object as? NSManagedObject else {continue}
+                   self.managedObjectContext.delete(objectData)
+               }
+               
+               completion(nil)
+               
+           } catch {
+               completion(NSError(domain: "\(#function) : \(#line)", code: PBError.coredata_delete_entity.rawValue, userInfo: nil))
+           }
+       }
     }
 }

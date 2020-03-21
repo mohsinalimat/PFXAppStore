@@ -17,7 +17,7 @@ class coredata_update_true_t3_2: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        CoreDataHelper.shared.storeType = NSInMemoryStoreType
+        DependencyInjection.coreDataType = NSInMemoryStoreType
     }
 
     override func tearDown() {
@@ -35,16 +35,14 @@ class coredata_update_true_t3_2: XCTestCase {
         CoreDataHelper.shared.updateHistory(model: HistoryModel(text: "game", date: Date()))
         // true면 옛날것부터
         // false면 최근것부터
-        CoreDataHelper.shared.entityHistories(isAscending: false, limit: ConstNumbers.maxRecentHistoryCount)
-            .subscribe(onNext: { models in
-                XCTAssertTrue(models.first!.text == "game")
-                expt.fulfill()
-
-            }, onError: { error in
-                XCTAssertTrue(false)
-                expt.fulfill()
-            })
-            .disposed(by: self.disposeBag)
+        guard let models = CoreDataHelper.shared.recentHistories(isAscending: false, limit: ConstNumbers.maxRecentHistoryCount) else {
+            XCTAssertTrue(false)
+            expt.fulfill()
+            return
+        }
+        
+        XCTAssertTrue(models.first!.text == "game")
+        expt.fulfill()
 
         waitForExpectations(timeout: self.timeout, handler: { (error) in
             if error == nil {
