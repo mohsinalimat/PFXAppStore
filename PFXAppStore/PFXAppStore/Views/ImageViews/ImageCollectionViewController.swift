@@ -19,6 +19,8 @@ class ImageCollectionViewController: UICollectionViewController {
         self.disposeBag = DisposeBag()
     }
     
+    var selectedClosure: ((IndexPath) -> Void)?
+    
     func willDisplay(screenshotModel: ScreenshotModel) {
         self.disposeBag = DisposeBag()
         self.viewModel = ImageCollectionViewModel(size: screenshotModel.size)
@@ -52,6 +54,13 @@ class ImageCollectionViewController: UICollectionViewController {
             .subscribe(onNext: { cell, indexPath in
                 guard let cell = cell as? ImageCell else { return }
                 cell.willDisplay()
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.collectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self, let selectedClosure = self.selectedClosure else { return }
+                selectedClosure(indexPath)
             })
             .disposed(by: self.disposeBag)
     }

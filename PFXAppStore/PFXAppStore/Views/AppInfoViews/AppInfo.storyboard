@@ -184,7 +184,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Section-2" id="NHw-US-oxq">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ScreenshotCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScreenshotCell" rowHeight="550" id="8gZ-RL-aRJ" customClass="ScreenshotCell" customModule="PFXAppStore" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="550" id="8gZ-RL-aRJ">
                                         <rect key="frame" x="0.0" y="276.5" width="414" height="550"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8gZ-RL-aRJ" id="uv5-yW-61I">
@@ -210,7 +210,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Section-3" id="kvA-h8-a8L">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScreenshotCell" rowHeight="450" id="lo7-yj-2iy" customClass="ScreenshotCell" customModule="PFXAppStore" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="450" id="lo7-yj-2iy">
                                         <rect key="frame" x="0.0" y="882.5" width="414" height="450"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lo7-yj-2iy" id="NFj-76-Uco">
@@ -218,7 +218,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W20-2t-0lZ">
-                                                    <rect key="frame" x="20" y="14" width="374" height="422"/>
+                                                    <rect key="frame" x="8" y="14" width="398" height="422"/>
                                                     <connections>
                                                         <segue destination="tXJ-qR-ej7" kind="embed" identifier="ipadImageCollectionViewController" id="RP4-aq-kk5"/>
                                                     </connections>

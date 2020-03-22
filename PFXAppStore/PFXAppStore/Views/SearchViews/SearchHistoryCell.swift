@@ -17,11 +17,14 @@ class SearchHistoryCell: BaseTableViewCell {
     }
     
     override func configure(viewModel: BaseCellViewModel) {
+        super.configure(viewModel: viewModel)
         self.initialize()
         guard let viewModel = viewModel as? SearchHistoryCellViewModel else {
             return
         }
         
+        self.imageView?.image = UIImage(systemName: "magnifyingglass")
+        self.imageView?.tintColor = UIColor.gray
         self.textLabel?.text = viewModel.text
     }
 }

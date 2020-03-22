@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Hero
 import TTGEmojiRate
+import RxSwift
 
 class SearchAppStoreCell: BaseTableViewCell {
     @IBOutlet weak var artworkImageView: UIImageView!
@@ -48,6 +49,7 @@ class SearchAppStoreCell: BaseTableViewCell {
     }
     
     override func configure(viewModel: BaseCellViewModel) {
+        super.configure(viewModel: viewModel)
         self.initialize()
         guard let viewModel = viewModel as? SearchAppStoreCellViewModel else {
             return

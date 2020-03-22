@@ -61,6 +61,14 @@ class SearchDynamicTableViewController: UITableViewController {
                     destination.didMove(toParent: self)
                 }
                 
+                cell.imageCollectionViewController?.selectedClosure = { [weak self] (indexPath) -> Void in
+                    guard let self = self else { return }
+                    
+                    if let heroId = cell.contentView.hero.id {
+                        self.pushAppInfo(viewModel: viewModel, heroId: heroId)
+                    }
+                }
+                
                 cell.configure(viewModel: viewModel)
                 return cell
             }

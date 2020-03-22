@@ -78,7 +78,6 @@ class CoreDataHelper {
     }
 
     func recentHistories(isAscending: Bool, limit: Int) -> [HistoryModel]? {
-        print("recent load histories")
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HistoryModel")
         let sort = NSSortDescriptor(key: "date", ascending: isAscending)
         request.sortDescriptors = [sort]
@@ -107,7 +106,6 @@ class CoreDataHelper {
     }
 
     func allHistories(text: String) -> [HistoryModel]? {
-       print("select histories")
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HistoryModel")
         request.predicate = NSPredicate(format: "text beginsWith[c] %@", text)
 

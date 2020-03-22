@@ -73,6 +73,7 @@ class ImageCell: BaseCollectionViewCell {
     }
     
     override func configure(viewModel: BaseCellViewModel) {
+        super.configure(viewModel: viewModel)
         self.initialize()
         
         guard let viewModel = viewModel as? ImageCellViewModel else {

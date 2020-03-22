@@ -123,7 +123,6 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] text in
                 guard let self = self else { return }
-                print("searchController.searchBar.rx.text text \(text)")
                 self.viewModel.input.historyObserver.onNext(text)
             })
             .disposed(by: self.disposeBag)
