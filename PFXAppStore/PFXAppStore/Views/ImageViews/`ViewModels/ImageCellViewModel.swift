@@ -81,6 +81,13 @@ class ImageCellViewModel: BaseCellViewModel {
         self.willDisplaySubject
             .subscribe(onNext: { [weak self] value in
                 guard let self = self, let targetPath = self.screenshotModel.targetPaths?.first else { return }
+                let folderName = ((targetPath as NSString).lastPathComponent as NSString).deletingPathExtension
+                // Hero 하기 위해서 이미지 캐싱 되어 있는 데이터로 먼저 보여주기
+                if let cacheData = FileCacheHelper.shared.loadImageData(folderName: folderName, key: targetPath) {
+                    self.downloadedSubject.onNext(cacheData)
+                }
+
+                // DownloadImageEvent에서 이미지 contents length 체크로 인해 공백이 보임.
                 self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: targetPath))
             })
             .disposed(by: self.disposeBag)

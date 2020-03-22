@@ -37,8 +37,6 @@ class ImageCell: BaseCollectionViewCell {
     
     func willDisplay() {
         guard let viewModel = self.viewModel else { return }
-        self.imageView.alpha = 0
-
         viewModel.input.willDisplay.onNext(true)
         if self.animationView != nil {
             self.updateLoadingView()

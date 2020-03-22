@@ -36,7 +36,8 @@ class RecentHistoryEvent: HistoryEventProtocol {
             
             observer.on(.next(FetchingHistoryState()))
             self.historyProvider.recent(isAscending: self.isAscending, limit: self.limit)
-                .subscribe(onSuccess: { datas in
+                .subscribe(onSuccess: { [weak self] datas in
+                    guard let self = self else { return }
                     defer {
                         self.sendIdleState(observer: observer)
                     }
@@ -78,7 +79,8 @@ class AllHistoryEvent: HistoryEventProtocol {
             
             observer.on(.next(FetchingHistoryState()))
             self.historyProvider.all(text: self.text)
-                .subscribe(onSuccess: { datas in
+                .subscribe(onSuccess: { [weak self] datas in
+                    guard let self = self else { return }
                     defer {
                         self.sendIdleState(observer: observer)
                     }

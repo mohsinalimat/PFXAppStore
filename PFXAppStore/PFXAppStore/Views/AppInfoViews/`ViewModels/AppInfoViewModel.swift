@@ -107,7 +107,13 @@ class AppInfoViewModel {
                 
                 self.trackContentRatingSubject.onNext(self.appStoreModel.trackContentRating)
                 self.descriptionSubject.onNext(self.appStoreModel.description)
-                self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: self.appStoreModel.artworkUrl100))
+                
+                let folderName = ((self.appStoreModel.artworkUrl100 as NSString).lastPathComponent as NSString).deletingPathExtension
+                // Hero 하기 위해서 이미지 캐싱 되어 있는 데이터로 먼저 보여주기
+                if let cacheData = FileCacheHelper.shared.loadImageData(folderName: folderName, key: self.appStoreModel.artworkUrl100) {
+                    self.artworkImageSubject.onNext(cacheData)
+                }
+
                 self.imageBloc.dispatch(event: DownloadImageEvent(targetPath: self.appStoreModel.artworkUrl512))
             })
             .disposed(by: self.disposeBag)

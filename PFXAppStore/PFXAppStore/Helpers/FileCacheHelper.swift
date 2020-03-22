@@ -25,7 +25,6 @@ class FileCacheHelper {
         return library
     }
 
-
     func loadImageData(folderName: String, key: String) -> Data? {
         let encodingKey = key.replacingOccurrences(of: "/", with: "(@)")
         let folderPath = self.cacheDirectory().appendingPathComponent(folderName)
@@ -44,6 +43,41 @@ class FileCacheHelper {
         if FileManager.default.fileExists(atPath: fileUrl.path) {
             do {
                 let data = try Data(contentsOf: fileUrl)
+                return data
+            }
+            catch {
+                
+                return nil
+            }
+        }
+        
+        return nil
+    }
+    
+
+    func loadImageData(folderName: String, key: String, remoteSize: Int64) -> Data? {
+        let encodingKey = key.replacingOccurrences(of: "/", with: "(@)")
+        let folderPath = self.cacheDirectory().appendingPathComponent(folderName)
+        do {
+            try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+        }
+        catch {
+            return nil
+        }
+
+        let filePath = self.cacheDirectory().absoluteString.appending("\(folderName)/\(encodingKey)")
+        guard let fileUrl = URL(string: filePath) else {
+            return nil
+        }
+
+        if FileManager.default.fileExists(atPath: fileUrl.path) {
+            do {
+                let data = try Data(contentsOf: fileUrl)
+                if data.count != remoteSize {
+                    print("different remoteSize \(remoteSize) cacheSize \(data.count)")
+                    return nil
+                }
+                
                 return data
             }
             catch {

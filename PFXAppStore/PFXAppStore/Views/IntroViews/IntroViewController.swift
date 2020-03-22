@@ -29,7 +29,7 @@ class IntroViewController: UIViewController {
             self.titleLabel.alpha = 1
         }, completion: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             guard let destination = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "SearchTabBarController") as? UITabBarController else { return }
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             appDelegate.window!.rootViewController = destination

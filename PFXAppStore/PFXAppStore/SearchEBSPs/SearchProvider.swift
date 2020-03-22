@@ -35,7 +35,8 @@ class SearchProvider: SearchProviderProtocol {
             }
             
             self.client.request(targetPath: ConstStrings.basePath + "/search", parameterDict: parameterDict)
-                .subscribe(onNext: { data in
+                .subscribe(onNext: { [weak self] data in
+                    guard let self = self else { return }
                     do {
                         let responseModel = try self.jsonDecoder.decode(AppStoreResponseModel.self, from: data)
                         single(.success(responseModel))

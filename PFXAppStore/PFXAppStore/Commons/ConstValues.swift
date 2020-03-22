@@ -31,6 +31,7 @@ struct ConstNumbers {
     static let artworkImageViewRound: Float = 5
     static let appStoreImageViewRound: Float = 5
     static let buttonRound: Float = 5
+    static let timeoutInterval: TimeInterval = 30
     // phone : 392x696
     // pad : 576x768
     static let portraitPhoneImageCellSize = Size(width: 170, height: 300)

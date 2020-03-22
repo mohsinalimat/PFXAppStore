@@ -265,7 +265,8 @@ class SearchTableViewModel {
         
         self.nextSearchSubject
             .filter({ _ in self.hasNext && self.searchBloc.currentState is IdleSearchState })
-            .subscribe(onNext: { text in
+            .subscribe(onNext: { [weak self] text in
+                guard let self = self else { return }
                 var oldValue = self.parameterSubject.value
                 guard let value = oldValue["offset"], let offset = Int(value) else {
                     return

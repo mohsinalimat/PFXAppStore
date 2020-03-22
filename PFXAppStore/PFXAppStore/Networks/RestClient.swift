@@ -11,6 +11,10 @@ import RxSwift
 
 class RestClient: ClientProtocol {
     private var urlSession = URLSession(configuration: .default)
+    var disposeBag = DisposeBag()
+    deinit {
+        self.disposeBag = DisposeBag()
+    }
     
     func request(targetPath: String, parameterDict: [String : String]) -> Observable<Data> {
         return Observable.create { [weak self] observer in
@@ -60,39 +64,60 @@ class RestClient: ClientProtocol {
     }
     
     func requestImageData(targetPath: String) -> Observable<Data> {
-        self.urlSession = URLSession(configuration: .ephemeral)
-        return Observable.create { observer in
-            let folderName = ((targetPath as NSString).lastPathComponent as NSString).deletingPathExtension
-            if let cacheData = FileCacheHelper.shared.loadImageData(folderName: folderName, key: targetPath) {
-                observer.onNext(cacheData as Data)
-                return Disposables.create()
-            }
+        return self.contentsSize(targetPath: targetPath).flatMap { remoteSize -> Observable<Data> in
+            return Observable.create { observer in
+                guard let url = URL(string: targetPath) else {
+                    observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_url.rawValue, userInfo: nil))
+                    return Disposables.create()
+                }
+                
+                let folderName = ((targetPath as NSString).lastPathComponent as NSString).deletingPathExtension
+                if let cacheData = FileCacheHelper.shared.loadImageData(folderName: folderName, key: targetPath, remoteSize: remoteSize) {
+                    observer.onNext(cacheData as Data)
+                    return Disposables.create()
+                }
 
-            if let cacheData = CacheHelper.shared.imageDatas.object(forKey: targetPath as NSString) {
-                observer.onNext(cacheData as Data)
-                return Disposables.create()
+                if let cacheData = CacheHelper.shared.imageDatas.object(forKey: targetPath as NSString) {
+                    observer.onNext(cacheData as Data)
+                    return Disposables.create()
+                }
+                let task = self.urlSession.dataTask(with: url) { data, response, error in
+                    guard let data = data as NSData? else {
+                        observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_response_data.rawValue, userInfo: nil))
+                        return
+                    }
+
+                    FileCacheHelper.shared.saveImageData(folderName: folderName, key: targetPath, data: data as Data)
+                    CacheHelper.shared.imageDatas.setObject(data, forKey: targetPath as NSString)
+                    observer.onNext(data as Data)
+                }
+                task.resume()
+                
+                return Disposables.create {
+                    task.cancel()
+                }
             }
+        }
+    }
+
+    // contentsSize 체크 함수는 원격을 한번 호출 하기 때문에 화면에 공백이 보인다.
+    // cell에서 파일 캐쉬 데이터 로드 하여 표기하고 호출 됨.
+    func contentsSize(targetPath: String) -> Observable<Int64> {
+        self.urlSession = URLSession(configuration: .ephemeral)
+        return Observable.create({ (observer) -> Disposable in
             guard let url = URL(string: targetPath) else {
                 observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_url.rawValue, userInfo: nil))
                 return Disposables.create()
             }
             
-            let task = self.urlSession.dataTask(with: url) { data, response, error in
-                guard let data = data as NSData? else {
-                    observer.onError(NSError(domain: "\(#function) : \(#line)", code: PBError.network_invalid_response_data.rawValue, userInfo: nil))
-                    return
-                }
-
-                let error = FileCacheHelper.shared.saveImageData(folderName: folderName, key: targetPath, data: data as Data)
-                print(error ?? "")
-                CacheHelper.shared.imageDatas.setObject(data, forKey: targetPath as NSString)
-                observer.onNext(data as Data)
-            }
-            task.resume()
-            
-            return Disposables.create {
-                task.cancel()
-            }
-        }
+            (url as NSURL).remoteSize()
+                .subscribe(onNext: { remoteSize in
+                    observer.onNext(remoteSize)
+                }, onError: { error in
+                    observer.onError(error)
+                })
+                .disposed(by: self.disposeBag)
+            return Disposables.create()
+        })
     }
 }

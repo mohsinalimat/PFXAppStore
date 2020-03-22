@@ -34,7 +34,8 @@ class FetchingSearchEvent: SearchEventProtocol {
             
             observer.on(.next(FetchingSearchState()))
             self.searchProvider.fetchingSearch(parameterDict: self.parameterDict)
-                .subscribe(onSuccess: { appStoreResponseModel in
+                .subscribe(onSuccess: { [weak self] appStoreResponseModel in
+                    guard let self = self else { return }
                     defer {
                         self.sendIdleState(observer: observer)
                     }

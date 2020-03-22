@@ -34,7 +34,8 @@ class DownloadImageEvent: ImageEventProtocol {
             
             observer.on(.next(DownloadingImageState()))
             self.imageProvider.requestImageData(targetPath: self.targetPath)
-                .subscribe(onSuccess: { data in
+                .subscribe(onSuccess: { [weak self] data in
+                    guard let self = self else { return }
                     defer {
                         self.sendIdleState(observer: observer)
                     }
