@@ -1,0 +1,74 @@
+PODS:
+  - Differentiator (4.0.1)
+  - Hero (1.5.0)
+  - lottie-ios (3.1.6)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - RxCocoa (5.1.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxCoreData (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.0)
+  - SnapKit (5.0.1)
+  - SwiftLint (0.39.1)
+  - SwiftMessages (7.0.1):
+    - SwiftMessages/App (= 7.0.1)
+  - SwiftMessages/App (7.0.1)
+  - TTGEmojiRate (0.3.0)
+
+DEPENDENCIES:
+  - Hero
+  - lottie-ios
+  - NVActivityIndicatorView
+  - RxCocoa
+  - RxCoreData
+  - RxDataSources
+  - RxSwift
+  - SnapKit
+  - SwiftLint
+  - SwiftMessages
+  - TTGEmojiRate
+
+SPEC REPOS:
+  trunk:
+    - Differentiator
+    - Hero
+    - lottie-ios
+    - NVActivityIndicatorView
+    - RxCocoa
+    - RxCoreData
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SwiftLint
+    - SwiftMessages
+    - TTGEmojiRate
+
+SPEC CHECKSUMS:
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
+  RxCoreData: 1ed5f83e80facccc90fc054eb7f39a44177de56a
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
+  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
+  SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
+  TTGEmojiRate: 9b295b22e42874acfd717a9ae606e259995b83d0
+
+PODFILE CHECKSUM: 205710f37f59a46adbe14c830692d6ae5c2d990d
+
+COCOAPODS: 1.9.0

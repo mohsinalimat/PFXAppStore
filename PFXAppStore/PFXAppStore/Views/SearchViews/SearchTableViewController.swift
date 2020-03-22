@@ -111,6 +111,14 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
             })
             .disposed(by: self.disposeBag)
         
+        searchController.searchBar.rx.textDidBeginEditing
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.searchEmptyView.searchTextLabel.text = ""
+                self.searchEmptyView.isHidden = true
+            })
+            .disposed(by: self.disposeBag)
+        
         searchController.searchBar.rx.text
             .orEmpty
             .skip(1)
