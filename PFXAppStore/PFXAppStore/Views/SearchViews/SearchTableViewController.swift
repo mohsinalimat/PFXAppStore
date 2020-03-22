@@ -85,6 +85,8 @@ class SearchTableViewController: UITableViewController, NVActivityIndicatorViewa
         let searchController = UISearchController(searchResultsController: historyTableViewController)
         historyTableViewController.viewModel = self.viewModel
         self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+
         self.definesPresentationContext = true
         guard let emptyView = Bundle.main.loadNibNamed("SearchEmptyView", owner: self, options: nil)?.first as? SearchEmptyView else { return }
         searchController.view.addSubview(emptyView)

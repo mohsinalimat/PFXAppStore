@@ -15,6 +15,7 @@ class SearchTableViewModel {
         var historyObserver: AnyObserver<String>
         var selectedHistoryObserver: AnyObserver<String>
         var requestSearchObserver: AnyObserver<String>
+        var nextSearchObserver: AnyObserver<String>
         var cancelSearchObserver: AnyObserver<Bool>
         var beginScrollObserver: AnyObserver<Bool>
         var refreshHistoryObserver: AnyObserver<Bool>
@@ -43,13 +44,22 @@ class SearchTableViewModel {
     private var cancelSearchSubject = PublishSubject<Bool>()
     private var emptySubject = PublishSubject<String>()
     private var loadingSubject = ReplaySubject<Bool>.create(bufferSize: 1)
-    private var errorSubject: PublishSubject<NSError> = PublishSubject()
-    private var stubSubject: PublishSubject<Bool> = PublishSubject()
-    private var historySubject: PublishSubject<String> = PublishSubject()
-    private var requestSearchSubject: PublishSubject<String> = PublishSubject()
+    private var errorSubject = PublishSubject<NSError>()
+    private var stubSubject = PublishSubject<Bool>()
+    private var historySubject = PublishSubject<String>()
+    private var requestSearchSubject = PublishSubject<String>()
+    private var nextSearchSubject = PublishSubject<String>()
     private var selectedHistorySubject = PublishSubject<String>()
     private var beginScrollSubject = PublishSubject<Bool>()
+    private var parameterSubject = BehaviorRelay<Dictionary<String, String>>(value: [
+        "media" : "software",
+        "country" : "kr",
+        "limit" : String(ConstNumbers.maxLoadLimit)
+    ])
+    
+    private var validDict = [String:String]()
 
+    private var hasNext = false
     private let searchBloc = SearchBloc()
     private let historyBloc = HistoryBloc()
 
@@ -58,6 +68,7 @@ class SearchTableViewModel {
         self.input = SearchTableViewModel.Input(historyObserver: self.historySubject.asObserver(),
                                                 selectedHistoryObserver: self.selectedHistorySubject.asObserver(),
                                                 requestSearchObserver: self.requestSearchSubject.asObserver(),
+                                                nextSearchObserver: self.nextSearchSubject.asObserver(),
                                                 cancelSearchObserver: self.cancelSearchSubject.asObserver(),
                                                 beginScrollObserver: self.beginScrollSubject.asObserver(),
                                                 refreshHistoryObserver: self.refreshHistorySubject.asObserver())
@@ -162,6 +173,10 @@ class SearchTableViewModel {
                 
                 if let state = state as? FetchedSearchState {
                     print("fetchedSearch count \(state.appStoreResponseModel.resultCount)")
+                    if state.appStoreResponseModel.resultCount < ConstNumbers.maxLoadLimit {
+                        self.hasNext = false
+                    }
+                    
                     self.emptySubject.onNext("")
                     let models = state.appStoreResponseModel.results
                     var items = [BaseCellViewModel]()
@@ -172,6 +187,15 @@ class SearchTableViewModel {
                         viewModel.artworkUrl100 = model.artworkUrl100
                         viewModel.averageUserRating = String(model.averageUserRating)
                         viewModel.appStoreModel = model
+                        
+                        let trackId = String(model.trackId)
+                        if self.validDict[trackId] != nil {
+                            print("Received duplicate trackId. exclude app info...\nduplicate trackid \(model.trackName)")
+                            continue
+                        }
+                        else {
+                            self.validDict[trackId] = trackId
+                        }
 
                         var size = ConstNumbers.portraitPhoneImageCellSize
                         if viewModel.appStoreModel?.isPortraitPhoneScreenshot() == false {
@@ -184,7 +208,6 @@ class SearchTableViewModel {
                     
                     var sections = self.searchDynamicSectionsSubject.value
                     if var collectionViewModel = sections.first {
-                        collectionViewModel.items.removeAll()
                         collectionViewModel.items.append(contentsOf: items)
                         sections.removeFirst()
                         sections.append(collectionViewModel)
@@ -208,19 +231,48 @@ class SearchTableViewModel {
     }
     
     func bindInputs() {
+        self.parameterSubject
+            .skip(1)
+            .subscribe(onNext: { [weak self] parameterDict in
+                guard let self = self else { return }
+                self.searchBloc.dispatch(event: FetchingSearchEvent(parameterDict: parameterDict))
+            })
+            .disposed(by: self.disposeBag)
+        
         self.requestSearchSubject
             .do(onNext: { text in
                 self.historyBloc.dispatch(event: UpdateHistoryEvent(historyModel: HistoryModel(text: text, date: Date())))
                 self.refreshRecentHistory()
             })
-            .subscribe(onNext: { text in
-                let parameterDict = ["term" : text,
-                                     "media" : "software",
-                                     "offset" : "0",
-                                     "country" : "kr",
-                                     "limit" : String(ConstNumbers.maxLoadLimit)]
+            .subscribe(onNext: { [weak self] text in
+                guard let self = self else { return }
+                self.validDict.removeAll()
+                var oldValue = self.parameterSubject.value
+                oldValue["term"] = text
+                oldValue["offset"] = "0"
+                self.hasNext = true
+                self.parameterSubject.accept(oldValue)
+                var sections = self.searchDynamicSectionsSubject.value
+                if var collectionViewModel = sections.first {
+                    collectionViewModel.items.removeAll()
+                    sections.removeFirst()
+                    sections.append(collectionViewModel)
+                    self.searchDynamicSectionsSubject.accept(sections)
+                }
 
-                self.searchBloc.dispatch(event: FetchingSearchEvent(parameterDict: parameterDict))
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.nextSearchSubject
+            .filter({ _ in self.hasNext && self.searchBloc.currentState is IdleSearchState })
+            .subscribe(onNext: { text in
+                var oldValue = self.parameterSubject.value
+                guard let value = oldValue["offset"], let offset = Int(value) else {
+                    return
+                }
+                
+                oldValue["offset"] = String(offset + ConstNumbers.maxLoadLimit)
+                self.parameterSubject.accept(oldValue)
             })
             .disposed(by: self.disposeBag)
         

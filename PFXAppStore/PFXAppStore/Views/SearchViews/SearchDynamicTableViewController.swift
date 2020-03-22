@@ -106,9 +106,14 @@ class SearchDynamicTableViewController: UITableViewController {
             .disposed(by: self.disposeBag)
         
         self.tableView.rx.willDisplayCell
-            .subscribe(onNext: { cell, indexPath in
-                guard let cell = cell as? SearchAppStoreCell else { return }
+            .subscribe(onNext: { [weak self] cell, indexPath in
+                guard let self = self, let cell = cell as? SearchAppStoreCell else { return }
                 cell.willDisplay()
+
+                let count = self.tableView.numberOfRows(inSection: 0)
+                if indexPath.row > count - 3 {
+                    self.viewModel.input.nextSearchObserver.onNext("")
+                }
             })
             .disposed(by: self.disposeBag)
         
@@ -129,7 +134,7 @@ class SearchDynamicTableViewController: UITableViewController {
                 guard let self = self else { return }
                 self.viewModel.input.beginScrollObserver.onNext(true)
             }).disposed(by: self.disposeBag)
-
+        
         self.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
     }
     
