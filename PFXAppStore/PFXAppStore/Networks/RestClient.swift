@@ -62,6 +62,12 @@ class RestClient: ClientProtocol {
     func requestImageData(targetPath: String) -> Observable<Data> {
         self.urlSession = URLSession(configuration: .ephemeral)
         return Observable.create { observer in
+            let folderName = ((targetPath as NSString).lastPathComponent as NSString).deletingPathExtension
+            if let cacheData = FileCacheHelper.shared.loadImageData(folderName: folderName, key: targetPath) {
+                observer.onNext(cacheData as Data)
+                return Disposables.create()
+            }
+
             if let cacheData = CacheHelper.shared.imageDatas.object(forKey: targetPath as NSString) {
                 observer.onNext(cacheData as Data)
                 return Disposables.create()
@@ -77,6 +83,8 @@ class RestClient: ClientProtocol {
                     return
                 }
 
+                let error = FileCacheHelper.shared.saveImageData(folderName: folderName, key: targetPath, data: data as Data)
+                print(error ?? "")
                 CacheHelper.shared.imageDatas.setObject(data, forKey: targetPath as NSString)
                 observer.onNext(data as Data)
             }

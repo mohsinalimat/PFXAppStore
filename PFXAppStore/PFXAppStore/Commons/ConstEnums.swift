@@ -25,6 +25,10 @@ public enum PBError: Int {
     case coredata_invalid_entity
     case coredata_select_entity
     case coredata_delete_entity
+    
+    case filedata_invalid_encoding
+    case filedata_invalid_folderPath
+    case filedata_invalid_filepath
 
     case system_deallocated = 44444
     case system_invalid_stub
@@ -42,6 +46,9 @@ public enum PBError: Int {
         case Self.coredata_invalid_entity.rawValue: return "coredata_invalid_entity"
         case Self.coredata_select_entity.rawValue: return "coredata_select_entity"
         case Self.coredata_delete_entity.rawValue: return "coredata_delete_entity"
+        case Self.filedata_invalid_encoding.rawValue: return "filedata_invalid_encoding"
+        case Self.filedata_invalid_folderPath.rawValue: return "filedata_invalid_folderPath"
+        case Self.filedata_invalid_filepath.rawValue: return "filedata_invalid_filepath"
         case Self.system_deallocated.rawValue: return "system_deallocated"
         case Self.system_invalid_stub.rawValue: return "system_invalid_stub"
         default:

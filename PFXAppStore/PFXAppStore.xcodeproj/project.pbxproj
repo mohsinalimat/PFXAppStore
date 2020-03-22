@@ -141,6 +141,12 @@
 		6DA017092426D9D900F5145E /* MockClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016058241FBD0500C1CEC5 /* MockClient.swift */; };
 		6DA0170A2426D9D900F5145E /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D016056241FBCFA00C1CEC5 /* RestClient.swift */; };
 		6DA0170B2426D9F400F5145E /* CacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35F61924205CCE00FD750D /* CacheHelper.swift */; };
+		6DA0170D2427012100F5145E /* FileCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0170C2427012000F5145E /* FileCacheHelper.swift */; };
+		6DA0170E2427153E00F5145E /* FileCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0170C2427012000F5145E /* FileCacheHelper.swift */; };
+		6DA0170F2427153F00F5145E /* FileCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0170C2427012000F5145E /* FileCacheHelper.swift */; };
+		6DA017102427154000F5145E /* FileCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0170C2427012000F5145E /* FileCacheHelper.swift */; };
+		6DA017112427154100F5145E /* FileCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0170C2427012000F5145E /* FileCacheHelper.swift */; };
+		6DA017122427154200F5145E /* FileCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0170C2427012000F5145E /* FileCacheHelper.swift */; };
 		6DBEBE5D24263F7F00BE99FF /* HistoryBloc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBEBE5C24263F7F00BE99FF /* HistoryBloc.swift */; };
 		6DBEBE5F24263F9200BE99FF /* HistoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBEBE5E24263F9200BE99FF /* HistoryEvent.swift */; };
 		6DBEBE61242640BA00BE99FF /* HistoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBEBE60242640BA00BE99FF /* HistoryProvider.swift */; };
@@ -406,6 +412,7 @@
 		6D8CD0E92420831300F5AC89 /* search_event_false_t2_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_event_false_t2_3.swift; sourceTree = "<group>"; };
 		6D8CD0EB2420831B00F5AC89 /* search_event_false_t2_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_event_false_t2_4.swift; sourceTree = "<group>"; };
 		6D8CD0ED2420832B00F5AC89 /* search_event_none_t3_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_event_none_t3_1.swift; sourceTree = "<group>"; };
+		6DA0170C2427012000F5145E /* FileCacheHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCacheHelper.swift; sourceTree = "<group>"; };
 		6DBEBE5C24263F7F00BE99FF /* HistoryBloc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBloc.swift; sourceTree = "<group>"; };
 		6DBEBE5E24263F9200BE99FF /* HistoryEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEvent.swift; sourceTree = "<group>"; };
 		6DBEBE60242640BA00BE99FF /* HistoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryProvider.swift; sourceTree = "<group>"; };
@@ -668,6 +675,7 @@
 			children = (
 				6D35F61924205CCE00FD750D /* CacheHelper.swift */,
 				6DFA81492420996900E71181 /* CoreDataHelper.swift */,
+				6DA0170C2427012000F5145E /* FileCacheHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1586,6 +1594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DA017122427154200F5145E /* FileCacheHelper.swift in Sources */,
 				6D629AD024204450002A88C9 /* MockClient.swift in Sources */,
 				6D8CD0D224207EE900F5AC89 /* search_provider_true_t1_2.swift in Sources */,
 				6D01603B241FB82200C1CEC5 /* AppStoreResponseModel.swift in Sources */,
@@ -1650,6 +1659,7 @@
 				6DC0248924204ECD00245869 /* BaseProviderProtocol.swift in Sources */,
 				6DC0247D24204E4600245869 /* DependencyInjection.swift in Sources */,
 				6DC0248A24204ECD00245869 /* BaseStateProtocol.swift in Sources */,
+				6DA017112427154100F5145E /* FileCacheHelper.swift in Sources */,
 				6DFA8146242094D400E71181 /* ImageEvent.swift in Sources */,
 				6D35012124204C3A000D15C9 /* PFXAppStoreTests.swift in Sources */,
 				6D8CD0E82420830D00F5AC89 /* search_event_false_t2_2.swift in Sources */,
@@ -1683,6 +1693,7 @@
 				6D48DECB24219170000C8B13 /* search_bloc_true_t1_1.swift in Sources */,
 				6D48DEB624218DA4000C8B13 /* PFXAppStoreTests.swift in Sources */,
 				6D48DEEE242192E2000C8B13 /* SearchBloc.swift in Sources */,
+				6DA0170F2427153F00F5145E /* FileCacheHelper.swift in Sources */,
 				6D48DEE5242192C9000C8B13 /* ImageEvent.swift in Sources */,
 				6D48DED1242191A9000C8B13 /* search_bloc_false_t2_1.swift in Sources */,
 				6D48DED9242191D8000C8B13 /* image_bloc_none_t5_1.swift in Sources */,
@@ -1705,6 +1716,7 @@
 				6DBEBE7E24264FD400BE99FF /* history_update_false_t2_1.swift in Sources */,
 				6DBEBE97242650A100BE99FF /* ConstEnums.swift in Sources */,
 				6DBEBE962426509C00BE99FF /* BaseStateProtocol.swift in Sources */,
+				6DA0170E2427153E00F5145E /* FileCacheHelper.swift in Sources */,
 				6DBEBE7824264FAC00BE99FF /* history_update_true_t1_1.swift in Sources */,
 				6DBEBE8024264FDE00BE99FF /* history_update_false_t2_2.swift in Sources */,
 				6DBEBE922426509400BE99FF /* HistoryState.swift in Sources */,
@@ -1797,6 +1809,7 @@
 				6D35F61A24205CCE00FD750D /* CacheHelper.swift in Sources */,
 				6D016026241FAC3500C1CEC5 /* BaseBlocProtocol.swift in Sources */,
 				6DFA8132242086A100E71181 /* ImageBloc.swift in Sources */,
+				6DA0170D2427012100F5145E /* FileCacheHelper.swift in Sources */,
 				6DFA814A2420996900E71181 /* CoreDataHelper.swift in Sources */,
 				6D65CC9F241F40AA00C164E3 /* ConstEnums.swift in Sources */,
 				6D016034241FACFB00C1CEC5 /* SearchState.swift in Sources */,
@@ -1829,6 +1842,7 @@
 				6DA017072426D9CF00F5145E /* StubModel.swift in Sources */,
 				6DFA818E2420ABA200E71181 /* ConstValues.swift in Sources */,
 				6DFA81772420A51100E71181 /* coredata_update_true_t1_3.swift in Sources */,
+				6DA017102427154000F5145E /* FileCacheHelper.swift in Sources */,
 				6DA017062426D92200F5145E /* DependencyInjection.swift in Sources */,
 				6D74D55D2420C06E00F8D3D6 /* coredata_delete_false_t5_2.swift in Sources */,
 				6D74D5572420C04C00F8D3D6 /* coredata_delete_true_t4_2.swift in Sources */,
