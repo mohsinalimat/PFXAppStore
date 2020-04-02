@@ -185,7 +185,7 @@ class SearchTableViewModel {
                         viewModel.trackName = model.trackName
                         viewModel.sellerName = model.sellerName
                         viewModel.artworkUrl100 = model.artworkUrl100
-                        viewModel.averageUserRating = String(model.averageUserRating)
+                        viewModel.averageUserRating = String.significantDigits(number: model.averageUserRating)
                         viewModel.appStoreModel = model
                         
                         let trackId = String(model.trackId)

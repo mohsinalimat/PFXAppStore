@@ -34,7 +34,7 @@ struct ConstNumbers {
     static let timeoutInterval: TimeInterval = 30
     // phone : 392x696
     // pad : 576x768
-    static let portraitPhoneImageCellSize = Size(width: 170, height: 300)
+    static let portraitPhoneImageCellSize = Size(width: 160, height: 300)
     static let landscapePhoneImageCellSize = Size(width: 300, height: 170)
     static let portraitPadImageCellSize = Size(width: 225, height: 300)
     static let landscapePadImageCellSize = Size(width: 300, height: 225)

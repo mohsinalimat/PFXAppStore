@@ -30,4 +30,16 @@ extension String {
         }
         return randomString
     }
+    
+    static func significantDigits(number: Double = 0.0) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.roundingMode = .floor
+        numberFormatter.minimumSignificantDigits = 1
+        numberFormatter.maximumSignificantDigits = 2
+        if let value = numberFormatter.string(from: NSNumber(value: number)) {
+            return value
+        }
+
+        return "0.0"
+    }
 }

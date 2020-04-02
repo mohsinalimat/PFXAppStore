@@ -100,7 +100,7 @@ class AppInfoViewModel {
                 guard let self = self else { return }
                 self.trackNameSubject.onNext(self.appStoreModel.trackName)
                 self.sellerNameSubject.onNext(self.appStoreModel.sellerName)
-                self.averageUserRatingSubject.onNext(String(self.appStoreModel.averageUserRating))
+                self.averageUserRatingSubject.onNext(String.significantDigits(number: self.appStoreModel.averageUserRating))
                 if let genre = self.appStoreModel.genres.first {
                     self.genresSubject.onNext(genre)
                 }
